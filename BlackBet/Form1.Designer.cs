@@ -33,11 +33,11 @@
             // 
             // startBlackBetBotBtn
             // 
-            this.startBlackBetBotBtn.Location = new System.Drawing.Point(427, 272);
+            this.startBlackBetBotBtn.Location = new System.Drawing.Point(347, 219);
             this.startBlackBetBotBtn.Name = "startBlackBetBotBtn";
             this.startBlackBetBotBtn.Size = new System.Drawing.Size(184, 22);
             this.startBlackBetBotBtn.TabIndex = 0;
-            this.startBlackBetBotBtn.Text = "Запустить поеботу";
+            this.startBlackBetBotBtn.Text = "Запустить";
             this.startBlackBetBotBtn.UseVisualStyleBackColor = true;
             this.startBlackBetBotBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -45,7 +45,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 615);
+            this.ClientSize = new System.Drawing.Size(936, 496);
             this.Controls.Add(this.startBlackBetBotBtn);
             this.Name = "Form1";
             this.Text = "Form1";
