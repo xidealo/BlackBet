@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+
+<html prefix="og: http://ogp.me/ns#"
+      data-static-site="false">
+<head>
+    <title>Математический аппарат и инструментарий для анализа данных  (1 March 2019 - 1 June 2019) · HybriLIT (Indico)</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" id="csrf-token" content="f246e7ff-c551-4845-8e1d-b6f6a918c78e">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/indico.ico">
+
+    <meta property="og:site_name" content="HybriLIT (Indico)">
+    
+
+    <script>
+        window.CKEDITOR_BASEPATH = "/js/lib/ckeditor/";
+    </script>
+
+    <script type="text/javascript" src="/assets/i18n/en_GB.js"></script>
+    <script type="text/javascript" src="/assets/js-vars/global.js"></script>
+
+    <script type="text/javascript" src="/static/assets/core/js/palette_1d6197bf.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/jquery_f35ae1d0.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/angular_f63f2c32.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/jed_733698c6.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/utils_ac34573e.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/presentation_82f4368e.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/calendar_60cfea1b.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/indico_jquery_6154eeaf.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/moment_b3ae849f.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/indico_core_7d874782.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/indico_legacy_d05f4358.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/indico_common_e104939a.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/clipboard_js_7863b7d9.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/taggle_js_94c3747e.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/typewatch_js_78e7d3dc.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/fullcalendar_js_b0fe9a74.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/outdated_browser_js_169a446d.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/widgets_479c041d.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_event_creation_e900ca29.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_global_bdbea367.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/ckeditor_9caecdc3.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/dropzone_js_12c2da89.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_attachments_adb192b0.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_event_display_ba29d821.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_contributions_f6bb11fc.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/modules_event_display_ba29d821.min.js"></script>
+    <script type="text/javascript" src="/static/assets/core/js/dropzone_js_12c2da89.min.js"></script>
+    
+
+    <script>
+        moment.locale("en_GB");
+        IndicoGlobalVars.isUserAuthenticated = true;
+    </script>
+
+    <script type="text/javascript" src="/assets/js-vars/user.js"></script>
+
+    <script type="text/x-mathjax-config">
+
+MathJax.Hub.Config({
+  config: [],
+  styleSheets: [],
+  styles: {},
+  jax: ["input/TeX","output/HTML-CSS"],
+  extensions: ["tex2jax.js"],
+  preJax: null,
+  postJax: null,
+  preRemoveClass: "MathJax_Preview",
+  showProcessingMessages: true,
+  messageStyle: "normal",
+  displayAlign: "center",
+  displayIndent: "0em",
+  delayStartupUntil: "none",
+  skipStartupTypeset: true,
+  elements: [],
+  positionToHash: false,
+  showMathMenu: true,
+  showMathMenuMSIE: true,
+
+  menuSettings: {
+    zoom: "None",        //  when to do MathZoom
+    CTRL: false,         //    require CTRL for MathZoom?
+    ALT: false,          //    require Alt or Option?
+    CMD: false,          //    require CMD?
+    Shift: false,        //    require Shift?
+    zscale: "200%",      //  the scaling factor for MathZoom
+    font: "Auto",        //  what font HTML-CSS should use
+    context: "MathJax",  //  or "Browser" for pass-through to browser menu
+    mpContext: false,    //  true means pass menu events to MathPlayer in IE
+    mpMouse: false,      //  true means pass mouse events to MathPlayer in IE
+    texHints: true       //  include class names for TeXAtom elements
+  },
+
+  errorSettings: {
+    message: ["[Math Processing Error]"], // HTML snippet structure for message to use
+    messageId: "MathProcessingError",     // ID of snippet for localization
+    style: {color: "#CC0000", "font-style":"italic"}  // style for message
+  },
+
+  tex2jax: {
+    inlineMath: [
+      ['$','$']
+    ],
+
+    displayMath: [
+      ['$$','$$'],
+      ['\\[','\\]']
+    ],
+
+    balanceBraces: true,
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+    ignoreClass: "tex2jax_ignore",
+    processClass: "tex2jax_process",
+    processEscapes: false,
+    processEnvironments: true,
+    processRefs: true,
+
+    preview: "TeX"
+
+  },
+
+  asciimath2jax: {
+
+    delimiters: [
+      ['`','`']
+    ],
+
+    skipTags: ["script","noscript","style","textarea","pre","code"],
+
+    ignoreClass: "asciimath2jax_ignore",
+
+    processClass: "asciimath2jax_process",
+
+    preview: "AsciiMath"
+
+  },
+
+  mml2jax: {
+
+    preview: "alttext"
+
+  },
+
+  jsMath2jax: {
+
+    preview: "TeX"
+
+  },
+
+  TeX: {
+
+    TagSide: "right",
+
+    TagIndent: ".8em",
+
+    MultLineWidth: "85%",
+
+    Macros: {},
+
+    equationNumbers: {
+      autoNumber: "none",  // "AMS" for standard AMS environment numbering,
+      useLabelIds: true    // make element ID's use \label name rather than equation number
+    },
+
+    noErrors: {
+      disabled: false,               // set to true to return to original error messages
+      multiLine: true,               // false to not include original line breaks
+      inlineDelimiters: ["",""],     // or use ["$","$"] or ["\\(","\\)"] to put back delimiters
+      style: {
+        "font-size":   "90%",
+        "text-align":  "left",
+        "color":       "black",
+        "padding":     "1px 3px",
+        "border":      "1px solid"
+      }
+    },
+
+    noUndefined: {
+      disabled: false,      // set to true to return to original error messages
+      attributes: {         // attributes to set for the undefined control sequence
+        mathcolor: "red"
+      }
+    },
+
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"  // the default font list for unknown characters
+    }
+
+  },
+
+  AsciiMath: {
+    displaystyle: true,
+
+    decimal: "."
+  },
+
+  MathML: {
+    useMathMLspacing: false
+  },
+
+  "HTML-CSS": {
+
+    scale: 100,
+
+    minScaleAdjust: 50,
+
+    availableFonts: ["STIX","TeX"],
+
+    preferredFont: "TeX",
+
+    webFont: "TeX",
+
+    imageFont: "TeX",
+
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+
+    mtextFontInherit: false,
+
+    EqnChunk: 50,
+    EqnChunkFactor: 1.5,
+    EqnChunkDelay: 100,
+
+    linebreaks: {
+
+      automatic: false,
+
+      width: "container"
+    },
+
+    styles: {},
+
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+
+  NativeMML: {
+
+    scale: 100,
+
+    minScaleAdjust: 50,
+
+    styles: {}
+  },
+
+  "SVG": {
+
+    scale: 100,
+
+    minScaleAdjust: 50,
+
+    font: "TeX",
+
+    blacker: 10,
+
+    undefinedFamily: "STIXGeneral,'Arial Unicode MS',serif",
+
+    mtextFontInherit: false,
+
+    addMMLclasses: false,
+
+    EqnChunk: 50,
+    EqnChunkFactor: 1.5,
+    EqnChunkDelay: 100,
+
+    linebreaks: {
+
+      automatic: false,
+
+      width: "container"
+    },
+
+    styles: {},
+
+    tooltip: {
+      delayPost: 600,          // milliseconds delay before tooltip is posted after mouseover
+      delayClear: 600,         // milliseconds delay before tooltip is cleared after mouseout
+      offsetX: 10, offsetY: 5  // pixels to offset tooltip from mouse position
+    }
+  },
+
+  MathMenu: {
+    delay: 150,
+
+    helpURL: "http://www.mathjax.org/help-v2/user/",
+
+    showRenderer: true,
+    showMathPlayer: true,
+    showFontMenu: false,
+    showContext:  false,
+    showDiscoverable: false,
+
+    windowSettings: {
+      status: "no", toolbar: "no", locationbar: "no", menubar: "no",
+      directories: "no", personalbar: "no", resizable: "yes", scrollbars: "yes",
+      width: 100, height: 50
+    },
+
+    styles: {}
+
+  },
+
+  MathEvents: {
+    hover: 500
+  },
+
+  MMLorHTML: {
+    prefer: {
+      MSIE:    "MML",
+      Firefox: "HTML",
+      Opera:   "HTML",
+      Safari:  "HTML",
+      Chrome:  "HTML",
+      other:   "HTML"
+    }
+  }
+});
+
+</script><script src="/static/assets/core/js/mathjax_a8e0d920.min.js" type="text/javascript"></script>
+<meta property="og:type" content="event">
+<meta property="og:image" content="/images/logo_indico.png">
+<meta property="og:description" content="Целью курса является освоение основных вычислительных и статистических методов и инструментов для решения широкого круга задач в сфере анализа данных (Data Science), практических навыков по разработке программного обеспечения на языках программирования, применяемых для масштабируемой обработки данных: Python, R, Scala, C++. Основные модули дисциплины: Дополнительные главы математики      Языки программирования для анализа данных     Разработка будет проходить на VM гетерогенной платформы...">
+<meta name="keywords" content="Data Science,Python">
+
+<script type="application/ld+json">
+{"@context":"http://schema.org","@type":"Event","description":"\u0426\u0435\u043b\u044c\u044e \u043a\u0443\u0440\u0441\u0430 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043e\u0441\u0432\u043e\u0435\u043d\u0438\u0435 \u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0445 \u0432\u044b\u0447\u0438\u0441\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0445 \u0438 \u0441\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043c\u0435\u0442\u043e\u0434\u043e\u0432 \u0438 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0434\u043b\u044f \u0440\u0435\u0448\u0435\u043d\u0438\u044f \u0448\u0438\u0440\u043e\u043a\u043e\u0433\u043e \u043a\u0440\u0443\u0433\u0430 \u0437\u0430\u0434\u0430\u0447 \u0432 \u0441\u0444\u0435\u0440\u0435 \u0430\u043d\u0430\u043b\u0438\u0437\u0430 \u0434\u0430\u043d\u043d\u044b\u0445 (Data Science),\u00a0\u043f\u0440\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043d\u0430\u0432\u044b\u043a\u043e\u0432 \u043f\u043e \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043d\u043e\u0433\u043e \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0435\u043d\u0438\u044f \u043d\u0430 \u044f\u0437\u044b\u043a\u0430\u0445 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f, \u043f\u0440\u0438\u043c\u0435\u043d\u044f\u0435\u043c\u044b\u0445 \u0434\u043b\u044f \u043c\u0430\u0441\u0448\u0442\u0430\u0431\u0438\u0440\u0443\u0435\u043c\u043e\u0439 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445: Python, R, Scala, C++. \u041e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043c\u043e\u0434\u0443\u043b\u0438 \u0434\u0438\u0441\u0446\u0438\u043f\u043b\u0438\u043d\u044b: \u0414\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u0433\u043b\u0430\u0432\u044b \u043c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u043a\u0438 \u00a0\u00a0\u00a0\u00a0 \u042f\u0437\u044b\u043a\u0438 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0434\u043b\u044f \u0430\u043d\u0430\u043b\u0438\u0437\u0430 \u0434\u0430\u043d\u043d\u044b\u0445 \u00a0\u00a0\u00a0 \u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0431\u0443\u0434\u0435\u0442 \u043f\u0440\u043e\u0445\u043e\u0434\u0438\u0442\u044c \u043d\u0430 VM \u0433\u0435\u0442\u0435\u0440\u043e\u0433\u0435\u043d\u043d\u043e\u0439 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u044b HYbriLIT. \u0414\u043b\u044f \u043d\u0430\u0447\u0430\u043b\u0430 \u0440\u0430\u0431\u043e\u0442\u044b \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e: 1. \u0412\u043e\u0439\u0442\u0438 \u043f\u043e\u0434 \u0441\u0432\u043e\u0435\u0439 \u0443\u0447\u0435\u0442\u043d\u043e\u0439 \u0437\u0430\u043f\u0438\u0441\u044c\u044e \u0432 GitLab:\u00a0 \u00a0 \u00a0 \u00a0https://gitlab-hybrilit.jinr.ru/\u00a0 2. \u0412\u043e\u0439\u0442\u0438 \u043d\u0430 VM: \u00a0\u00a0\u00a0\u00a0 https://jhub.jinr.ru (\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u0447\u0435\u0440\u0435\u0437 GitLab)","endDate":"2019-06-01T09:00:00+03:00","location":{"@type":"Place","address":"No address set","name":"\u0423\u043d\u0438\u0432\u0435\u0440\u0441\u0438\u0442\u0435\u0442 \"\u0414\u0443\u0431\u043d\u0430\""},"name":"\u041c\u0430\u0442\u0435\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0430\u043f\u043f\u0430\u0440\u0430\u0442 \u0438 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439 \u0434\u043b\u044f \u0430\u043d\u0430\u043b\u0438\u0437\u0430 \u0434\u0430\u043d\u043d\u044b\u0445","performer":[{"@type":"Person","affiliation":{"@type":"Organization","name":""},"name":"Oksana Streltsova"},{"@type":"Person","affiliation":{"@type":"Organization","name":""},"name":"Darya Pryahina"},{"@type":"Person","affiliation":{"@type":"Organization","name":"Dubna University"},"name":"Peter Sychov"},{"@type":"Person","affiliation":{"@type":"Organization","name":""},"name":"Yuri Butenko"}],"startDate":"2019-03-01T09:00:00+03:00","url":"https://indico-hlit.jinr.ru/event/140/"}
+</script>
+
+    <link rel="stylesheet" type="text/css" href="/static/assets/core/css/conference_20927127.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/core/css/base_376a0d21.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/core/css/dropzone_css_fe63db1a.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/core/sass/screen_sass_c4eecc95.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/core/css/dropzone_css_fe63db1a.min.css">
+    <link rel="stylesheet" type="text/css" href="/event/140/839493141.css">
+    
+
+    
+
+    
+</head>
+<body data-user-id="307"
+      data-debug="false">
+    <div class="header">
+
+<div class="page-header page-header-dark event-page-header">
+    <div class="main-action-bar flexrow f-j-space-between f-a-center">
+        <div class="button-bar flexrow f-j-start">
+            
+                
+
+    <a class="i-button text-color subtle icon-home" href="/"
+       title="Go to the Indico Home Page"></a>
+
+    <span class="separator"></span>
+
+    
+        <a class="i-button text-color subtle icon-first" href="/event/144/"
+           title="Oldest event"></a>
+    
+
+    
+        <a class="i-button text-color subtle icon-prev" href="/event/138/"
+           title="Older event"></a>
+    
+
+    <a class="i-button text-color subtle icon-collapse" href="/category/32/"
+       title="Up to category"></a>
+
+    
+        <a class="i-button text-color subtle icon-next" href="/event/143/"
+           title="Newer event"></a>
+    
+
+    
+        <a class="i-button text-color subtle icon-last" href="/event/143/"
+           title="Newest event"></a>
+    
+
+    <span class="separator"></span>
+            
+
+            
+
+            
+
+            <a class="i-button text-color subtle icon-calendar js-export-ical" id="exportIcal140" data-id="140"
+               title="Export to iCal"></a>
+            <div id="icalExportPopup140" style="display: none;" class="icalExportPopup">
+    <div class="iCalExportSection">
+        <div class="exportIcalHeader">
+    Download current event:
+</div>
+        <a href="/event/140/event.ics" class="icon-calendar">
+            <span>Calendar file</span>
+        </a>
+    </div>
+
+    
+    
+        <div class="iCalExportSection">
+            <a class="icon-calendar" href="/event/140/event.ics?detail=contributions">
+                Detailed timetable calendar file
+            </a>
+        </div>
+    
+
+
+    <div id="iCalSeparator140" class="icalSeparator" style="display: none;"></div>
+    <div id="exportICalDialogs" style="display: none;">
+        <div id="agreementApiKey140">
+            <div id="agreementApiKeyText" class="agreement">
+                In order to enable an iCal export link, your account needs to have an API key created. This key enables other applications to access data from within Indico even when you are neither using nor logged into the Indico system yourself with the link provided. Once created, you can manage your key at any time by going to 'My Profile' and looking under the tab entitled 'HTTP API'. Further information about HTTP API keys can be found in the Indico documentation.
+            </div>
+            <input type="checkbox" id="agreeCheckBoxKey140" data-id="140" class="agreeCheckBoxKey">
+            <label for="agreeCheckBoxKey140">I have read and understood the above.</label>
+            <input id="agreementButtonKey140"
+                   type="submit"
+                   value="Accept & Create"
+                   class="agreementButtonKey"
+                   data-id="140" disabled>
+            <div style="display:inline;" id="progressPersistentKey140" data-id="140"></div>
+        </div>
+        <div id="agreementPersistentSignatures140">
+            <div id="agreementPersistentSignaturesText" class="agreement">
+                Additionally to having an API key associated with your account, exporting private event information requires the usage of a persistent signature. This enables API URLs which do not expire after a few minutes so while the setting is active, anyone in possession of the link provided can access the information. Due to this, it is extremely important that you keep these links private and for your use only. If you think someone else may have acquired access to a link using this key in the future, you must immediately create a new key pair on the 'My Profile' page under the 'HTTP API' and update the iCalendar links afterwards.
+            </div>
+            <div>
+                <input type="checkbox" id="agreeCheckBoxPersistent140"
+                       class="agreeCheckBoxPersistent"
+                       data-id="140">
+                <label for="agreeCheckBoxPersistent140">I have read and understood the above.</label>
+            </div>
+            <div>
+                <input id="agreementButtonPersistent140"
+                       type="submit"
+                       value="Accept & Create"
+                       class="agreementButtonPersistent"
+                       data-id="140" disabled>
+            </div>
+            <div style="display:inline;" id="progressPersistentSignatures140" data-id="140"></div>
+        </div>
+        <input id="publicLink140" type="text" class="apiURL" readonly>
+        <input id="authLink140" type="text" class="apiURL" readonly>
+    </div>
+
+    <div id="publicLinkWrapper140" class="iCalExportSection" style="display: none;">
+        <div class="exportIcalHeader">Permanent link for public information only:</div>
+    </div>
+
+    <div id="authLinkWrapper140" class="iCalExportSection" style="display: none;">
+        <div id="exportIcalHeader140" class="exportIcalHeader" style="display: none;">
+            Permanent link for all public and protected information:
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <div id="extraInformation140">
+            <div class="note">Please use <strong>CTRL + C</strong> to copy this URL</div>
+            
+    
+        <input type="checkbox" id="detailExport140"> Detailed timetable
+    
+
+        </div>
+    </div>
+</div>
+
+
+    
+    <script>
+        var setURLs = function(urls) {
+            if ($('#detailExport140').prop('checked')) {
+                $('#publicLink140').val(urls['publicRequestDetailedURL']);
+                $('#authLink140').val(urls['authRequestDetailedURL']);
+            } else {
+                $('#publicLink140').val(urls['publicRequestURL']);
+                $('#authLink140').val(urls['authRequestURL']);
+            }
+        };
+    </script>
+
+
+    <script>
+        exportPopups["140"] = new ExportIcalInterface(
+            0, null, false,
+            false, true, setURLs, "/api/build-urls",
+            {confId: "140"}, {"authRequestDetailedURL":"","authRequestURL":"","publicRequestDetailedURL":"https://indico-hlit.jinr.ru/export/event/140.ics?detail=events","publicRequestURL":"https://indico-hlit.jinr.ru/export/event/140.ics"}, "140",
+            "307"
+        );
+
+        $('body').on('click', '#detailExport140', function() {
+            setURLs(exportPopups['140'].getRequestURLs());
+        });
+    </script>
+
+
+            
+
+            <a class="i-button text-color subtle icon-package-download" href="/event/140/attachments/package"
+               title="Download material"></a>
+
+            <a class="i-button text-color subtle icon-layout arrow js-dropdown" data-toggle="dropdown"
+       title="Change theme"></a>
+    <ul class="dropdown">
+        
+        
+            
+            
+                <li>
+                    
+                        <a href="/event/140/timetable/?view=nicecompact">Compact style</a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="/event/140/timetable/?view=standard">Indico style</a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="/event/140/timetable/?view=standard_inline_minutes">Indico style - inline minutes</a>
+                    
+                </li>
+            
+                <li>
+                    
+                        <a href="/event/140/timetable/?view=indico-weeks-view">Indico Weeks View</a>
+                    
+                </li>
+            
+        
+    </ul>
+
+            <span class="separator"></span>
+
+            <a class="i-button text-color subtle icon-edit"
+               href="/event/140/manage/"
+               title="Switch to the management area of this event"></a>
+
+            
+        </div>
+
+        
+    
+
+    <div id="session-bar" class="session-bar flexrow f-j-end ui-follow-scroll">
+        <div class="toolbar">
+            <div class="group">
+                
+                    
+    
+        
+        
+    
+
+    <div id="protection-details" style="display: none;" class="protectionWidget">
+        <div class="protectionWidgetSection">
+            
+                The information on this page is restricted for display to named individuals or specific groups.
+            
+        </div>
+        
+        
+            <div class="protectionWidgetSection">
+                Circulation to people other than the intended audience is not authorized. You are obliged to treat the information with the appropriate level of confidentiality.
+            </div>
+        
+    </div>
+
+    <a id="protection-details-link"
+       class="arrow i-button protection-restricted icon-shield">
+        
+            Restricted
+        
+    </a>
+
+                    <script>
+                        $.ui.sticky({
+                            sticky: nothing,
+                            normal: nothing
+                        });
+                    </script>
+                
+
+                
+    
+        <div id="tz-selector-widget" style="display: none;" class="tz-selector-widget settingsWidget">
+            <div style="line-height: 17px;">
+                <span class="settingsWidgetHeader">Choose Timezone</span><br>
+            </div>
+            <div class="settingsSeparator"></div>
+            <div class="tz-mode-container">
+                <div>
+                    <input type="radio" name="tz_mode" id="tz-mode-local" value="local"
+                           checked>
+                    <label for="tz-mode-local">Use the event/category timezone</label>
+                </div>
+                
+                    <div>
+                        <input type="radio" name="tz_mode" id="tz-mode-user" value="user"
+                               >
+                        <label for="tz-mode-user">
+                            Your default timezone
+                            <em>(Europe/Moscow)</em>
+                        </label>
+                    </div>
+                
+                <div>
+                    <input type="radio" name="tz_mode" id="tz-mode-custom" value="custom"
+                           >
+                    <label for="tz-mode-custom">Specify a timezone</label>
+                </div>
+            </div>
+            <select name="tz" class="tz-select" size="12" disabled>
+                <option >Africa/Abidjan</option><option >Africa/Accra</option><option >Africa/Addis_Ababa</option><option >Africa/Algiers</option><option >Africa/Asmara</option><option >Africa/Bamako</option><option >Africa/Bangui</option><option >Africa/Banjul</option><option >Africa/Bissau</option><option >Africa/Blantyre</option><option >Africa/Brazzaville</option><option >Africa/Bujumbura</option><option >Africa/Cairo</option><option >Africa/Casablanca</option><option >Africa/Ceuta</option><option >Africa/Conakry</option><option >Africa/Dakar</option><option >Africa/Dar_es_Salaam</option><option >Africa/Djibouti</option><option >Africa/Douala</option><option >Africa/El_Aaiun</option><option >Africa/Freetown</option><option >Africa/Gaborone</option><option >Africa/Harare</option><option >Africa/Johannesburg</option><option >Africa/Juba</option><option >Africa/Kampala</option><option >Africa/Khartoum</option><option >Africa/Kigali</option><option >Africa/Kinshasa</option><option >Africa/Lagos</option><option >Africa/Libreville</option><option >Africa/Lome</option><option >Africa/Luanda</option><option >Africa/Lubumbashi</option><option >Africa/Lusaka</option><option >Africa/Malabo</option><option >Africa/Maputo</option><option >Africa/Maseru</option><option >Africa/Mbabane</option><option >Africa/Mogadishu</option><option >Africa/Monrovia</option><option >Africa/Nairobi</option><option >Africa/Ndjamena</option><option >Africa/Niamey</option><option >Africa/Nouakchott</option><option >Africa/Ouagadougou</option><option >Africa/Porto-Novo</option><option >Africa/Sao_Tome</option><option >Africa/Tripoli</option><option >Africa/Tunis</option><option >Africa/Windhoek</option><option >America/Adak</option><option >America/Anchorage</option><option >America/Anguilla</option><option >America/Antigua</option><option >America/Araguaina</option><option >America/Argentina/Buenos_Aires</option><option >America/Argentina/Catamarca</option><option >America/Argentina/Cordoba</option><option >America/Argentina/Jujuy</option><option >America/Argentina/La_Rioja</option><option >America/Argentina/Mendoza</option><option >America/Argentina/Rio_Gallegos</option><option >America/Argentina/Salta</option><option >America/Argentina/San_Juan</option><option >America/Argentina/San_Luis</option><option >America/Argentina/Tucuman</option><option >America/Argentina/Ushuaia</option><option >America/Aruba</option><option >America/Asuncion</option><option >America/Atikokan</option><option >America/Bahia</option><option >America/Bahia_Banderas</option><option >America/Barbados</option><option >America/Belem</option><option >America/Belize</option><option >America/Blanc-Sablon</option><option >America/Boa_Vista</option><option >America/Bogota</option><option >America/Boise</option><option >America/Cambridge_Bay</option><option >America/Campo_Grande</option><option >America/Cancun</option><option >America/Caracas</option><option >America/Cayenne</option><option >America/Cayman</option><option >America/Chicago</option><option >America/Chihuahua</option><option >America/Costa_Rica</option><option >America/Creston</option><option >America/Cuiaba</option><option >America/Curacao</option><option >America/Danmarkshavn</option><option >America/Dawson</option><option >America/Dawson_Creek</option><option >America/Denver</option><option >America/Detroit</option><option >America/Dominica</option><option >America/Edmonton</option><option >America/Eirunepe</option><option >America/El_Salvador</option><option >America/Fort_Nelson</option><option >America/Fortaleza</option><option >America/Glace_Bay</option><option >America/Godthab</option><option >America/Goose_Bay</option><option >America/Grand_Turk</option><option >America/Grenada</option><option >America/Guadeloupe</option><option >America/Guatemala</option><option >America/Guayaquil</option><option >America/Guyana</option><option >America/Halifax</option><option >America/Havana</option><option >America/Hermosillo</option><option >America/Indiana/Indianapolis</option><option >America/Indiana/Knox</option><option >America/Indiana/Marengo</option><option >America/Indiana/Petersburg</option><option >America/Indiana/Tell_City</option><option >America/Indiana/Vevay</option><option >America/Indiana/Vincennes</option><option >America/Indiana/Winamac</option><option >America/Inuvik</option><option >America/Iqaluit</option><option >America/Jamaica</option><option >America/Juneau</option><option >America/Kentucky/Louisville</option><option >America/Kentucky/Monticello</option><option >America/Kralendijk</option><option >America/La_Paz</option><option >America/Lima</option><option >America/Los_Angeles</option><option >America/Lower_Princes</option><option >America/Maceio</option><option >America/Managua</option><option >America/Manaus</option><option >America/Marigot</option><option >America/Martinique</option><option >America/Matamoros</option><option >America/Mazatlan</option><option >America/Menominee</option><option >America/Merida</option><option >America/Metlakatla</option><option >America/Mexico_City</option><option >America/Miquelon</option><option >America/Moncton</option><option >America/Monterrey</option><option >America/Montevideo</option><option >America/Montserrat</option><option >America/Nassau</option><option >America/New_York</option><option >America/Nipigon</option><option >America/Nome</option><option >America/Noronha</option><option >America/North_Dakota/Beulah</option><option >America/North_Dakota/Center</option><option >America/North_Dakota/New_Salem</option><option >America/Ojinaga</option><option >America/Panama</option><option >America/Pangnirtung</option><option >America/Paramaribo</option><option >America/Phoenix</option><option >America/Port-au-Prince</option><option >America/Port_of_Spain</option><option >America/Porto_Velho</option><option >America/Puerto_Rico</option><option >America/Punta_Arenas</option><option >America/Rainy_River</option><option >America/Rankin_Inlet</option><option >America/Recife</option><option >America/Regina</option><option >America/Resolute</option><option >America/Rio_Branco</option><option >America/Santarem</option><option >America/Santiago</option><option >America/Santo_Domingo</option><option >America/Sao_Paulo</option><option >America/Scoresbysund</option><option >America/Sitka</option><option >America/St_Barthelemy</option><option >America/St_Johns</option><option >America/St_Kitts</option><option >America/St_Lucia</option><option >America/St_Thomas</option><option >America/St_Vincent</option><option >America/Swift_Current</option><option >America/Tegucigalpa</option><option >America/Thule</option><option >America/Thunder_Bay</option><option >America/Tijuana</option><option >America/Toronto</option><option >America/Tortola</option><option >America/Vancouver</option><option >America/Whitehorse</option><option >America/Winnipeg</option><option >America/Yakutat</option><option >America/Yellowknife</option><option >Antarctica/Casey</option><option >Antarctica/Davis</option><option >Antarctica/DumontDUrville</option><option >Antarctica/Macquarie</option><option >Antarctica/Mawson</option><option >Antarctica/McMurdo</option><option >Antarctica/Palmer</option><option >Antarctica/Rothera</option><option >Antarctica/Syowa</option><option >Antarctica/Troll</option><option >Antarctica/Vostok</option><option >Arctic/Longyearbyen</option><option >Asia/Aden</option><option >Asia/Almaty</option><option >Asia/Amman</option><option >Asia/Anadyr</option><option >Asia/Aqtau</option><option >Asia/Aqtobe</option><option >Asia/Ashgabat</option><option >Asia/Atyrau</option><option >Asia/Baghdad</option><option >Asia/Bahrain</option><option >Asia/Baku</option><option >Asia/Bangkok</option><option >Asia/Barnaul</option><option >Asia/Beirut</option><option >Asia/Bishkek</option><option >Asia/Brunei</option><option >Asia/Chita</option><option >Asia/Choibalsan</option><option >Asia/Colombo</option><option >Asia/Damascus</option><option >Asia/Dhaka</option><option >Asia/Dili</option><option >Asia/Dubai</option><option >Asia/Dushanbe</option><option >Asia/Famagusta</option><option >Asia/Gaza</option><option >Asia/Hebron</option><option >Asia/Ho_Chi_Minh</option><option >Asia/Hong_Kong</option><option >Asia/Hovd</option><option >Asia/Irkutsk</option><option >Asia/Jakarta</option><option >Asia/Jayapura</option><option >Asia/Jerusalem</option><option >Asia/Kabul</option><option >Asia/Kamchatka</option><option >Asia/Karachi</option><option >Asia/Kathmandu</option><option >Asia/Khandyga</option><option >Asia/Kolkata</option><option >Asia/Krasnoyarsk</option><option >Asia/Kuala_Lumpur</option><option >Asia/Kuching</option><option >Asia/Kuwait</option><option >Asia/Macau</option><option >Asia/Magadan</option><option >Asia/Makassar</option><option >Asia/Manila</option><option >Asia/Muscat</option><option >Asia/Nicosia</option><option >Asia/Novokuznetsk</option><option >Asia/Novosibirsk</option><option >Asia/Omsk</option><option >Asia/Oral</option><option >Asia/Phnom_Penh</option><option >Asia/Pontianak</option><option >Asia/Pyongyang</option><option >Asia/Qatar</option><option >Asia/Qyzylorda</option><option >Asia/Riyadh</option><option >Asia/Sakhalin</option><option >Asia/Samarkand</option><option >Asia/Seoul</option><option >Asia/Shanghai</option><option >Asia/Singapore</option><option >Asia/Srednekolymsk</option><option >Asia/Taipei</option><option >Asia/Tashkent</option><option >Asia/Tbilisi</option><option >Asia/Tehran</option><option >Asia/Thimphu</option><option >Asia/Tokyo</option><option >Asia/Tomsk</option><option >Asia/Ulaanbaatar</option><option >Asia/Urumqi</option><option >Asia/Ust-Nera</option><option >Asia/Vientiane</option><option >Asia/Vladivostok</option><option >Asia/Yakutsk</option><option >Asia/Yangon</option><option >Asia/Yekaterinburg</option><option >Asia/Yerevan</option><option >Atlantic/Azores</option><option >Atlantic/Bermuda</option><option >Atlantic/Canary</option><option >Atlantic/Cape_Verde</option><option >Atlantic/Faroe</option><option >Atlantic/Madeira</option><option >Atlantic/Reykjavik</option><option >Atlantic/South_Georgia</option><option >Atlantic/St_Helena</option><option >Atlantic/Stanley</option><option >Australia/Adelaide</option><option >Australia/Brisbane</option><option >Australia/Broken_Hill</option><option >Australia/Currie</option><option >Australia/Darwin</option><option >Australia/Eucla</option><option >Australia/Hobart</option><option >Australia/Lindeman</option><option >Australia/Lord_Howe</option><option >Australia/Melbourne</option><option >Australia/Perth</option><option >Australia/Sydney</option><option >Canada/Atlantic</option><option >Canada/Central</option><option >Canada/Eastern</option><option >Canada/Mountain</option><option >Canada/Newfoundland</option><option >Canada/Pacific</option><option >Europe/Amsterdam</option><option >Europe/Andorra</option><option >Europe/Astrakhan</option><option >Europe/Athens</option><option >Europe/Belgrade</option><option >Europe/Berlin</option><option >Europe/Bratislava</option><option >Europe/Brussels</option><option >Europe/Bucharest</option><option >Europe/Budapest</option><option >Europe/Busingen</option><option >Europe/Chisinau</option><option >Europe/Copenhagen</option><option >Europe/Dublin</option><option >Europe/Gibraltar</option><option >Europe/Guernsey</option><option >Europe/Helsinki</option><option >Europe/Isle_of_Man</option><option >Europe/Istanbul</option><option >Europe/Jersey</option><option >Europe/Kaliningrad</option><option >Europe/Kiev</option><option >Europe/Kirov</option><option >Europe/Lisbon</option><option >Europe/Ljubljana</option><option >Europe/London</option><option >Europe/Luxembourg</option><option >Europe/Madrid</option><option >Europe/Malta</option><option >Europe/Mariehamn</option><option >Europe/Minsk</option><option >Europe/Monaco</option><option selected>Europe/Moscow</option><option >Europe/Oslo</option><option >Europe/Paris</option><option >Europe/Podgorica</option><option >Europe/Prague</option><option >Europe/Riga</option><option >Europe/Rome</option><option >Europe/Samara</option><option >Europe/San_Marino</option><option >Europe/Sarajevo</option><option >Europe/Saratov</option><option >Europe/Simferopol</option><option >Europe/Skopje</option><option >Europe/Sofia</option><option >Europe/Stockholm</option><option >Europe/Tallinn</option><option >Europe/Tirane</option><option >Europe/Ulyanovsk</option><option >Europe/Uzhgorod</option><option >Europe/Vaduz</option><option >Europe/Vatican</option><option >Europe/Vienna</option><option >Europe/Vilnius</option><option >Europe/Volgograd</option><option >Europe/Warsaw</option><option >Europe/Zagreb</option><option >Europe/Zaporozhye</option><option >Europe/Zurich</option><option >GMT</option><option >Indian/Antananarivo</option><option >Indian/Chagos</option><option >Indian/Christmas</option><option >Indian/Cocos</option><option >Indian/Comoro</option><option >Indian/Kerguelen</option><option >Indian/Mahe</option><option >Indian/Maldives</option><option >Indian/Mauritius</option><option >Indian/Mayotte</option><option >Indian/Reunion</option><option >Pacific/Apia</option><option >Pacific/Auckland</option><option >Pacific/Bougainville</option><option >Pacific/Chatham</option><option >Pacific/Chuuk</option><option >Pacific/Easter</option><option >Pacific/Efate</option><option >Pacific/Enderbury</option><option >Pacific/Fakaofo</option><option >Pacific/Fiji</option><option >Pacific/Funafuti</option><option >Pacific/Galapagos</option><option >Pacific/Gambier</option><option >Pacific/Guadalcanal</option><option >Pacific/Guam</option><option >Pacific/Honolulu</option><option >Pacific/Kiritimati</option><option >Pacific/Kosrae</option><option >Pacific/Kwajalein</option><option >Pacific/Majuro</option><option >Pacific/Marquesas</option><option >Pacific/Midway</option><option >Pacific/Nauru</option><option >Pacific/Niue</option><option >Pacific/Norfolk</option><option >Pacific/Noumea</option><option >Pacific/Pago_Pago</option><option >Pacific/Palau</option><option >Pacific/Pitcairn</option><option >Pacific/Pohnpei</option><option >Pacific/Port_Moresby</option><option >Pacific/Rarotonga</option><option >Pacific/Saipan</option><option >Pacific/Tahiti</option><option >Pacific/Tarawa</option><option >Pacific/Tongatapu</option><option >Pacific/Wake</option><option >Pacific/Wallis</option><option >US/Alaska</option><option >US/Arizona</option><option >US/Central</option><option >US/Eastern</option><option >US/Hawaii</option><option >US/Mountain</option><option >US/Pacific</option><option >UTC</option>
+            </select>
+            
+                <div class="tz-update-user-container">
+                    <input type="checkbox" name="update_user" id="tz-update-user" value="1">
+                    <label for="tz-update-user">Remember these settings</label>
+                </div>
+            
+            <div class="tz-save-container">
+                <button class="i-button highlight" type="button"
+                        data-href="/change-timezone"
+                        data-method="POST"
+                        data-params-selector="#tz-selector-widget input[name=tz_mode]:checked,
+                                              #tz-selector-widget select[name=tz]:not(:disabled),
+                                              #tz-update-user:checked"
+                        data-reload-after
+                        data-ajax>
+                    Save
+                </button>
+            </div>
+        </div>
+
+        <a id="tz-selector-link" class="i-button icon-time arrow">Europe/Moscow</a>
+    
+
+
+                
+                    
+    <div id="user-settings-widget" style="display: none;" class="settingsWidget">
+        <div style="line-height: 17px;">
+            <span class="settingsWidgetHeader">Valentin Podkopaev</span><br>
+            <span style="font-size: 12px;">max.astin17@gmail.com</span>
+        </div>
+        <div class="settingsSeparator"></div>
+        <div class="settingsWidgetSection">
+            <a href="/user/307/dashboard/">My profile</a>
+        </div>
+        <div class="settingsWidgetSection">
+            <a href="/user/307/preferences/">My preferences</a>
+        </div>
+        <div class="settingsWidgetSection">
+            
+    
+        <a id="language-selector-link" class="arrow js-dropdown" data-toggle="dropdown">
+            My language (English)
+        </a>
+    
+    <ul class="dropdown">
+        
+            <li>
+                
+                    <a class="disabled" title="This is your current language.">English</a>
+                
+            </li>
+        
+            <li>
+                
+                    <a data-href="/change-language"
+                       data-method="POST"
+                       data-params='{&#34;lang&#34;:&#34;es_ES&#34;}'
+                       data-reload-after
+                       data-ajax>
+                        Español
+                    </a>
+                
+            </li>
+        
+            <li>
+                
+                    <a data-href="/change-language"
+                       data-method="POST"
+                       data-params='{&#34;lang&#34;:&#34;fr_FR&#34;}'
+                       data-reload-after
+                       data-ajax>
+                        Français
+                    </a>
+                
+            </li>
+        
+    </ul>
+
+        </div>
+        
+        
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 5px; margin-top: 10px"></div>
+        <div class="settingsWidgetSection">
+            <a href="/logout/?next=%2Fevent%2F140%2Fcontributions%2F">Logout</a>
+        </div>
+    </div>
+
+    <a id="user-settings-link" class="i-button icon icon-user arrow">
+        V. Podkopaev
+    </a>
+
+                
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    
+    <div id="pageSubHeader"></div>
+</div>
+
+
+
+<script>
+    $(document).ready(function() {
+        $('.js-export-ical').on('click', function(evt) {
+            evt.preventDefault();
+            $(this).trigger('menu_select');
+        });
+    });
+</script></div>
+<div class="main"><div>
+    <div class="conf clearfix">
+        <div class="confheader clearfix" style="">
+            <div class="confTitleBox clearfix" style="">
+                <div class="confTitle">
+                    <h1>
+                        <a href="/event/140/">
+                            <span class="conference-title-link" style="">
+                                
+                                <span itemprop="title">Математический аппарат и инструментарий для анализа данных</span>
+                            </span>
+                        </a>
+                    </h1>
+               </div>
+            </div>
+            <div class="confSubTitleBox" style="">
+                <div class="confSubTitleContent flexrow">
+                    <div class="confSubTitle f-self-stretch" style="">
+                        
+                        <div class="datePlace">
+                            <div class="date">
+    
+    
+        1 March 2019 to 1 June 2019
+    </div>
+                            <div class="place">Университет &#34;Дубна&#34;</div>
+                            <div class="timezone">Europe/Moscow timezone</div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div id="confSectionsBox" class="clearfix">
+            
+
+    <div id="flashed-messages" class="flashed-messages"></div>
+
+            
+    
+    
+
+            <div class="conf_leftMenu">
+                <ul id="outer">
+                        
+        <li class="menuConfTitle">
+            <a href="/event/140/overview"
+               >Описание</a>
+                    
+                        
+        <li class="menuConfTitle">
+            <a href="/event/140/timetable/#20190301.detailed"
+               >Расписание</a>
+                    
+                        
+        <li class="menuConfTitle selected menuConfSelected">
+            <a href="/event/140/contributions/"
+               >Программа курса</a>
+                    
+                        
+        <li class="menuConfTitle">
+            <a href="/event/140/registrations/participants"
+               >Список студентов</a>
+                    </ul>
+
+                <div class="support_box">
+                        <h3>Поддержка</h3>
+                        <ul>
+                            
+                                <li>
+                                    <span class="icon icon-mail" aria-hidden="true"></span>
+                                    <a href="mailto:pryahinad@jinr.ru?subject=%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B0%D0%BF%D0%BF%D0%B0%D1%80%D0%B0%D1%82%20%D0%B8%20%D0%B8%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B9%20%D0%B4%D0%BB%D1%8F%20%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">pryahinad@jinr.ru</a>
+                                </li>
+                            
+
+                            
+                        </ul>
+                    </div>
+            </div>
+            <div class="confBodyBox clearfix ">
+                <div class="mainContent">
+                    <div class="col2">
+                        
+    <div class="conference-page"
+         >
+        
+            <header>
+                
+                <div class="title">
+                    <div class="text">
+                        <div class="title-with-actions">
+                            <h2>Программа курса</h2></div>
+                        
+                    </div>
+                    
+                </div>
+                
+                
+            </header>
+        
+        <div class="page-content">
+            
+        <div class="toolbar f-j-end space-after">
+            <div id="counter" class="group"><span id="filtering-state" class="i-button label icon-list"
+          title="33 out of 33 displayed">
+        <span><strong>33</strong> / 33</span>
+    </span></div>
+            <div class="group">
+                <span class="i-button label icon-search"></span>
+                <input type="text" id="search-input" placeholder="Enter #id or search string">
+            </div>
+            
+                <div class="group">
+                    <button class="i-button icon-filter js-dialog-action"
+                            data-href="/event/140/contributions/customize"
+                            data-title="Contribution list configuration"
+                            data-dialog-classes="list-filter-dialog"
+                            data-update='{"html": "#display-contribution-list", "counter": "#counter"}'
+                            data-ajax-dialog
+                            title="Filters"></button>
+                </div>
+            
+            <div class="group">
+                <a href="/event/140/contributions/contributions.pdf"
+                   title="Export to PDF"
+                   class="i-button icon-file-pdf"></a>
+                
+                   <button class="i-button icon-link js-static-url"
+                           data-href="/event/140/contributions/static-url"
+                           title="Generate a URL for the selected filters."></button>
+                
+            </div>
+        </div>
+    
+    <div id="display-contribution-list" class="contribution-list">
+        
+    
+        
+    <div class="contribution-row" data-friendly-id="1">
+        <div class="contrib-title info" data-searchable="лекция 1. экосистема для анализа данных. задачи машинного обучения">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/415/">
+                    <span class="contrib-id">1.</span>
+                    Лекция 1. Экосистема для анализа данных. Задачи машинного обучения
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(564, person_id=558, contribution_id=415, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                06/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/415/">
+                <div class="description js-mathjax">
+                    <p>В первой лекции представлена экосистема для проведения практических занятий:   набор библиотек Python, которыми будем пользоваться для решения задач в области анализа данных. На примере решения прикладной задачи разделение и идентификация событий, соответствующих нейтронам и гамма-квантам, детектора DEMON, будет показан весь путь от сбора данных, постановки задачи, выбора методов, исследования...</p>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="10">
+        <div class="contrib-title info" data-searchable="семинар 1. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/454/">
+                    <span class="contrib-id">10.</span>
+                    Семинар 1. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(595, person_id=558, contribution_id=454, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                11/03/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/454/">
+                <div class="description js-mathjax">
+                    <p>На первом практическом занятии будет рассмотрена работа с IPython и Jupyter Notebook, ключевые составляющие языка Python, начало работы с библиотекой matplotlib.</p>
+<p>Материалы:<br>
+1. The official home of the Python Programming Language: https://www.python.org/ <br>
+2. М. Саммерфилд . Программирование на Python 3. Подробное руководство. <br>
+-СПБ.: Символ-Плюс. 2015.-608 с.</p>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="18">
+        <div class="contrib-title info" data-searchable="семинар 1. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/462/">
+                    <span class="contrib-id">18.</span>
+                    Семинар 1. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(604, person_id=567, contribution_id=462, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                12/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/462/">
+                <div class="description js-mathjax">
+                    <p>На первом практическом занятии будет рассмотрена работа с IPython и Jupyter Notebook, ключевые составляющие языка Python. <br>
+Начало работы с пакетами SciPy, в частности библиотекой Matplotlib.<br>
+Будут обсуждаться такие математические понятия, как корреляция, линейная регрессия, а также метод наименьших квадратов.</p>
+<hr>
+<p>Материалы:<br>
+1. [The official home of the Python Programming...</p>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="26">
+        <div class="contrib-title info" data-searchable="семинар 1. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/470/">
+                    <span class="contrib-id">26.</span>
+                    Семинар 1. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(613, person_id=568, contribution_id=470, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                13/03/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="2">
+        <div class="contrib-title info" data-searchable="лекция 2. введение в python">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/446/">
+                    <span class="contrib-id">2.</span>
+                    Лекция 2. Введение в Python
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(628, person_id=568, contribution_id=446, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                13/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="11">
+        <div class="contrib-title info" data-searchable="семинар 2. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/455/">
+                    <span class="contrib-id">11.</span>
+                    Семинар 2. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(596, person_id=558, contribution_id=455, is_speaker=true): &#34;oksana streltsova&#34;&gt;, &lt;contributionpersonlink(689, person_id=568, contribution_id=455, is_speaker=true): &#34;petr sychov&#34;&gt;, &lt;contributionpersonlink(690, person_id=582, contribution_id=455, is_speaker=true): &#34;dmitry podgainy&#34;&gt;, &lt;contributionpersonlink(692, person_id=567, contribution_id=455, is_speaker=true): &#34;darya pryahina&#34;&gt;, &lt;contributionpersonlink(691, person_id=583, contribution_id=455, is_speaker=true): &#34;andrey nechaevskiy&#34;&gt;, &lt;contributionpersonlink(693, person_id=569, contribution_id=455, is_speaker=true): &#34;yuri butenko&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>, <span class="speaker-item-inline">
+    <span>Petr Sychov</span></span>, <span class="speaker-item-inline">
+    <span>Dmitry Podgainy</span></span>, <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>, <span class="speaker-item-inline"><span class="speaker-title">Mr</span>
+    <span>Andrey Nechaevskiy</span><span class="affiliation">
+            (<span class="text">LIT JINR</span>)</span></span>, <span class="speaker-item-inline">
+    <span>Yuri Butenko</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                18/03/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/455/">
+                <div class="description js-mathjax">
+                    <p>На практическом занятии разбирается задача о конвертации сайта, работа с данными, библиотеки:<br>
++  <code>NumPy</code> <br>
++  <code>matplotlib</code></p>
+<hr>
+<p>Полезные ссылки:</p>
+<ol>
+<li><a href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html?highlight=markdown">Документация  Jupyter Notebook: Markdown Cells</a> </li>
+<li><a href="http://www.physicsdepartment.ru/latex/">Краткая справка по LaTeX</a></li>
+</ol>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="19">
+        <div class="contrib-title info" data-searchable="семинар 2. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/463/">
+                    <span class="contrib-id">19.</span>
+                    Семинар 2. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(605, person_id=567, contribution_id=463, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                19/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/463/">
+                <div class="description js-mathjax">
+                    <p>На практическом занятии разбирается задача о конверсии посетителей сайта.<br>
+Обсуждаются правила оформления отчетов лабораторных (практических) работ и требования к их структуре.<br>
+Продолжаются работы с пакетами SciPy, в частности библиотеками:<br>
++  <code>Matplotlib</code><br>
++  <code>NumPy</code> </p>
+<hr>
+<p>Материалы:</p>
+<ol>
+<li>[Документация  Jupyter Notebook: Markdown...</li>
+</ol>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="27">
+        <div class="contrib-title info" data-searchable="семинар 2. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/471/">
+                    <span class="contrib-id">27.</span>
+                    Семинар 2. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(614, person_id=568, contribution_id=471, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                20/03/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="3">
+        <div class="contrib-title info" data-searchable="лекция 3. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/447/">
+                    <span class="contrib-id">3.</span>
+                    Лекция 3. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(694, person_id=583, contribution_id=447, is_speaker=true): &#34;andrey nechaevskiy&#34;&gt;, &lt;contributionpersonlink(695, person_id=567, contribution_id=447, is_speaker=true): &#34;darya pryahina&#34;&gt;, &lt;contributionpersonlink(699, person_id=582, contribution_id=447, is_speaker=true): &#34;dmitry podgainy&#34;&gt;, &lt;contributionpersonlink(698, person_id=558, contribution_id=447, is_speaker=true): &#34;oksana streltsova&#34;&gt;, &lt;contributionpersonlink(697, person_id=568, contribution_id=447, is_speaker=true): &#34;petr sychov&#34;&gt;, &lt;contributionpersonlink(696, person_id=569, contribution_id=447, is_speaker=true): &#34;yuri butenko&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Mr</span>
+    <span>Andrey Nechaevskiy</span><span class="affiliation">
+            (<span class="text">LIT JINR</span>)</span></span>, <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>, <span class="speaker-item-inline">
+    <span>Dmitry Podgainy</span></span>, <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>, <span class="speaker-item-inline">
+    <span>Petr Sychov</span></span>, <span class="speaker-item-inline">
+    <span>Yuri Butenko</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                20/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        <a href="/event/140/contributions/447/">
+                <div class="description js-mathjax">
+                    <p>В лекции  вводятся основные понятия и определения, рассматриваются геометрические модели машинного обучения.</p>
+<hr>
+<p>Литература</p>
+<p>[1] Петер Флах. Машинное обучение. Наука и искусство построения алгоритмов, которые извлекают знания из данных. –М.: ДМК Пресс, 2015.- 400 с.</p>
+<p>[2] Профессиональный информационно-аналитический ресурс, посвященный машинному обучению, распознаванию образов и...</p>
+                </div>
+            </a>
+    </div>
+
+    <div class="contribution-row" data-friendly-id="12">
+        <div class="contrib-title info" data-searchable="семинар 3. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/456/">
+                    <span class="contrib-id">12.</span>
+                    Семинар 3. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(597, person_id=558, contribution_id=456, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                25/03/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="20">
+        <div class="contrib-title info" data-searchable="семинар 3. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/464/">
+                    <span class="contrib-id">20.</span>
+                    Семинар 3. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(606, person_id=567, contribution_id=464, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                26/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="28">
+        <div class="contrib-title info" data-searchable="семинар 3. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/472/">
+                    <span class="contrib-id">28.</span>
+                    Семинар 3. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(615, person_id=568, contribution_id=472, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                27/03/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="4">
+        <div class="contrib-title info" data-searchable="лекция 4. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/448/">
+                    <span class="contrib-id">4.</span>
+                    Лекция 4. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                27/03/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="13">
+        <div class="contrib-title info" data-searchable="семинар 4. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/457/">
+                    <span class="contrib-id">13.</span>
+                    Семинар 4. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(598, person_id=558, contribution_id=457, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                01/04/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="21">
+        <div class="contrib-title info" data-searchable="семинар 4. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/465/">
+                    <span class="contrib-id">21.</span>
+                    Семинар 4. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(607, person_id=567, contribution_id=465, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                02/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="29">
+        <div class="contrib-title info" data-searchable="семинар 4. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/473/">
+                    <span class="contrib-id">29.</span>
+                    Семинар 4. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(616, person_id=568, contribution_id=473, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                03/04/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="5">
+        <div class="contrib-title info" data-searchable="лекция 5. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/449/">
+                    <span class="contrib-id">5.</span>
+                    Лекция 5. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                03/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="14">
+        <div class="contrib-title info" data-searchable="семинар 5. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/458/">
+                    <span class="contrib-id">14.</span>
+                    Семинар 5. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(599, person_id=558, contribution_id=458, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                08/04/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="22">
+        <div class="contrib-title info" data-searchable="семинар 5. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/466/">
+                    <span class="contrib-id">22.</span>
+                    Семинар 5. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(608, person_id=567, contribution_id=466, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                09/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="30">
+        <div class="contrib-title info" data-searchable="семинар 5. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/474/">
+                    <span class="contrib-id">30.</span>
+                    Семинар 5. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(617, person_id=568, contribution_id=474, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                10/04/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="6">
+        <div class="contrib-title info" data-searchable="лекция 6. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/450/">
+                    <span class="contrib-id">6.</span>
+                    Лекция 6. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                10/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="15">
+        <div class="contrib-title info" data-searchable="семинар 6. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/459/">
+                    <span class="contrib-id">15.</span>
+                    Семинар 6. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(600, person_id=558, contribution_id=459, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                15/04/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="23">
+        <div class="contrib-title info" data-searchable="семинар 6. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/467/">
+                    <span class="contrib-id">23.</span>
+                    Семинар 6. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(609, person_id=567, contribution_id=467, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                16/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="31">
+        <div class="contrib-title info" data-searchable="семинар 6. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/475/">
+                    <span class="contrib-id">31.</span>
+                    Семинар 6. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(618, person_id=568, contribution_id=475, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                17/04/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="7">
+        <div class="contrib-title info" data-searchable="лекция 7. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/451/">
+                    <span class="contrib-id">7.</span>
+                    Лекция 7. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                17/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="16">
+        <div class="contrib-title info" data-searchable="семинар 7. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/460/">
+                    <span class="contrib-id">16.</span>
+                    Семинар 7. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(601, person_id=558, contribution_id=460, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                22/04/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="24">
+        <div class="contrib-title info" data-searchable="семинар 7. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/468/">
+                    <span class="contrib-id">24.</span>
+                    Семинар 7. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(610, person_id=567, contribution_id=468, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                23/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="32">
+        <div class="contrib-title info" data-searchable="семинар 7. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/476/">
+                    <span class="contrib-id">32.</span>
+                    Семинар 7. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(619, person_id=568, contribution_id=476, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                24/04/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="8">
+        <div class="contrib-title info" data-searchable="лекция 8. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/452/">
+                    <span class="contrib-id">8.</span>
+                    Лекция 8. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                24/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="17">
+        <div class="contrib-title info" data-searchable="семинар 8. группа б-2. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/461/">
+                    <span class="contrib-id">17.</span>
+                    Семинар 8. Группа Б-2. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(602, person_id=558, contribution_id=461, is_speaker=true): &#34;oksana streltsova&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Oksana Streltsova</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                29/04/2019, 14:30
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="25">
+        <div class="contrib-title info" data-searchable="семинар 8. группа б-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/469/">
+                    <span class="contrib-id">25.</span>
+                    Семинар 8. Группа Б-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(611, person_id=567, contribution_id=469, is_speaker=true): &#34;darya pryahina&#34;&gt;]">
+                <span class="speaker-item-inline">
+    <span>Darya Pryahina</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                30/04/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="33">
+        <div class="contrib-title info" data-searchable="семинар 8. группа м-1. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/477/">
+                    <span class="contrib-id">33.</span>
+                    Семинар 8. Группа М-1. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        <div class="speaker-list icon-user" data-searchable="[&lt;contributionpersonlink(620, person_id=568, contribution_id=477, is_speaker=true): &#34;peter sycov&#34;&gt;]">
+                <span class="speaker-item-inline"><span class="speaker-title">Dr</span>
+    <span>Peter Sycov</span><span class="affiliation">
+            (<span class="text">Dubna University</span>)</span></span>
+            </div>
+        <div class="contrib-time icon-time">
+                08/05/2019, 16:10
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+    <div class="contribution-row" data-friendly-id="9">
+        <div class="contrib-title info" data-searchable="лекция 9. математический аппарат и инструментарий для анализа данных">
+            <span class="value">
+                <a class="js-mathjax" href="/event/140/contributions/453/">
+                    <span class="contrib-id">9.</span>
+                    Лекция 9. Математический аппарат и инструментарий для анализа данных
+                </a>
+            </span>
+        </div>
+        
+        <div class="contrib-time icon-time">
+                08/05/2019, 17:50
+            </div>
+        <div>
+            
+            
+            
+        </div>
+        
+    </div>
+
+        
+
+    </div>
+    
+    
+        <script>
+            setupEventDisplayContributionList();
+        </script>
+    
+        </div>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('h1').mathJax();
+            });
+        </script>
+    </div>
+</div></div>
+<div class="footer ">
+    <div class="flexrow f-j-space-between">
+            <div class="flexrow f-a-center">
+                
+                    
+                    <img src="/images/indico_small.png" class="footer-logo" alt="Indico">
+                
+                <div style="margin-left: 1em;">
+                    <span>Powered by <a href="https://getindico.io">Indico</a></span>
+                </div>
+            </div>
+            <ul class="footer-links">
+                <li>
+                    <a href="https://learn.getindico.io">
+                        Help
+                    </a>
+                </li>
+                
+                    <li>
+                        <a href="/contact">
+                            Contact
+                        </a>
+                    </li>
+                
+                
+            </ul>
+            <div class="footer-extra">
+                
+                
+            </div>
+        </div>
+    
+</div>
+
+<div id="outdated">
+    <h6>Your browser is out of date!</h6>
+    <p>Update your browser to view this website correctly.
+    <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+
+<script>
+    $(document).ready(function() {
+        outdatedBrowser({
+            bgColor: '#0b63a5',
+            color: '#ffffff',
+            lowerThan: 'IE11',
+            languagePath: ''
+        });
+    })
+</script>
+</body>
+</html>
+<!--
+Queries:         33
+Duration (sql):  0.038132s
+Duration (req):  0.229555s
+Endpoint:        contributions.contribution_list
+RH:              indico.modules.events.contributions.controllers.display.RHContributionList
+-->

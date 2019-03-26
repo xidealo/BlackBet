@@ -1,0 +1,308 @@
+{
+   "____________header_______________": {
+      "message": "----------------------------------------------"
+   },
+   "___________footer________________": {
+      "message": "----------------------------------------------"
+   },
+   "___________history_______________": {
+      "message": "----------------------------------------------"
+   },
+   "___________settings_____________": {
+      "message": "----------------------------------------------"
+   },
+   "___________text_input____________": {
+      "message": "----------------------------------------------"
+   },
+   "___________theme_________________": {
+      "message": "----------------------------------------------"
+   },
+   "________context_menu_____________": {
+      "message": "----------------------------------------------"
+   },
+   "auto_play_tts": {
+      "message": "Auto-play text-to-speech"
+   },
+   "background_color": {
+      "message": "Color"
+   },
+   "background_linear_gradient": {
+      "message": "Linear"
+   },
+   "border_color": {
+      "message": "Color"
+   },
+   "border_radius": {
+      "message": "Radius"
+   },
+   "border_style": {
+      "message": "Style"
+   },
+   "border_width": {
+      "message": "Width"
+   },
+   "box_shadow_color": {
+      "message": "Color"
+   },
+   "box_shadow_inner": {
+      "message": "Inside"
+   },
+   "box_size_max_height": {
+      "message": "Max height"
+   },
+   "box_size_max_width": {
+      "message": "Max width"
+   },
+   "box_size_min_height": {
+      "message": "Min height"
+   },
+   "box_size_min_width": {
+      "message": "Min width"
+   },
+   "context_menu_translate_full_page": {
+      "message": "Translate full page with %translator%"
+   },
+   "context_menu_translate_selection": {
+      "message": "Translate %selection% with %translator%"
+   },
+   "description": {
+      "message": "Translate texts within page context, customize your own style of popup block, manage list of favorites languages, and more."
+   },
+   "display_icon_near_selection": {
+      "message": "Show translate-icon near selected text"
+   },
+   "display_on_click_by_selected_text": {
+      "message": "Display on click by selection"
+   },
+   "display_popup_after_text_selected": {
+      "message": "Display right after text selection"
+   },
+   "display_popup_on_double_click": {
+      "message": "Display on double-click a word"
+   },
+   "display_popup_on_hotkey": {
+      "message": "Display when I press hotkey"
+   },
+   "favorites_add_item": {
+      "message": "Add to favorites"
+   },
+   "favorites_clear_all": {
+      "message": "Clear all favorites"
+   },
+   "favorites_remove_item": {
+      "message": "Remove from favorites"
+   },
+   "favorites_translate_with": {
+      "message": "Select favorite and translate:"
+   },
+   "footer": {
+      "message": "If you like the app share it with your friends:"
+   },
+   "footer_leave_review_and_donate": {
+      "message": "Also you can %leave a review% or %make a donation% for extension's support."
+   },
+   "history_button_clear": {
+      "message": "Clear history"
+   },
+   "history_button_show_more": {
+      "message": "Show more"
+   },
+   "history_clear_period_all": {
+      "message": "All"
+   },
+   "history_clear_period_day": {
+      "message": "Last day"
+   },
+   "history_clear_period_hour": {
+      "message": "Last hour"
+   },
+   "history_clear_period_month": {
+      "message": "Last month"
+   },
+   "history_enabled_flag": {
+      "message": "Enabled"
+   },
+   "history_export_entries": {
+      "message": "Export %format%"
+   },
+   "history_page_size": {
+      "message": "Page size"
+   },
+   "history_search_input_placeholder": {
+      "message": "Search in history"
+   },
+   "history_settings_avoid_duplicates": {
+      "message": "Avoid duplicates"
+   },
+   "history_settings_save_words_only": {
+      "message": "Save only dictionary words"
+   },
+   "open_in_window": {
+      "message": "Open in external window"
+   },
+   "popup_copy_translation_title": {
+      "message": "Copy translation"
+   },
+   "popup_demo_dictionary_noun": {
+      "message": "noun"
+   },
+   "popup_demo_dictionary_values": {
+      "message": "Word 1, word 2, etc."
+   },
+   "popup_demo_translation": {
+      "message": "Translated text"
+   },
+   "popup_next_vendor_icon_title": {
+      "message": "Translate with %translator%"
+   },
+   "popup_play_icon_title": {
+      "message": "Listen"
+   },
+   "popup_position_auto": {
+      "message": "Auto (align to the text)"
+   },
+   "popup_position_left_bottom": {
+      "message": "Left-bottom corner"
+   },
+   "popup_position_left_top": {
+      "message": "Left-top corner"
+   },
+   "popup_position_right_bottom": {
+      "message": "Right-bottom corner"
+   },
+   "popup_position_right_top": {
+      "message": "Right-top corner"
+   },
+   "popup_position_title": {
+      "message": "Position"
+   },
+   "quick_access_configure_link": {
+      "message": "Configure keyboard shortcut for quick access to this window"
+   },
+   "remember_last_typed_text": {
+      "message": "Remember last typed text"
+   },
+   "reset_to_default_button_text": {
+      "message": "Reset to default"
+   },
+   "setting_title_common": {
+      "message": "Common"
+   },
+   "setting_title_popup": {
+      "message": "Popup"
+   },
+   "setting_title_text_input": {
+      "message": "Translate"
+   },
+   "setting_title_translator_service": {
+      "message": "Service"
+   },
+   "short_description": {
+      "message": "Easy translate text on web-pages."
+   },
+   "show_context_menu": {
+      "message": "Show in page context menu"
+   },
+   "show_copy_translation_icon": {
+      "message": "Display copy-translation icon"
+   },
+   "show_detected_language_block": {
+      "message": "Display detected language"
+   },
+   "show_next_vendor_icon_in_popup": {
+      "message": "Display next-translation icon"
+   },
+   "show_tts_icon_inside_popup": {
+      "message": "Display text-to-speech icon"
+   },
+   "spell_correction": {
+      "message": "Did you mean %spell_correction%?"
+   },
+   "sub_header_background": {
+      "message": "Background"
+   },
+   "sub_header_border": {
+      "message": "Border"
+   },
+   "sub_header_box_shadow": {
+      "message": "Box shadow"
+   },
+   "sub_header_box_size": {
+      "message": "Box size"
+   },
+   "sub_header_favorites": {
+      "message": "Favorites"
+   },
+   "sub_header_quick_access_hotkey": {
+      "message": "Set global hotkey to app"
+   },
+   "sub_header_text": {
+      "message": "Text"
+   },
+   "swap_languages": {
+      "message": "Swap languages"
+   },
+   "tab_history": {
+      "message": "History"
+   },
+   "tab_settings": {
+      "message": "Settings"
+   },
+   "tab_text_input": {
+      "message": "Translate"
+   },
+   "tab_theme": {
+      "message": "Popup"
+   },
+   "text_color": {
+      "message": "Color"
+   },
+   "text_field_placeholder": {
+      "message": "Start typing here to get translation"
+   },
+   "text_font_family": {
+      "message": "Font"
+   },
+   "text_input_translation_hint": {
+      "message": "%hotkey% to immediate translate, delay: %ms%"
+   },
+   "text_shadow": {
+      "message": "Shadow"
+   },
+   "text_shadow_color": {
+      "message": "Color"
+   },
+   "text_shadow_offset_x": {
+      "message": "Horizontal offset"
+   },
+   "text_shadow_offset_y": {
+      "message": "Vertical offset"
+   },
+   "text_shadow_size": {
+      "message": "Blur radius"
+   },
+   "text_size": {
+      "message": "Size"
+   },
+   "translated_from": {
+      "message": "Translated from: %lang%"
+   },
+   "translated_with": {
+      "message": "Translated with %translator% (%lang%)"
+   },
+   "translation_data_failed": {
+      "message": "Data loading failed"
+   },
+   "translation_data_failed_check_url": {
+      "message": "Check response url"
+   },
+   "translation_delay": {
+      "message": "Translation delay"
+   },
+   "translation_delay_info": {
+      "message": "If you often experience blocking (503 error) from Google or other services set bigger value of delay"
+   },
+   "use_dark_theme": {
+      "message": "Use dark theme for this window"
+   }
+}

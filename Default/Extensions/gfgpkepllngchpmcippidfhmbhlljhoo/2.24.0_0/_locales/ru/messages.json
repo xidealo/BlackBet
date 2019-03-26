@@ -1,0 +1,311 @@
+{
+   "____________header_______________": {
+      "message": "----------------------------------------------"
+   },
+   "____________other________________": {
+      "message": "----------------------------------------------"
+   },
+   "___________footer________________": {
+      "message": "----------------------------------------------"
+   },
+   "___________history_______________": {
+      "message": "----------------------------------------------"
+   },
+   "___________settings_____________": {
+      "message": "----------------------------------------------"
+   },
+   "___________text_input____________": {
+      "message": "----------------------------------------------"
+   },
+   "___________theme_________________": {
+      "message": "----------------------------------------------"
+   },
+   "________context_menu_____________": {
+      "message": "----------------------------------------------"
+   },
+   "auto_play_tts": {
+      "message": "Авто-воспроизведение текста в речь"
+   },
+   "background_color": {
+      "message": "Цвет"
+   },
+   "background_linear_gradient": {
+      "message": "Линейный"
+   },
+   "border_color": {
+      "message": "Цвет"
+   },
+   "border_radius": {
+      "message": "Радиус"
+   },
+   "border_style": {
+      "message": "Стиль"
+   },
+   "border_width": {
+      "message": "Ширина"
+   },
+   "box_shadow_color": {
+      "message": "Цвет"
+   },
+   "box_shadow_inner": {
+      "message": "Внутри"
+   },
+   "box_size_max_height": {
+      "message": "Макс. высота"
+   },
+   "box_size_max_width": {
+      "message": "Макс. ширина"
+   },
+   "box_size_min_height": {
+      "message": "Мин. высота"
+   },
+   "box_size_min_width": {
+      "message": "Мин. ширина"
+   },
+   "context_menu_translate_full_page": {
+      "message": "Перевести всю страницу с %translator%"
+   },
+   "context_menu_translate_selection": {
+      "message": "Перевести %selection% с %translator%"
+   },
+   "description": {
+      "message": "Переводите текст в контексте просматриваемой страницы, настройте свой стиль всплывающего блока, добавляйте языки в избранное, и др."
+   },
+   "display_icon_near_selection": {
+      "message": "Отображать иконку перевода рядом с выделенным текстом"
+   },
+   "display_on_click_by_selected_text": {
+      "message": "Отображать по клику на выделенном тексте"
+   },
+   "display_popup_after_text_selected": {
+      "message": "Отображать сразу после выделения текста"
+   },
+   "display_popup_on_double_click": {
+      "message": "Отображать при двойном клике на слове"
+   },
+   "display_popup_on_hotkey": {
+      "message": "Отображать при нажатии горячей клавиши"
+   },
+   "favorites_add_item": {
+      "message": "Добавить в избранное"
+   },
+   "favorites_clear_all": {
+      "message": "Очистить избранное"
+   },
+   "favorites_remove_item": {
+      "message": "Убрать из избранного"
+   },
+   "favorites_translate_with": {
+      "message": "Выбрать избранное и перевести:"
+   },
+   "footer": {
+      "message": "Если вам нравится приложение поделитесь им со своими друзьями:"
+   },
+   "footer_leave_review_and_donate": {
+      "message": "Также вы можете %оставить отзыв% или %сделать пожертвование% на поддержку расширения."
+   },
+   "history_button_clear": {
+      "message": "Очистить историю"
+   },
+   "history_button_show_more": {
+      "message": "Показать еще"
+   },
+   "history_clear_period_all": {
+      "message": "Всё"
+   },
+   "history_clear_period_day": {
+      "message": "За последний день"
+   },
+   "history_clear_period_hour": {
+      "message": "За последний час"
+   },
+   "history_clear_period_month": {
+      "message": "За последний месяц"
+   },
+   "history_enabled_flag": {
+      "message": "Включено"
+   },
+   "history_export_entries": {
+      "message": "Экспорт %format%"
+   },
+   "history_page_size": {
+      "message": "Размер страницы"
+   },
+   "history_search_input_placeholder": {
+      "message": "Поиск в истории"
+   },
+   "history_settings_avoid_duplicates": {
+      "message": "Избегать дубликатов в истории"
+   },
+   "history_settings_save_words_only": {
+      "message": "Сохранять слова только со словарем"
+   },
+   "open_in_window": {
+      "message": "Открыть в отдельном окне"
+   },
+   "popup_copy_translation_title": {
+      "message": "Копировать перевод"
+   },
+   "popup_demo_dictionary_noun": {
+      "message": "существительное"
+   },
+   "popup_demo_dictionary_values": {
+      "message": "Слово 1, слово 2, итд."
+   },
+   "popup_demo_translation": {
+      "message": "Перевод текста"
+   },
+   "popup_next_vendor_icon_title": {
+      "message": "Перевести с %translator%"
+   },
+   "popup_play_icon_title": {
+      "message": "Прослушать"
+   },
+   "popup_position_auto": {
+      "message": "Авто (выравнять по тексту)"
+   },
+   "popup_position_left_bottom": {
+      "message": "Левый-нижний угол"
+   },
+   "popup_position_left_top": {
+      "message": "Левый-верхний угол"
+   },
+   "popup_position_right_bottom": {
+      "message": "Правый-нижний угол"
+   },
+   "popup_position_right_top": {
+      "message": "Правый-верхний угол"
+   },
+   "popup_position_title": {
+      "message": "Расположение"
+   },
+   "quick_access_configure_link": {
+      "message": "Настройте горячую клавишу для быстрого доступа к окну приложения"
+   },
+   "remember_last_typed_text": {
+      "message": "Запоминать последний набранный текст"
+   },
+   "reset_to_default_button_text": {
+      "message": "Сбросить по умолчанию"
+   },
+   "setting_title_common": {
+      "message": "Общее"
+   },
+   "setting_title_popup": {
+      "message": "Попап"
+   },
+   "setting_title_text_input": {
+      "message": "Переводчик"
+   },
+   "setting_title_translator_service": {
+      "message": "Сервис перевода"
+   },
+   "short_description": {
+      "message": "Легкий перевод текста на веб-страницах"
+   },
+   "show_context_menu": {
+      "message": "Отображать элемент в контекстном меню страницы"
+   },
+   "show_copy_translation_icon": {
+      "message": "Отображать иконку копирования перевода"
+   },
+   "show_detected_language_block": {
+      "message": "Отображать оригинал языка перевода"
+   },
+   "show_next_vendor_icon_in_popup": {
+      "message": "Отображать иконку следующего перевода"
+   },
+   "show_tts_icon_inside_popup": {
+      "message": "Показывать иконку озвучивания"
+   },
+   "spell_correction": {
+      "message": "Возможно вы имели ввиду %spell_correction%?"
+   },
+   "sub_header_background": {
+      "message": "Фон"
+   },
+   "sub_header_border": {
+      "message": "Рамка"
+   },
+   "sub_header_box_shadow": {
+      "message": "Тень"
+   },
+   "sub_header_box_size": {
+      "message": "Размер блока"
+   },
+   "sub_header_favorites": {
+      "message": "Избранное"
+   },
+   "sub_header_quick_access_hotkey": {
+      "message": "Быстрый доступ к окну"
+   },
+   "sub_header_text": {
+      "message": "Текст"
+   },
+   "swap_languages": {
+      "message": "Поменять языки местами"
+   },
+   "tab_history": {
+      "message": "История"
+   },
+   "tab_settings": {
+      "message": "Настройки"
+   },
+   "tab_text_input": {
+      "message": "Перевести"
+   },
+   "tab_theme": {
+      "message": "Попап"
+   },
+   "text_color": {
+      "message": "Цвет"
+   },
+   "text_field_placeholder": {
+      "message": "Начните печатать здесь чтобы получить перевод"
+   },
+   "text_font_family": {
+      "message": "Шрифт"
+   },
+   "text_input_translation_hint": {
+      "message": "%hotkey% для быстрого перевода, задержка: %мс%"
+   },
+   "text_shadow": {
+      "message": "Тень"
+   },
+   "text_shadow_color": {
+      "message": "Цвет"
+   },
+   "text_shadow_offset_x": {
+      "message": "Смещение по горизонтали"
+   },
+   "text_shadow_offset_y": {
+      "message": "Смещение по вертикали"
+   },
+   "text_shadow_size": {
+      "message": "Радиус размытия"
+   },
+   "text_size": {
+      "message": "Размер"
+   },
+   "translated_from": {
+      "message": "Переведено c: %lang%"
+   },
+   "translated_with": {
+      "message": "Переведено с %translator% (%lang%)"
+   },
+   "translation_data_failed": {
+      "message": "Ошибка получения данных"
+   },
+   "translation_data_failed_check_url": {
+      "message": "Посмотреть данные ответа"
+   },
+   "translation_delay": {
+      "message": "Задержка перевода"
+   },
+   "translation_delay_info": {
+      "message": "Если вы часто испытываете блокировку (503 ошибка) от Google или других сервисов, установите большее значение задержки"
+   },
+   "use_dark_theme": {
+      "message": "Использовать темную тему для этого окна"
+   }
+}

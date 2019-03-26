@@ -1,0 +1,9 @@
+2019/03/24-12:46:15.893 451c Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\https_yougame.biz_0.indexeddb.leveldb/MANIFEST-000001
+2019/03/24-12:46:18.640 451c Current memtable full; waiting...
+2019/03/24-12:46:18.640 3b44 Level-0 table #5: started
+2019/03/24-12:46:18.644 3b44 Level-0 table #5: 436 bytes OK
+2019/03/24-12:46:18.648 3b44 Delete type=0 #3
+2019/03/24-12:46:18.650 3b44 Level-0 table #7: started
+2019/03/24-12:46:18.650 3b44 Level-0 table #7: 0 bytes OK
+2019/03/24-12:46:18.656 3b44 Delete type=0 #4
+2019/03/24-12:46:18.657 3b44 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)

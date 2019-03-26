@@ -1,0 +1,18 @@
+/**
+ * Skyload - Download manager for media content
+ * @link http://skyload.io
+ *
+ * @version v5.8.14
+ *
+ * License Agreement:
+ * http://skyload.io/eula
+ *
+ * Privacy Policy:
+ * http://skyload.io/privacy-policy
+ *
+ * Support and FAQ:
+ * http://skyload.io/help
+ * support@skyload.io
+ */
+
+html:not(.skyload-video__available) .vimeo-download-button{display:none!important}.skyload-video__available .player .vp-sidedock .download-icon{width:2.4em;height:2.4em;display:inline-block;background:url(chrome-extension://__MSG_@@extension_id__/images/content/skyload-white-arrow-down.png) center center no-repeat}.skyload-video__available .player .vp-sidedock .download-label a{position:relative}.skyload-video__available .player .vp-sidedock .download-label a:after{content:"·";margin:0 5px;color:#fff!important}.skyload-video__available .player .vp-sidedock .download-label a:last-child:after{content:"";margin-right:0}

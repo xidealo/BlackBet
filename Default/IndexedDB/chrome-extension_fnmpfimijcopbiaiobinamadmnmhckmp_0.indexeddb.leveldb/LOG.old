@@ -1,0 +1,11 @@
+2019/03/07-19:05:31.830 4a68 Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\chrome-extension_fnmpfimijcopbiaiobinamadmnmhckmp_0.indexeddb.leveldb/MANIFEST-000001
+2019/03/07-19:05:31.830 4a68 Recovering log #6
+2019/03/07-19:05:31.831 4a68 Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\chrome-extension_fnmpfimijcopbiaiobinamadmnmhckmp_0.indexeddb.leveldb/000006.log 
+2019/03/07-19:05:31.843 4a68 Current memtable full; waiting...
+2019/03/07-19:05:31.843 3b94 Level-0 table #10: started
+2019/03/07-19:05:31.847 3b94 Level-0 table #10: 8239 bytes OK
+2019/03/07-19:05:31.852 3b94 Delete type=0 #6
+2019/03/07-19:05:31.853 3b94 Level-0 table #12: started
+2019/03/07-19:05:31.853 3b94 Level-0 table #12: 0 bytes OK
+2019/03/07-19:05:31.858 3b94 Delete type=0 #9
+2019/03/07-19:05:31.859 3b94 Manual compaction at level-0 from '\x00\x02\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x03\x00\x00\x00' @ 0 : 0; will stop at (end)

@@ -1,0 +1,530 @@
+/*
+*  @Custom Payments module for Tvzavr services with service authorization
+*  @version: 1.7
+*  @date: 07/02/17
+*  @author: tvzavr scripting algorithm
+*/
+
+function _TvzPayWidget (options){
+
+    /* simple console wrapper - use debug param in url*/
+    var _debug = {
+        levels: ['log','warn','error','info'],
+        log: function(){
+            var args = [].slice.call(arguments);
+            var l = (args.length && typeof args[0] === 'string')? ~this.levels.indexOf(args[0])? this.levels.indexOf(args[0]) : 0 : 0;
+            window.console[this.levels[l]].apply(null, l? args.slice(1) : arguments);
+        },
+        init: function(debug){
+            if(debug) return this.log.bind(this);
+            var fn = function(){}; window.console = {};
+            this.levels.forEach(function(lvl){ window.console[lvl] = fn;});
+            return fn;
+        }
+    };
+
+    /*
+    * Tvzavr custom api service
+    */
+    var api = {
+        set: function(sid){
+            $.ajaxSetup({
+                beforeSend: function(xhr) { // after that user has to be authorized with sid
+                    xhr.setRequestHeader('X-Cookie', sid);
+                }
+            });
+        },
+        init: function(plf){
+            this.server = '//www.tvzavr.ru/';
+            this.ctt = 'json';
+            this.tail = "plf=" + plf + "&apn=tvz_frame&apv=1.0&ctt=json";
+        },
+        request: function(options){
+            return $.ajax({
+                type: options.data? 'POST' : (options.type || 'GET'),
+                url: options.url,
+                dataType: options.ctt || this.ctt,
+                data: options.data || null
+            });
+        },
+        login: function(data){ // anonimus login with customer uid
+            var method = 'api/3.0/user/login?';
+            var options = {
+                url: this.server + method + this.tail,
+                data: {user_id: data}
+            };
+            return this.request(options);
+        },
+        register: function(){
+            var method = 'api/3.0/user/register?';
+            var options = {
+                url: this.server + method + this.tail,
+                data: {fake: 1}
+            };
+            return this.request(options);
+        },
+        systems: function(){
+            var method = 'api/3.0/payment/get_payment_system?';
+            var options = {
+                url: this.server + method + this.tail
+            };
+            return this.request(options);
+        },
+        start: function(params){
+            var _types = {
+                card: 'api/3.0/payment/start?',
+                phone: 'api/3.0/payment/mobile?'
+            };
+            var options = {
+                url: this.server + _types[params.type] + this.tail,
+                data: params.options
+            };
+            return this.request(options);
+        },
+        confirm: function(params){
+            var method = 'api/3.1/user/payment-confirm?';
+            var url = this.server + method + this.tail;
+            url += '&payment_id=' + params.payment_id;
+            url += '&cryptogram=' + params.cryptogram;
+            url += '&name=' + params.name;
+            url += '&no_save_card=' + (params.no_save_card || false);
+            var options = {url: url};
+            return this.request(options);
+        },
+        check: function(pid) {
+            var method = 'api/3.0/payment/status?';
+            var options = {
+                url: this.server + method + this.tail + '&payment_id=' + pid
+            };
+            return this.request(options);
+        }
+    };
+
+    /*
+    * Class widget
+    * base widget logic
+    */
+    var widget = {
+        context: null,
+        ui: null,
+        data: {content: {}, context: {}},
+        states: ['error','ready','started', 'loading'],
+        dependency: {
+            content: {
+                prefix: 'clip__',
+                params: ['id','name']
+            },
+            context: {
+                path: 'tariffs',
+                prefix: 'tariff__',
+                params: ['currency_iso','id','description','price']
+            }
+        },
+        _states: {
+            ready: function(widget){
+                return widget.data;
+            },
+            error: function(widget){
+                var params = [];
+                widget.ui.start.unbind('click');
+                for(var name in widget.dependency){
+                    var d = widget.dependency[name];
+                    if(d.error) return d.error;
+                    d.params.forEach(function(param){
+                        params.push(name + ' missed param: ' + d.prefix + param);
+                    });
+                }
+                return {reason: 'Not enougth params for activation', data: params};
+            },
+            started: function(){}
+        },
+        info: function(data){ // no need for this actually
+            return data? {content: data, widget: this._states[this.state](this)} : this._states[this.state](this);
+        },
+        activate: function(data, confirmMethod){
+            if(!(this.playback && this.playback[confirmMethod])){ // check if callback attached
+                _log('error', '@widget: no playback attached or no callback method ('+confirmMethod+')');
+                return this.state = this.states[0];
+            }
+
+            var content = this.dependency.content;
+            var context = this.dependency.context;
+            var restrictions = this.restrictions;
+            var _params, _filter, tariffs, tariff;
+            this.confirm = confirmMethod; // fn to call after pay
+
+            // filtering functions (_params check and tariffs _filter)
+            _params = function(target,dist,data){
+                return target.params.filter(function(name){
+                    var param = target.prefix + name;
+                    return data[param]? !(dist[dist[name]? param : name] = data[param]) : true;
+                });
+            };
+            _filter = function(obj){
+                return Object.keys(this.filter).every(function(key){
+                    // noinspection EqualityComparisonWithCoercionJS
+                    return obj[this.prefix + key] == this.filter[key];
+                }.bind(this));
+            };
+
+            // select supported tariff
+            tariffs = context.path? data[context.path]? data[context.path] : [] : data;
+            tariff = tariffs.filter(_filter,{filter:restrictions,prefix:context.prefix});
+
+            tariff = tariff.length > 1 ? tariff.reduce(function(a,b){return a[context.prefix+'price']<b[context.prefix+'price']?a:b}): tariff[0];
+
+            _log('@widget: filtering tariffs list with restrictions...', tariffs, restrictions);
+            if(!tariff){
+                context.error = {reason: 'Not supported tariffs or no tariff for payments.',
+                    data: {tariffs: tariffs, restrictions: restrictions}}
+            } else {
+                this.data.context = tariff;
+            }
+            // check all params present and set state ready or error
+            content.params = _params(content,this.data.content,data);
+            context.params =  _params(context,this.data.content,tariff || {});
+            this.state = this.states[+(!content.params.length && !context.params.length)];
+        },
+        deactivate: function(){
+            return (this.playback && this.confirm)? this.playback[this.confirm]() : window[this.confirm]();
+        }
+    };
+
+    /*
+    * @WIDGET BUILDER
+    */
+    return (new function _tvzWidget() {
+
+        /*if (!_playlist || !_platform || !storage) {
+            return config.ui.disable();
+        }*/
+
+        window._log = _debug.init(options['debug']);
+
+        var _session = {
+            path: options['plf'] + '_userID',
+            usr: null,
+            get user(){ return this.usr || storage.getItem(this.path)},
+            set user(val){return this.usr = val},
+            isReal: true,
+            _sid: null,
+            get sid() {return this._sid || storage.getItem(this.path+'_sid')},
+            set sid(set){return this._sid = set}
+
+        };
+
+        widget.playback = options.player.playback;
+        widget.ui = new PayDialog();
+
+        // Set uniq style params
+        Object.keys(options.ui).forEach(function(key){ widget.ui[key].css(options.ui[key]) });
+
+        widget.restrictions = options.restrictions;
+
+        api.init(options['plf']);
+
+        _log('info', '@widget: connection triggered. activating...', options.player.data);
+        widget.activate(options.player.data.videoData || options.player.data, 'startAfterPayment');
+
+        /* do authorization in tvzavr service */
+        var _auth = function (data, authorised) {
+            // wrap login method
+            var _login = function (isReal) {
+                _log('@_builder: api service login for ' + (isReal ? 'NEW user' : 'KNOWN user'));
+                api.login(data.user).done(function (login) {
+                    data.sid = login['dev_id'];
+                    storage.setItem(data.path+'_sid', data.sid);
+                    player._settings.sid = data.sid;
+                    data.isReal = isReal;
+                    authorised(data);
+                });
+            };
+            // call login for known user OR register when login for new
+            data.user ? _login() :
+                api.register().then(function (user) {
+                    data.user = user['user_info']['customer__uuid'];
+                    storage.setItem(data.path, data.user);
+                    player._settings.user = data.user;
+                    _login(true);
+                });
+        };
+
+        /* make auth with success callback when @init called */
+        this.init = function () {
+            _log('@_builder: initialization...');
+            _auth(_session, function (session) { // all session params
+                _log('@_builder: api service auth done.');
+                var stateProxy = function (data) {
+                    $(widget).trigger('stateChange', [data]);
+                };
+                api.set(session.sid);
+                widget.config = session;
+                widget.context = this.innerPayments(stateProxy, session.playlist);
+                widget.ui.setHandlers(widget);
+                $(widget).trigger(widget.state, [widget.info({id: options.player.playlist})]);
+            }.bind(this));
+        };
+
+        /* @PAYMENTS
+         *
+         *  @returns: available methods
+         */
+        this.innerPayments = function (onStateChange, playlist) {
+            var _inited = false;
+            var _data = null;
+            var _STATE = 'idle';
+            var _id = playlist;
+            var supported = {card: 'cloudpayments', phone: 'mixplat'};
+            var _methods = {
+                card: {
+                    type: 'card',
+                    name: supported.card,
+                    available: false,
+                    ready: false,
+                    expired: 30000,
+                    _: '__id',
+                    fn: 'card'
+                },
+                phone: {
+                    type: 'phone',
+                    name: supported.phone,
+                    available: false,
+                    ready: false,
+                    extend: {
+                        param: 'phone_number',
+                        target: 0
+                    },
+                    _: '_id',
+                    expired: 300000, // 5 min
+                    fn: false
+                }
+            };
+
+            var self = this;
+
+            /*
+             * @method: init - returns available payment systems
+             * @param {Object} - data. object with tariff data and clipId
+             */
+            var init = function (data, callback) {
+                _data = data || {};
+                if (_inited) {
+                    for (var key in _methods) {
+                        var method = _methods[key];
+                        method.ready = false;
+                        method.params = null;
+                        method.options.clip_id = data.id || _id;
+                        method.options['tariff' + method._] = data.tariff__id;
+                    }
+                    stateChange('ready');
+                    return callback(_methods);
+                }
+
+                var available = [];
+                api.systems().done(function (resp) {
+                    var systems = resp.payment_systems;
+                    var supported_names = [supported.card, supported.phone];
+                    available = systems.filter(function (system) {
+                        var name = system.payment_system__alias;
+                        if (~supported_names.indexOf(name)) {
+                            for (var key in _methods) {
+                                var method = _methods[key];
+                                if (method.name === name) {
+                                    method.available = true;
+                                    method.options = {clip_id: data.id || _id};
+                                    method.options['tariff' + method._] = data.tariff__id;
+                                    method.options['payment_system' + method._] = system.payment_system__id;
+                                }
+                            }
+                            return system;
+                        }
+                    });
+                    if (available.length) {
+                        _inited = true;
+                        stateChange('ready');
+                        return callback(_methods);
+                    } else {
+                        cancel('api: no payment systems available');
+                    }
+                });
+            };
+
+            /*
+             * @method: start - start pay with provided type
+             */
+            var start = function (type, data) {
+                var method = _methods[type];
+                if (method.extend) {
+                    method.options[method.extend.param] = data[method.extend.target];
+                }
+                stateChange('loading');
+                api.start(method).done(function (resp) {
+                    if (resp.result && resp.result.payment_id) {
+                        method.payment = resp.result;
+                        method.ready = true;
+                        method.options.payment_id = resp.result.payment_id;
+                        method.fn ? self[method.fn](method, data) : check(method);
+                    } else {
+                        cancel(resp.error ? resp.error : resp);
+                    }
+                });
+            };
+
+            /*
+             * @method: check - check order status
+             */
+            var check = function (method) {
+                var _check = null;
+                var _expired = null;
+                var _pending = false;
+
+                var stopChecking = function () {
+                    clearInterval(_check);
+                    clearTimeout(_expired);
+                    _check = _expired = null;
+                };
+
+                _expired = setTimeout(function () {
+                    stopChecking();
+                    return cancel('check: ' + method.type + ' payment timeout expired');
+                }, method.expired);
+
+                _check = setInterval(function () {
+                    var result;
+                    api.check(method.options.payment_id).done(function (resp) {
+                        result = resp.result.name;
+                        if (result === 'PAYMENT_PENDING') {
+                            if (!_pending) {
+                                _pending = true;
+                                stateChange('pending');
+                            }
+                        } else {
+                            stopChecking();
+                            return stateChange('complete', result);
+                        }
+                    });
+                }, 1500);
+
+            };
+
+            /*
+             * @method: cancel - ERROR
+             */
+            var cancel = function (error) {
+                var message = error.message ? error.message : error;
+                // todo messages
+                stateChange('error', message);
+            };
+
+            /*
+             * @method: state - proxy payments events state
+             */
+            var stateChange = function (newstate, data, show) {
+                if (_STATE !== newstate) {
+                    onStateChange({prev: _STATE, state: newstate, message: data || null, show: show});
+                }
+                _STATE = newstate;
+            };
+
+            /*
+             *    CARD PAYMENT CLOUD PAYMENTS REALISATION
+             */
+            this.card = function (method, data) {
+                // CloudPayments config
+                var cp_config = {
+                    public_id: options.public_id || 'pk_608b65f76ddfc8963b498a6e9a907',
+                    card_holder: options.card_holder || 'CARD HOLDER',
+                    script_src: 'https://widget.cloudpayments.ru/bundles/checkout',
+                    fields: ['cardNumber', 'expDateMonth', 'expDateYear', 'cvv', 'name'],
+                    field_data_attr: 'data-cp',
+                    cp_retry_count: 2
+                };
+
+                var cpForm = createDom({tag:'form'}).appEndChild(
+                    cp_config.fields.map(function(item, i){
+                        var obj = {tag: 'input', value: data[i]};
+                        obj[cp_config.field_data_attr] = item;
+                        return createDom(obj);
+                    })
+                );
+
+                var count = 0;
+
+                var cpScript = {
+                    tag: 'script',
+                    get src(){return cp_config.script_src},
+                    onload: function () {checkOut()},
+                    onerror: checkOut
+                };
+
+                function checkOut(error) {
+                    if (error) {
+                        if (count < cp_config.cp_retry_count) {
+                            count++ && document.body.appendChild(createDom(cpScript));
+                        } else {
+                            cancel('cp: unable to load checkout script: ' + cp_config.script_src);
+                        }
+                        return;
+                    }
+                    self._checkout = new window.cp.Checkout(
+                        cp_config.public_id,
+                        cpForm
+                    );
+                    var result = self._checkout.createCryptogramPacket();
+                    if (result.success) {
+                        var params = {
+                            payment_id: method.options.payment_id,
+                            cryptogram: encodeURIComponent(result.packet),
+                            name: data.pop()
+                        };
+                        // confirm
+                        api.confirm(params).then(function (resp) {
+                            var status = resp.result.status;
+                            var error = resp.result.error;
+                            status === 'ok' ? check(method) : cancel(error);
+                            /*else if (error.code === '141') {
+
+                                var acsUrl = error['cloudpayments_AcsUrl'];
+                                delete error['cloudpayments_AcsUrl'];
+
+                                var form3DS = createDom({
+                                    tag:'form',
+                                    action: acsUrl,
+                                    method: 'post'
+                                }).appEndChild(Object.keys(error).map(function (key) {
+                                    return !~['code', 'message'].indexOf(key) && createDom({
+                                        tag: 'input',
+                                        name: key.replace('cloudpayments_',''),
+                                        value: error[key]
+                                    });
+                                }));
+                                document.body.appendChild(form3DS);
+                                form3DS.submit();
+                            }*/
+                        });
+                    }
+                    else {
+                        if (result.messages) {
+                            Object.keys(result.messages).forEach(function (type) {
+                                widget.ui.validate(type)
+                            });
+                            return stateChange('error', 'Введенные данные некорректны', true)
+                        }
+                        cancel('cp: unable to create cryptogram packet');
+                    }
+                }
+
+                (!window.cp) ? document.body.appendChild(createDom(cpScript)) : checkOut();
+            };
+
+            //@payments available methods interfaces:
+            return {
+                init: init,
+                start: start
+            }
+        };
+
+        this.init();
+
+    }());
+}

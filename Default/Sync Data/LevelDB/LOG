@@ -1,0 +1,18 @@
+2019/03/25-11:15:29.149 5f04 Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Sync Data\LevelDB/MANIFEST-000001
+2019/03/25-11:15:29.150 5f04 Recovering log #1775
+2019/03/25-11:15:29.195 5f04 Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Sync Data\LevelDB/001775.log 
+2019/03/25-12:00:00.993 2a2c Level-0 table #1779: started
+2019/03/25-12:00:01.000 2a2c Level-0 table #1779: 99460 bytes OK
+2019/03/25-12:00:01.003 2a2c Delete type=0 #1775
+2019/03/25-13:40:14.287 2a2c Level-0 table #1781: started
+2019/03/25-13:40:14.300 2a2c Level-0 table #1781: 109778 bytes OK
+2019/03/25-13:40:14.304 2a2c Delete type=0 #1778
+2019/03/25-13:40:14.306 2a2c Compacting 4@0 + 1@1 files
+2019/03/25-13:40:14.315 2a2c Generated table #1782@0: 810 keys, 46353 bytes
+2019/03/25-13:40:14.315 2a2c Compacted 4@0 + 1@1 files => 46353 bytes
+2019/03/25-13:40:14.317 2a2c compacted to: files[ 0 1 1 0 0 0 0 ]
+2019/03/25-13:40:14.318 2a2c Delete type=2 #1771
+2019/03/25-13:40:14.318 2a2c Delete type=2 #1773
+2019/03/25-13:40:14.319 2a2c Delete type=2 #1776
+2019/03/25-13:40:14.319 2a2c Delete type=2 #1779
+2019/03/25-13:40:14.320 2a2c Delete type=2 #1781

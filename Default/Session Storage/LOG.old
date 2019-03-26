@@ -1,0 +1,36 @@
+2019/03/24-21:55:51.839 5964 Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Session Storage/MANIFEST-000001
+2019/03/24-21:55:51.842 5964 Recovering log #3057
+2019/03/24-21:55:51.843 5964 Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Session Storage/003057.log 
+2019/03/24-22:02:15.573 1f08 Level-0 table #3061: started
+2019/03/24-22:02:15.581 1f08 Level-0 table #3061: 17025 bytes OK
+2019/03/24-22:02:15.584 1f08 Delete type=0 #3057
+2019/03/24-22:02:15.585 1f08 Compacting 4@0 + 1@1 files
+2019/03/24-22:02:15.599 1f08 Generated table #3062@0: 4738 keys, 101992 bytes
+2019/03/24-22:02:15.599 1f08 Compacted 4@0 + 1@1 files => 101992 bytes
+2019/03/24-22:02:15.602 1f08 compacted to: files[ 0 1 1 0 0 0 0 ]
+2019/03/24-22:02:15.603 1f08 Delete type=2 #3051
+2019/03/24-22:02:15.603 1f08 Delete type=2 #3053
+2019/03/24-22:02:15.604 1f08 Delete type=2 #3056
+2019/03/24-22:02:15.604 1f08 Delete type=2 #3058
+2019/03/24-22:02:15.604 1f08 Delete type=2 #3061
+2019/03/24-23:01:35.422 1f08 Level-0 table #3064: started
+2019/03/24-23:01:35.426 1f08 Level-0 table #3064: 18655 bytes OK
+2019/03/24-23:01:35.430 1f08 Delete type=0 #3060
+2019/03/24-23:32:53.182 1f08 Level-0 table #3066: started
+2019/03/24-23:32:53.190 1f08 Level-0 table #3066: 15816 bytes OK
+2019/03/24-23:32:53.194 1f08 Delete type=0 #3063
+2019/03/24-23:40:47.955 1f08 Level-0 table #3068: started
+2019/03/24-23:40:47.958 1f08 Level-0 table #3068: 18261 bytes OK
+2019/03/24-23:40:47.961 1f08 Delete type=0 #3065
+2019/03/24-23:48:41.423 1f08 Level-0 table #3070: started
+2019/03/24-23:48:41.432 1f08 Level-0 table #3070: 22340 bytes OK
+2019/03/24-23:48:41.436 1f08 Delete type=0 #3067
+2019/03/24-23:48:41.436 1f08 Compacting 4@0 + 1@1 files
+2019/03/24-23:48:41.446 1f08 Generated table #3071@0: 4878 keys, 159697 bytes
+2019/03/24-23:48:41.446 1f08 Compacted 4@0 + 1@1 files => 159697 bytes
+2019/03/24-23:48:41.449 1f08 compacted to: files[ 0 1 1 0 0 0 0 ]
+2019/03/24-23:48:41.449 1f08 Delete type=2 #3062
+2019/03/24-23:48:41.450 1f08 Delete type=2 #3064
+2019/03/24-23:48:41.450 1f08 Delete type=2 #3066
+2019/03/24-23:48:41.450 1f08 Delete type=2 #3068
+2019/03/24-23:48:41.450 1f08 Delete type=2 #3070

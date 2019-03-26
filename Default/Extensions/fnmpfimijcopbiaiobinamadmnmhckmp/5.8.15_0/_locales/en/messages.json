@@ -1,0 +1,382 @@
+{
+   "acceptable_formats": {
+      "message": "Acceptable formats for downloading"
+   },
+   "advice": {
+      "message": "Advice"
+   },
+   "advice_text_0": {
+      "message": "By default Skyload stores all the files to the «Downloads» folder on your operation system.\u003Cbr />\u003Cbr />Skyload cannot change the downloads destination folder, however, Skyload still can create its own folders in «Downloads» folder.\u003Cbr />\u003Cbr />In case you wish to change the downloads destination folder this option is available in settings of your web-browser."
+   },
+   "advice_text_1": {
+      "message": "How to get a direct link to file?\u003Cbr />\u003Cbr />In order to get a direct link to a file you need to launch Skyload download manager, then double click on the selected file, and then you would see the link opened in a new window.\u003Cbr />\u003Cbr />You can copy it and start to download using other application."
+   },
+   "advice_text_2": {
+      "message": "How to remove a Save File pop-up window?\u003Cbr />\u003Cbr />In order to hide the dialogue window you need to uncheck the respective option in settings of your web-browser."
+   },
+   "advice_text_3": {
+      "message": "Skyload is a free application (a web-browser add-on). In order to live and develop this app contains light advertisement materials.\u003Cbr />\u003Cbr />You can donate to the project by purchasing the subscription and get your favourite add-on free of advertisements."
+   },
+   "all": {
+      "message": "All"
+   },
+   "app_des": {
+      "message": "Download music and videos from 99.9% of sites"
+   },
+   "app_name": {
+      "message": "Skyload"
+   },
+   "app_title": {
+      "message": "Skyload - Music and video downloader"
+   },
+   "audio_1": {
+      "description": "Одна аудиозапись",
+      "message": "audio"
+   },
+   "audio_2": {
+      "description": "Две аудиозаписи, три аудиозаписи",
+      "message": "audios"
+   },
+   "audio_3": {
+      "description": "Пять аудиозаписей",
+      "message": "audios"
+   },
+   "back": {
+      "message": "Back"
+   },
+   "cancel": {
+      "message": "Cancel"
+   },
+   "close": {
+      "message": "Close"
+   },
+   "disclaimer": {
+      "message": "All materials are provided for informational purposes only &copy; \u003Ca target='_blank' href='\u003C%= link %>'>Skyload\u003C/a>"
+   },
+   "donate_motivation": {
+      "message": "Do you want to fly high? Login in the system, donate the project, subscribe and use Skyload without advertising"
+   },
+   "donate_notification_message_1": {
+      "message": "Donate the project and get a subscription. Click to learn more"
+   },
+   "donate_notification_message_2": {
+      "message": "You can donate the project and use Skyload without advertising"
+   },
+   "donate_notification_message_3": {
+      "message": "Donate the project and use Skyload without advertising"
+   },
+   "donate_notification_title_1": {
+      "message": "Do you like how the Skyload works?"
+   },
+   "donate_notification_title_2": {
+      "message": "Donate the project"
+   },
+   "donate_notification_title_3": {
+      "message": "Do you want to fly high?"
+   },
+   "download": {
+      "message": "Download"
+   },
+   "download_notification_message": {
+      "message": "The file is downloaded in the background mode, to see the download, click on the icon on the browser toolbar"
+   },
+   "download_notification_title": {
+      "message": "File downloading"
+   },
+   "download_on_yt": {
+      "message": "Download video on Youtube"
+   },
+   "download_process": {
+      "message": "Downloading"
+   },
+   "download_sound": {
+      "message": "Download song"
+   },
+   "download_video": {
+      "message": "Download video"
+   },
+   "download_video_sc": {
+      "message": "Download video by single click"
+   },
+   "downloads": {
+      "message": "Downloads"
+   },
+   "empty_state_text": {
+      "message": "There are no files on this page, which recognized by Skyload. Start playing music or a video to capture"
+   },
+   "file": {
+      "description": "Один файл",
+      "message": "file"
+   },
+   "file_2": {
+      "description": "Два файла",
+      "message": "file"
+   },
+   "files": {
+      "description": "Пять файлов",
+      "message": "files"
+   },
+   "for": {
+      "message": "for"
+   },
+   "found": {
+      "description": "Найдено 5 файлов",
+      "message": "Found"
+   },
+   "g_d_complete": {
+      "message": "Downloading files is completed. Click to view download."
+   },
+   "gb": {
+      "message": "GB"
+   },
+   "get_subscription": {
+      "message": "Subscribe"
+   },
+   "in_the_queue_2": {
+      "description": "В очереди два файла",
+      "message": "In the queue"
+   },
+   "in_the_queue_3": {
+      "message": "This file is now in the queue to load"
+   },
+   "kb": {
+      "message": "KB"
+   },
+   "kbs": {
+      "message": "kb/s"
+   },
+   "lang": {
+      "message": "Interface language"
+   },
+   "learn_how_download": {
+      "message": "Learn how download"
+   },
+   "learn_more": {
+      "message": "Learn more"
+   },
+   "loaded": {
+      "description": "Загружается 10 файлов",
+      "message": "Loading"
+   },
+   "loading": {
+      "message": "Loading"
+   },
+   "login": {
+      "message": "Login in the system"
+   },
+   "mb": {
+      "message": "MB"
+   },
+   "menu": {
+      "message": "Menu"
+   },
+   "menu_donate": {
+      "message": "Donate project (Donate)"
+   },
+   "menu_help": {
+      "message": "FAQ and support"
+   },
+   "menu_help_vk": {
+      "message": "Support in VK"
+   },
+   "menu_login": {
+      "message": "Login"
+   },
+   "menu_logout": {
+      "message": "Logout"
+   },
+   "menu_privacy_policy": {
+      "message": "Privacy policy"
+   },
+   "menu_site": {
+      "message": "Skyload site"
+   },
+   "menu_user_agreement": {
+      "message": "User agreement"
+   },
+   "mixed": {
+      "description": "Эти файлы",
+      "message": "Files"
+   },
+   "mixed_s1": {
+      "description": "Поиск файлов на странице",
+      "message": "files"
+   },
+   "mp4_audio": {
+      "message": "MP4 Audio"
+   },
+   "multiupload": {
+      "description": "Груповая загрузка, загрузка целиком, возможный английский перевод multiupload",
+      "message": "Multiupload"
+   },
+   "no_audio": {
+      "message": "no audio"
+   },
+   "no_files": {
+      "message": "No files"
+   },
+   "notification_error_message": {
+      "message": "Skyload can not download file"
+   },
+   "notification_error_title": {
+      "message": "File loading error"
+   },
+   "on_page": {
+      "description": "Поиск музыки на странице",
+      "message": "on page"
+   },
+   "open": {
+      "message": "Open"
+   },
+   "pause": {
+      "message": "Pause"
+   },
+   "play": {
+      "description": "Воспроизвести музыку",
+      "message": "Play"
+   },
+   "play_error_message": {
+      "message": "Format not available for playback"
+   },
+   "popup_title_queue": {
+      "description": "Загружается пять файлов",
+      "message": "Loading \u003C%= count %> \u003C%= label %>"
+   },
+   "push_to_icon": {
+      "message": "Push the icon Skyload, on the browser toolbar to view download"
+   },
+   "resume": {
+      "message": "Resume"
+   },
+   "resume_message": {
+      "message": "File download was stopped, but now the loading is resumed"
+   },
+   "search": {
+      "message": "Search"
+   },
+   "search_downloads": {
+      "message": "Search by downloads"
+   },
+   "selected": {
+      "description": "Выбрано пять файлов",
+      "message": "Selected"
+   },
+   "several": {
+      "message": "Several"
+   },
+   "show": {
+      "message": "Show"
+   },
+   "size": {
+      "description": "Размер 10МБ",
+      "message": "Size"
+   },
+   "social_networks": {
+      "message": "Social networks"
+   },
+   "sound": {
+      "message": "Music"
+   },
+   "sound_s1": {
+      "description": "Поиск музыки на странице",
+      "message": "music"
+   },
+   "source_name_fb": {
+      "message": "Facebook"
+   },
+   "source_name_gm": {
+      "message": "Google Music"
+   },
+   "source_name_ok": {
+      "message": "OK.RU"
+   },
+   "source_name_pladform": {
+      "message": "Pladform"
+   },
+   "source_name_sc": {
+      "message": "SoundCloud"
+   },
+   "source_name_vimeo": {
+      "message": "Vimeo"
+   },
+   "source_name_vk": {
+      "message": "VK"
+   },
+   "source_name_wimp": {
+      "message": "Wimp"
+   },
+   "source_name_ya": {
+      "message": "Yandex.Music"
+   },
+   "source_name_yt": {
+      "message": "YouTube"
+   },
+   "stop": {
+      "message": "Stop"
+   },
+   "stream": {
+      "message": "Stream"
+   },
+   "stream_create": {
+      "message": "Creates a stream"
+   },
+   "subscription_des": {
+      "message": "You still do not have a subscription. Donate the project, and and use Skyload without advertising"
+   },
+   "subscription_expired": {
+      "description": "Ваша подписка действует до 31/12/9999",
+      "message": "Your subscription is valid until"
+   },
+   "subscription_extend": {
+      "message": "Extend subscription"
+   },
+   "subscription_forever_des": {
+      "message": "This is a business class, you can relax and enjoy a cup of coffee because you have eternal subscription!"
+   },
+   "subscription_half_year_des": {
+      "message": "Welcome the pilot aboard."
+   },
+   "subscription_month_des": {
+      "message": "Are you still an amateur, but already planning to fly high."
+   },
+   "subscription_year_des": {
+      "message": "Welcome the captain aboard."
+   },
+   "the_file_is_loaded": {
+      "message": "The file is loading"
+   },
+   "to_sep_dir_des": {
+      "message": "When downloading, the files will be sorted into separate folders with the artist and album name. This function  work not on all sites and only for music"
+   },
+   "upload_to_sep_dir": {
+      "message": "To separate directories"
+   },
+   "video": {
+      "message": "Video"
+   },
+   "video_1": {
+      "description": "Одно видео, пять видео",
+      "message": "video"
+   },
+   "video_s1": {
+      "description": "Поиск видео на странице",
+      "message": "video"
+   },
+   "welcome_state_title": {
+      "message": "Welcome"
+   },
+   "welcome_state_title_login": {
+      "description": "Привет, Полина",
+      "message": "Hello, \u003C%= username %>"
+   },
+   "youtube_state_text_end": {
+      "message": "If you want to download videos from YouTube, use the recommendation by clicking on the link below"
+   },
+   "youtube_state_text_start": {
+      "message": "Chrome Web Store (Google) does not allow extensions to download videos from YouTube. Therefore, we have removed this feature in Skyload for Chrome Web Store"
+   },
+   "youtube_state_title": {
+      "description": "Не переводить",
+      "message": "Skyload + YouTube"
+   }
+}

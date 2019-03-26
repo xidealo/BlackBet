@@ -1,0 +1,705 @@
+<script type="text/javascript">
+    function NoTarg()
+    {
+        try
+        {
+            parent.postMessage("end_reklam_vid_roll", "*");
+        }catch(e){}
+    }
+
+    function Close_vid() {
+        if (eternal == 'yes') {
+            if (counter_ol < kolvr_roll) {
+                contr = 0;
+                karusel = 0;
+                watchkomp = 'off';
+                adv = 'off';
+                counter_ol++;
+                console.info('VID Counter OL ' + counter_ol);
+                document.getElementById('reklamniy_iframe').contentWindow.location.replace(arr[contr]);
+            } else {
+                NoTarg();
+                try {
+                    //document.getElementById('reklamniy_iframe').src='';
+                    removeIframe('reklamniy_iframe');
+                } catch (e) {
+                }
+            }
+        } else {
+            NoTarg();
+            try {
+                // document.getElementById('reklamniy_iframe').src='';
+                removeIframe('reklamniy_iframe');
+            } catch (e) {
+            }
+        }
+    }
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c)
+    {
+        (w[c] = w[c] || []).push(function ()
+        {
+            try
+            {
+                w.yaCounter41693674 = new Ya.Metrika({
+                    id: 41693674,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                });
+            } catch (e)
+            {
+            }
+        });
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/41693674" style="position:absolute; left:-9999px;" alt=""/>
+    </div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="text/javascript" src="/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    //none safari
+    if ( navigator.userAgent.search(/Safari/) > 0 && navigator.userAgent.search(/Chrome/) <= 0)
+    {
+        NoTarg();
+    }
+    //none safari end
+</script>
+<img id="close_adv_kod_button_dis"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTI2RjJCQTZBNjEzMTFFODgxQkI4QjRDREE4MDUyNTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTI2RjJCQTdBNjEzMTFFODgxQkI4QjRDREE4MDUyNTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMjZGMkJBNEE2MTMxMUU4ODFCQjhCNENEQTgwNTI1NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMjZGMkJBNUE2MTMxMUU4ODFCQjhCNENEQTgwNTI1NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuznWR8AAAGiSURBVHjazFZNa8JAEJ0svXs0F8VzqZBQe/Qu/hMvigd/gD0UAjnrbypN9FaKHiMk3kTaY7Ldt+3K2jZLYzfQgclOZob3ZpL9YpxzEvogNON2JfvEJRDc83pl7ohHTkQsDMPHxWJxI5n/KI7j0Gg0ep7NZnfiNQeJRGWMkQ0CJcDL8/zDVs52u/1GFqXVap3wmN6iTdHxmClxPB5z3/eNYIhPJhPzd1ZToNPpvOJV6XQ6LeA/HA682WxyPaYUfsQhyNdjwFPYpZ1EUeRkWUaNRoPiOCbXdc/igkD6EUce8it3oird7XYyjlF1hDFJkpNfFPCtS70TIwkUAIpos9nwwWAgRxNBZRJV+Wq1OlvG6/W69F9dRALtdrtnJJ7ncVP+/+tE/8nb7ZYPh0M5QuAvI/o1Se2zq9/v8zRNS4H0ApCH/MqLsdfrAZiOxyNsueB02e/30o848mBftBjF3lWIvck4ixAXe1dhZQpX1R8/l80D6ytebScjzpOiKKR9JRQWC4LgablcXls841+EeYszHtXP676tkHbvSi2Dp+re9S7AADo/E1CTWgh/AAAAAElFTkSuQmCC"
+     style="z-index:1100; position:absolute; cursor:pointer; height:25px !important; width: 25px !important; margin:0px !important; padding:0px !important; top:35px !important; left:12px !important; pointer-events:none; border:1px !important;opacity: 0.2;">
+<img id="close_adv_kod_button"
+     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTI2RjJCQTZBNjEzMTFFODgxQkI4QjRDREE4MDUyNTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTI2RjJCQTdBNjEzMTFFODgxQkI4QjRDREE4MDUyNTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMjZGMkJBNEE2MTMxMUU4ODFCQjhCNENEQTgwNTI1NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxMjZGMkJBNUE2MTMxMUU4ODFCQjhCNENEQTgwNTI1NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuznWR8AAAGiSURBVHjazFZNa8JAEJ0svXs0F8VzqZBQe/Qu/hMvigd/gD0UAjnrbypN9FaKHiMk3kTaY7Ldt+3K2jZLYzfQgclOZob3ZpL9YpxzEvogNON2JfvEJRDc83pl7ohHTkQsDMPHxWJxI5n/KI7j0Gg0ep7NZnfiNQeJRGWMkQ0CJcDL8/zDVs52u/1GFqXVap3wmN6iTdHxmClxPB5z3/eNYIhPJhPzd1ZToNPpvOJV6XQ6LeA/HA682WxyPaYUfsQhyNdjwFPYpZ1EUeRkWUaNRoPiOCbXdc/igkD6EUce8it3oird7XYyjlF1hDFJkpNfFPCtS70TIwkUAIpos9nwwWAgRxNBZRJV+Wq1OlvG6/W69F9dRALtdrtnJJ7ncVP+/+tE/8nb7ZYPh0M5QuAvI/o1Se2zq9/v8zRNS4H0ApCH/MqLsdfrAZiOxyNsueB02e/30o848mBftBjF3lWIvck4ixAXe1dhZQpX1R8/l80D6ytebScjzpOiKKR9JRQWC4LgablcXls841+EeYszHtXP676tkHbvSi2Dp+re9S7AADo/E1CTWgh/AAAAAElFTkSuQmCC"
+     style="z-index:1100; position:absolute; cursor:pointer; height:25px !important; width: 25px !important; margin:0px !important; padding:0px !important; top:35px !important; left:12px !important; border:1px !important;"
+     onclick="parent.postMessage('end_reklam_vid_roll', '*');document.getElementById('reklamniy_iframe').parentNode.removeChild(document.getElementById('reklamniy_iframe'));"
+     hidden="hidden">
+<span id="timer_otch"
+      style="display:block; z-index:1000; position:absolute; color: #fff; font-size: 17px; font-weight: 700; cursor:pointer; height:25px !important; width: 25px !important; margin:0px !important; padding:0px !important; top:35px !important; right:12px !important; border:1px !important;"></span>
+<div id="reklamniy_iframe_div"></div>
+<style type="text/css">body {margin: 0 !important;}</style>
+<script type="text/javascript">
+    var tmpElem = document.getElementById('reklamniy_iframe_div');
+    var iframeAdElem = document.createElement("iframe");
+    iframeAdElem.id = 'reklamniy_iframe';
+    iframeAdElem.width = '100%';
+    iframeAdElem.height = '100%';
+    iframeAdElem.frameBorder = 0;
+    iframeAdElem.setAttribute('scrolling', 'no');
+    iframeAdElem.setAttribute('allowFullScreen', true);
+    iframeAdElem.style.position = 'relative';
+    iframeAdElem.style.zIndex = 1;
+    iframeAdElem.style.margin = 0;
+    iframeAdElem.src = 'https://zb.legalkino.ru/megogo2';
+    tmpElem.appendChild(iframeAdElem);
+    //send
+    function removeIframe(name){
+        var frame = document.getElementById(name);
+        frame.parentNode.removeChild(frame);
+    }
+    function createIframe(name, src, data) {
+        src = src || 'javascript:false';
+        if(src && src != 'javascript:false') {
+            var str = "";
+            for (var key in data) {
+                if (str != "") {
+                    str += "&";
+                }
+                str += key + "=" + encodeURIComponent(data[key]);
+            }
+            src = src +'?'+str
+        }
+        var tmpElem = document.createElement('div');
+        tmpElem.innerHTML = '<iframe id="' + name + '" src="' + src + '">';
+        var iframe = tmpElem.firstChild;
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        return iframe;
+    }
+
+    function SearchTypeCount(type) {
+        ret = -1;
+        for (var i = 0; i < parseInt(arType.length); i++) {
+            if (arType[i].toString() == type.toString()) {
+                console.info('FIND ' + type);
+                ret = i;
+                break;
+            }
+        }
+        return ret;
+    }
+    //send end
+    //events
+    function postMessageReceive(e)
+    {
+        if (e.data == 'rek_mgg_all')
+        {
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1) && e.origin != 'http://winvideo.org')
+            {
+                return;
+            }else
+            {
+                var datMegA = {advertonMA: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark,uniqid: arUniq[contr]};
+                try
+                {
+                    removeIframe('video_6');
+                }
+                catch(e){}
+                createIframe('video_6', 'reklamnComp/roll/megEA.php', datMegA);
+            }
+        }
+        //click
+        if (e.data == 'surok_click_reklam'){
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1) && e.origin != 'http://winvideo.org')
+            {
+                return;
+            }else
+            {
+                var datMegA = {advertonClick: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark,uniqid: arUniq[contr]};
+                try
+                {
+                    removeIframe('video_9');
+                }
+                catch(e){}
+                createIframe('video_9', 'reklamnComp/roll/surCl.php', datMegA);
+            }
+        }
+        //has advert
+        if (e.data == 'surok_yes_reklam' || e.data == 'movieads_ad_impression' || (e.data.event && e.data.event == 'pre_adv_start') || e.data == 'megogo_peregruz' || e.data == 'advert' || e.data == 'send_ok' || e.data == 'show_ad' || e.data == 'vast_firstquartile')
+        {
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1) && e.origin != 'http://winvideo.org' && e.origin != 'https://videomore.ru')
+            {
+                return;
+            } else
+            {
+                if(e.data == 'megogo_peregruz')
+                {
+                    var datMeg = {advertonM: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark};
+                    try
+                    {
+                        removeIframe('video_5');
+                    }
+                    catch(e){}
+                    createIframe('video_5', 'reklamnComp/roll/megE.php', datMeg);
+                }
+                var datAll = {advertonall: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark,uniqid: arUniq[contr]};
+                try
+                {
+                    removeIframe('video_4');
+                }
+                catch(e){}
+                createIframe('video_4', 'reklamnComp/roll/alladv.php', datAll);
+                if (adv == 'off')
+                {
+                    adv = 'on';
+                    var datA = {adverton: 'on',logad: login,plad: plosh,uniqid: arUniq[contr],cntrPrice: countrPrice,timark: timeMark};
+                    try
+                    {
+                        removeIframe('video_1');
+                    }
+                    catch(e){}
+                    createIframe('video_1', 'reklamnComp/roll/adv.php', datA);
+                }
+                if(e.data == 'surok_yes_reklam')
+                {
+                    var datStS = {advertonS: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark};
+                    try
+                    {
+                        removeIframe('video_7');
+                    }
+                    catch(e){}
+                    createIframe('video_7', 'reklamnComp/roll/surokst.php', datStS);
+                }
+            }
+        }
+        //has advert end
+        //no advert
+        if ((e.data == 'surok_check_reklam' && adv == 'off') || e.data == 'surok_check_reklamend' || e.data == 'movieads_no_ads' || (e.data.event && e.data.event == 'pre_adv_end') || e.data == 'no_reklamn' || e.data == 'finita_la_advert' || e.data == 'no_ads' || e.data == 'vast_complete' || e.data == 'no_adv')
+        {
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1) && e.origin != 'http://winvideo.org' && e.origin != 'https://videomore.ru')
+            {
+                return;
+            } else
+            {
+                if(adv == 'off') //раскоментить
+                { //раскоментить
+                    if(contr+1 == Karr)
+                    {
+                        NoTarg();
+                    }else
+                    {
+                        //adv = 'off'; //закоментить
+                        contr = contr+1;
+                        document.getElementById('reklamniy_iframe').src = arr[contr];
+                        watchkomp = 'off';
+                    }
+                }else if (adv == 'on' && karusel < 1) //раскоментить
+                {
+                    while (karusel < vCountKarusel) {
+                        Skarus = SearchTypeCount(vArrKarusel[karusel]);
+                        if (Skarus + 1) break;
+                        karusel++;
+                    }
+                    if(Skarus > 0){
+                        karusel++;
+                        contr = Skarus;
+                        //console.info('VID DATA  ' + karusel + ' ' + Skarus + ' ' + arr[contr]);
+                        watchkomp = 'off';
+                        adv = 'off';
+                        document.getElementById('reklamniy_iframe').contentWindow.location.replace(arr[contr]);
+                    }else{
+                        if(!patkol)Close_vid();
+                    }
+
+                }else if(adv == 'on' && karusel < vCountKarusel){
+                    karusel++;
+                    contr++;
+                    if (contr == Karr) {
+                        if(!patkol)Close_vid();
+                    }else{
+                        watchkomp = 'off';
+                        adv = 'off';
+                        document.getElementById('reklamniy_iframe').contentWindow.location.replace(arr[contr]);
+                    }
+                }else if (eternal == 'yes') {
+                    if(!patkol)Close_vid();
+                }
+            }
+        }
+        //no advert end
+        if (e.data == 'surok_complete_reklam')
+        {
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1) && e.origin != 'http://winvideo.org')
+            {
+                return;
+            }else
+            {
+                var datEdS = {advertonS: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark,uniqid: arUniq[contr]};
+                try
+                {
+                    removeIframe('video_8');
+                }
+                catch(e){}
+                createIframe('video_8', 'reklamnComp/roll/suroked.php', datEdS);
+            }
+        }
+        //show button
+        if (e.data == 'close_adv_kod_button_show') {
+            if (e.origin != basic_dom) {
+                return;
+            } else {
+                document.getElementById('close_adv_kod_button').hidden = false;
+            }
+        }
+        //show button end
+        if(e.data.titlM == 'video_3')
+        {
+            watchkomp = 'on';
+            console.log('SUCCESS KOMP');
+            removeIframe(e.data.datM);
+        }
+        if(e.data == 'video_1' || e.data == 'video_2')
+        {
+            if (e.origin != basic_dom) {
+                return;
+            }else {
+                switch(e.data)
+                {
+                    case 'video_1':
+                    {
+                        adv = 'on';
+                        if(kolvArr[contr] > 0)
+                        {
+                            var unObj = getCookie(arUniq[contr]);
+                            if(unObj)
+                            {
+                                unObj = JSON.parse(unObj);
+                                unObj.adv++;
+                                document.cookie = arUniq[contr] + "=" + JSON.stringify(unObj) + "; path=/; expires=" + date.toUTCString();
+                                console.info('KOMP - ' + arUniq[contr] +' WATCH - '+ unObj.watch + ' ADVERTS - '+  unObj.adv);
+                            }
+                        }
+                        try
+                        {
+                            parent.postMessage("vid_has_advert_roll", "*");
+                        }catch(e){}
+                        console.log('SUCCESS ADV');
+                        break;
+                    }
+                    case 'video_2':
+                    {
+                        watch = 'on';
+                        console.log('SUCCESS WATCH');
+                        break;
+                    }
+                }
+                removeIframe(e.data);
+            }
+        }
+        if(e.data == 'no_video_1' || e.data == 'no_video_2')
+        {
+            if (e.origin != basic_dom &&  nonuniversal > 2) {
+                return;
+            }else {
+                nonuniversal++;
+                switch(e.data)
+                {
+                    case 'no_video_1':
+                    {
+                        removeIframe('video_1');
+                        var datA = {adverton: 'on',logad: login,plad: plosh,uniqid: arUniq[contr],cntrPrice: countrPrice,timark: timeMark};
+                        createIframe('video_1', 'reklamnComp/roll/adv.php', datA);
+                        break;
+                    }
+                    case 'no_video_2':
+                    {
+                        removeIframe('video_2');
+                        var datw = {onwatch: 'on',log: login,pl: plosh,zontr: countrPrice,timark: timeMark};
+                        createIframe('video_2', 'reklamnComp/roll/watch.php', datw);
+                        break;
+                    }
+                }
+
+            }
+        }
+        if(e.data.titlM && e.data.titlM == 'no_video_3')
+        {
+            if (e.origin != basic_dom &&  nonuniversal > 2) {
+                return;
+            }
+            else
+            {
+                nonuniversal++;
+                removeIframe(e.data.datM);
+                var datk = {onmpcop: 'on',unid: e.data.datM,zoncp: countrPrice,timark: timeMark};
+                createIframe(e.data.datM, 'reklamnComp/roll/komp.php', datk);
+            }
+        }
+        //init
+        if (e.data == 'surok_init_player'){
+            if (!(arr[contr].toLowerCase().indexOf(e.origin.toLowerCase()) + 1)){
+                return;
+            }else{
+                init_trailer = true;
+            }
+        }
+        try{
+            if(e.data.event)console.log(e.data.event);
+        }catch(e){}
+
+    }
+    //events end
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    //data
+    var watchkomp = "off";
+    var watch = "off";
+    var adv = "off";
+    var login = "klimov";
+    var plosh = "https://rifme.net";
+    var countrPrice = "RU";
+    var basic_dom = "https://video-play.ru";
+    var arr = ["https:\/\/zb.legalkino.ru\/megogo2","https:\/\/best-trailer.ru\/player\/html5\/zembed.php?inst=0&adkamp3=1&adspgpmd=0","https:\/\/unionres.net\/index.php?r=iframe\/index&id=916","https:\/\/unionres.net\/index.php?r=iframe\/index&id=916"];
+    var arType = ["megogo-first","trailer","uniontraff","uniontraff-karusel"];
+    var arUniq = ["37","22","7","21"];
+    var timer = ["22000","22000","22000","22000"];
+    var kolvArr = ["2","0","0","0"];
+    var zapr_site = ["seasonvar-hd.net","ohota74.weebly.com"];
+    var timeMark = 1553202000;
+    var Karr = parseInt(arr.length);
+    var contr = 0;
+    var otch = 60;
+    var nonuniversal = 0;
+    var karusel = 0;
+    var provK = false;
+    var Skarus = 0;
+    var vArrKarusel = ["trailer-karusel","uniontraff-karusel","megogo-karusel"];
+    var vCountKarusel = parseInt(vArrKarusel.length);
+    var kolvr_roll = parseInt('5');
+    var patkol = 0;
+    var counter_ol = 0;
+    var date = new Date(new Date().getTime() + (60 * 1000*60*12));
+    var unObj;
+    var init_trailer = false;
+    //data end
+    $(function () {
+        //send event
+        if (window.addEventListener) {
+            window.addEventListener("message", postMessageReceive);
+        } else {
+            window.attachEvent("onmessage", postMessageReceive);
+        }
+        try {
+            clearTimeout(TimerClosed);
+            TimerClosed = null;
+        } catch (e) {
+        }
+        try {
+            var TimerClosed = setTimeout(function () {
+                if (eternal == 'not') parent.postMessage("end_reklam_vid_roll", "*");
+                clearTimeout(TimerClosed);
+                TimerClosed = null;
+            }, 400000);
+        } catch (e) {
+        }
+        try {
+            var Timer_otsch = setTimeout(function runtimer() {
+                if (otch >= 0) {
+                    document.getElementById('timer_otch').textContent = otch;
+                    otch--;
+                    Timer_otsch = setTimeout(runtimer, 1000);
+                } else {
+                    document.getElementById('timer_otch').style.display = 'none';
+                    document.getElementById('close_adv_kod_button_dis').style.display = 'none';
+                    document.getElementById('close_adv_kod_button').hidden = false;
+                    clearTimeout(Timer_otsch);
+                    Timer_otsch = null;
+                }
+            }, 1000);
+        } catch (e) {
+        }
+        //send event end
+        if(zapr_site && zapr_site[0] != 'none')
+        {
+            var frm_S = (typeof window.location.ancestorOrigins != 'undefined') ? JSON.stringify(window.location.ancestorOrigins) : '';
+            if(frm_S)
+            {
+                for(var ig = 0; ig< zapr_site.length; ig++)
+                {
+                    var regexp = new RegExp("(https?:\/\/){1}(www.)?("+zapr_site[ig]+")", "i");
+                    if(frm_S.search(regexp)+1 > 0)
+                    {
+                        console.info('Banned domen '+ zapr_site[ig]);
+                        eternal = 'not';
+                        NoTarg();
+                    }
+                }
+            }
+        }
+        $('#reklamniy_iframe').load(function()
+        {
+            //pladform not working in mozilla
+            if (navigator.userAgent.search(/Firefox/) > 0 && arType[contr].search(/pladf/)+1 > 0)
+            {
+                if(contr+1 == Karr)
+                {
+                    NoTarg();
+                }else
+                {
+                    contr = contr+1;
+                    document.getElementById('reklamniy_iframe').src = arr[contr];
+                    watchkomp = 'off';
+                }
+            }/*else if((navigator.userAgent.search(/YaBrowser/) > 0 || navigator.userAgent.search(/Yowser/) > 0) && (arType[contr].search(/pladf/)+1 > 0 || arType[contr].search(/megog/)+1 > 0)){
+                if(contr+1 == Karr)
+                {
+                    NoTarg();
+                }else
+                {
+                    contr = contr+1;
+                    document.getElementById('reklamniy_iframe').src = arr[contr];
+                    watchkomp = 'off';
+                }
+            }else if(navigator.userAgent.search(/Chrome/) > 0 && navigator.userAgent.search(/OPR/) <= 0 && navigator.userAgent.search(/Edge/) <= 0 && (arType[contr].search(/pladf/)+1 > 0 || arType[contr].search(/megog/)+1 > 0)){
+                if(contr+1 == Karr)
+                {
+                    NoTarg();
+                }else
+                {
+                    contr = contr+1;
+                    document.getElementById('reklamniy_iframe').src = arr[contr];
+                    watchkomp = 'off';
+                }
+            }*/
+            //false button
+            /*try
+            {
+                clearTimeout(Neab);
+                Neab=null;
+            }catch (e){}
+            try
+            {
+                var Neab = setTimeout(function () {
+                    document.getElementById('close_adv_kod_button_tmp').style.display='block';
+                    clearTimeout(Neab);
+                    Neab=null;
+                }, 3000);
+            }catch (e){}
+            try
+            {
+                clearTimeout(NaebOff);
+                NaebOff=null;
+            }catch (e){}
+            var NaebOff = setTimeout(function () {
+                document.getElementById('close_adv_kod_button_tmp').style.display='none';
+                clearTimeout(NaebOff);
+                NaebOff=null;
+            }, 10000);*/
+            //false button end
+            //pladform not working in mozilla end
+            try
+            {
+                clearTimeout(TimePer);
+                TimePer = null;
+            }catch(e){}
+            var NTime = timer[contr];
+
+            if (watch == 'off' && arType[contr] != 'mobiladvark' && arUniq[contr] != '56ac6d34a2dc7')
+            {
+                var datw = {onwatch: 'on',log: login,pl: plosh,zontr: countrPrice,timark: timeMark}
+                try
+                {
+                    removeIframe('video_2');
+                }
+                catch(e){}
+                createIframe('video_2', 'reklamnComp/roll/watch.php', datw);
+            }
+
+            if (watchkomp == 'off')
+            {
+                if(parseInt(kolvArr[contr]) > 0)
+                {
+                    unObj = getCookie(arUniq[contr]);
+                    if(!unObj)
+                    {
+                        unObj = {watch:1, adv:0};
+                        document.cookie = arUniq[contr] + "=" + JSON.stringify(unObj) + "; path=/; expires=" + date.toUTCString();
+                        var datk = {onmpcop: 'on',unid: arUniq[contr],zoncp: countrPrice,timark: timeMark};
+                        try
+                        {
+                            removeIframe(arUniq[contr]);
+                        }
+                        catch(e){}
+                        createIframe(arUniq[contr], 'reklamnComp/roll/komp.php', datk);
+                        console.info('KOMP - ' + arUniq[contr] +' WATCH - '+ unObj.watch + ' ADVERTS - '+  unObj.adv);
+                    }else
+                    {
+                        unObj = JSON.parse(unObj);
+                        if((parseInt(unObj.watch) - parseInt(unObj.adv)) >= kolvArr[contr])
+                        {
+                            if(contr+1 == Karr)
+                            {
+                                NoTarg();
+                            }else
+                            {
+                                contr = contr+1;
+                                document.getElementById('reklamniy_iframe').src = arr[contr];
+                                watchkomp = 'off';
+                            }
+                        }
+                        else
+                        {
+                            unObj.watch++;
+                            document.cookie = arUniq[contr] + "=" + JSON.stringify(unObj) + "; path=/; expires=" + date.toUTCString();
+                            var datk = {onmpcop: 'on',unid: arUniq[contr],zoncp: countrPrice,timark: timeMark}
+                            try
+                            {
+                                removeIframe(arUniq[contr]);
+                            }
+                            catch(e){}
+                            createIframe(arUniq[contr], 'reklamnComp/roll/komp.php', datk);
+                            console.info('KOMP -' + arUniq[contr] +' WATCH - '+ unObj.watch + ' ADVERTS - '+  unObj.adv);
+                        }
+                    }
+                }else
+                {
+                    var datk = {onmpcop: 'on',unid: arUniq[contr],zoncp: countrPrice,timark: timeMark}
+                    try
+                    {
+                        removeIframe(arUniq[contr]);
+                    }
+                    catch(e){}
+                    createIframe(arUniq[contr], 'reklamnComp/roll/komp.php', datk);
+                }
+            }
+            /* Условия перезагрузки РК - НАЧАЛО */
+            try
+            {
+                clearTimeout(Peregruz);
+                Peregruz=null;
+            }catch (e){}
+            if(arType[contr].toString().search(/megog/)+1 > 0 ){
+                var Peregruz = setTimeout(function(){
+                    if(adv == 'off' && arType[contr].toString().search(/megog/)+1 > 0){
+                        if(contr+1 == Karr)
+                        {
+                            Close();
+                        }else
+                        {
+                            contr = contr+1;
+                            document.getElementById('reklamniy_iframe').src = arr[contr];
+                            watchkomp = 'off';
+                        }
+                    }
+                }, 5000);
+            }
+            try{
+                clearTimeout(InitSurPer);
+                InitSurPer = null;
+            }catch(e){}
+            try{
+                if(arType[contr].toString().search(/trail/)+1 > 0){
+                    var InitSurPer = setTimeout(function(){
+                        if(!init_trailer && arType[contr].toString().search(/trail/)+1 > 0){
+                            parent.postMessage("no_reklam_vid", "*");
+                            if(contr+1 == Karr)
+                            {
+                                Close();
+                            }else
+                            {
+                                contr = contr+1;
+                                document.getElementById('reklamniy_iframe').src = arr[contr];
+                                watchkomp = 'off';
+                            }
+                        }
+                    }, 5000);
+                }
+            }catch(e){}
+            /* Условия перезагрузки РК - КОНЕЦ */
+            var TimePer = setTimeout(function () {
+                if(arType[contr] == 'advark' || arType[contr] == 'ivi' || arType[contr] == 'ivi-msk') {
+                    var datAll = {advertonall: 'on',logad: login,plad: plosh,cntrPrice: countrPrice,timark: timeMark,uniqid: arUniq[contr]};
+                    try
+                    {
+                        removeIframe('video_4');
+                    }
+                    catch(e){}
+                    createIframe('video_4', 'reklamnComp/roll/alladv.php', datAll);
+                    if (adv == 'off') {
+                        var datA = {adverton: 'on',logad: login,plad: plosh,uniqid: arUniq[contr],cntrPrice: countrPrice,timark: timeMark}
+                        try
+                        {
+                            removeIframe('video_1');
+                        }
+                        catch(e){}
+                        createIframe('video_1', 'reklamnComp/roll/adv.php', datA);
+                    }
+                }
+                clearTimeout(TimePer);
+                TimePer = null;
+            }, NTime);
+        });
+    });
+</script>

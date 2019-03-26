@@ -1,0 +1,72 @@
+2019/03/25-11:15:30.105 5c30 Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Local Extension Settings\gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2019/03/25-11:15:30.119 5c30 Recovering log #11595
+2019/03/25-11:15:30.121 5c30 Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Local Extension Settings\gighmmpiobklfepjocnamgkkbiglidom/011595.log 
+2019/03/25-11:16:31.039 2a2c Level-0 table #11599: started
+2019/03/25-11:16:31.158 2a2c Level-0 table #11599: 3966965 bytes OK
+2019/03/25-11:16:31.161 2a2c Delete type=0 #11595
+2019/03/25-11:16:31.163 2a2c Compacting 4@0 + 2@1 files
+2019/03/25-11:16:31.314 2a2c Generated table #11600@0: 2 keys, 3966460 bytes
+2019/03/25-11:16:31.322 2a2c Generated table #11601@0: 6 keys, 499 bytes
+2019/03/25-11:16:31.322 2a2c Compacted 4@0 + 2@1 files => 3966959 bytes
+2019/03/25-11:16:31.325 2a2c compacted to: files[ 0 2 1 0 0 0 0 ]
+2019/03/25-11:16:31.325 2a2c Delete type=2 #11589
+2019/03/25-11:16:31.326 2a2c Delete type=2 #11590
+2019/03/25-11:16:31.327 2a2c Delete type=2 #11592
+2019/03/25-11:16:31.327 2a2c Delete type=2 #11594
+2019/03/25-11:16:31.328 2a2c Delete type=2 #11596
+2019/03/25-11:16:31.329 2a2c Delete type=2 #11599
+2019/03/25-11:16:36.151 2a2c Level-0 table #11603: started
+2019/03/25-11:16:36.259 2a2c Level-0 table #11603: 3966688 bytes OK
+2019/03/25-11:16:36.264 2a2c Delete type=0 #11598
+2019/03/25-11:16:37.646 2a2c Level-0 table #11605: started
+2019/03/25-11:16:37.777 2a2c Level-0 table #11605: 3966411 bytes OK
+2019/03/25-11:16:37.781 2a2c Delete type=0 #11602
+2019/03/25-11:16:42.296 2a2c Level-0 table #11607: started
+2019/03/25-11:16:42.408 2a2c Level-0 table #11607: 3966411 bytes OK
+2019/03/25-11:16:42.412 2a2c Delete type=0 #11604
+2019/03/25-11:16:43.898 2a2c Level-0 table #11609: started
+2019/03/25-11:16:44.037 2a2c Level-0 table #11609: 3966420 bytes OK
+2019/03/25-11:16:44.043 2a2c Delete type=0 #11606
+2019/03/25-11:16:44.045 2a2c Compacting 4@0 + 2@1 files
+2019/03/25-11:16:44.833 2a2c Generated table #11610@0: 2 keys, 3966461 bytes
+2019/03/25-11:16:46.040 2a2c Generated table #11611@0: 6 keys, 557 bytes
+2019/03/25-11:16:46.040 2a2c Compacted 4@0 + 2@1 files => 3967018 bytes
+2019/03/25-11:16:46.043 2a2c compacted to: files[ 0 2 1 0 0 0 0 ]
+2019/03/25-11:16:46.045 2a2c Delete type=2 #11600
+2019/03/25-11:16:46.047 2a2c Delete type=2 #11601
+2019/03/25-11:16:46.048 2a2c Delete type=2 #11603
+2019/03/25-11:16:46.050 2a2c Delete type=2 #11605
+2019/03/25-11:16:46.052 2a2c Delete type=2 #11607
+2019/03/25-11:16:46.054 2a2c Delete type=2 #11609
+2019/03/25-11:27:56.646 2a2c Level-0 table #11613: started
+2019/03/25-11:27:56.756 2a2c Level-0 table #11613: 3966420 bytes OK
+2019/03/25-11:27:56.759 2a2c Delete type=0 #11608
+2019/03/25-12:16:30.842 2a2c Level-0 table #11615: started
+2019/03/25-12:16:30.946 2a2c Level-0 table #11615: 3967093 bytes OK
+2019/03/25-12:16:30.950 2a2c Delete type=0 #11612
+2019/03/25-12:54:08.543 2a2c Level-0 table #11617: started
+2019/03/25-12:54:08.668 2a2c Level-0 table #11617: 3966701 bytes OK
+2019/03/25-12:54:08.673 2a2c Delete type=0 #11614
+2019/03/25-13:16:30.957 2a2c Level-0 table #11619: started
+2019/03/25-13:16:31.063 2a2c Level-0 table #11619: 3966666 bytes OK
+2019/03/25-13:16:31.066 2a2c Delete type=0 #11616
+2019/03/25-13:16:31.067 2a2c Compacting 4@0 + 2@1 files
+2019/03/25-13:16:31.238 2a2c Generated table #11620@0: 2 keys, 3966467 bytes
+2019/03/25-13:16:31.246 2a2c Generated table #11621@0: 6 keys, 557 bytes
+2019/03/25-13:16:31.246 2a2c Compacted 4@0 + 2@1 files => 3967024 bytes
+2019/03/25-13:16:31.248 2a2c compacted to: files[ 0 2 1 0 0 0 0 ]
+2019/03/25-13:16:31.249 2a2c Delete type=2 #11610
+2019/03/25-13:16:31.251 2a2c Delete type=2 #11611
+2019/03/25-13:16:31.251 2a2c Delete type=2 #11613
+2019/03/25-13:16:31.253 2a2c Delete type=2 #11615
+2019/03/25-13:16:31.254 2a2c Delete type=2 #11617
+2019/03/25-13:16:31.255 2a2c Delete type=2 #11619
+2019/03/25-13:16:33.195 2a2c Level-0 table #11623: started
+2019/03/25-13:16:33.295 2a2c Level-0 table #11623: 3966703 bytes OK
+2019/03/25-13:16:33.299 2a2c Delete type=0 #11618
+2019/03/25-13:16:34.459 2a2c Level-0 table #11625: started
+2019/03/25-13:16:34.555 2a2c Level-0 table #11625: 3966425 bytes OK
+2019/03/25-13:16:34.558 2a2c Delete type=0 #11622
+2019/03/25-13:17:33.711 2a2c Level-0 table #11627: started
+2019/03/25-13:17:34.391 2a2c Level-0 table #11627: 3966321 bytes OK
+2019/03/25-13:17:34.395 2a2c Delete type=0 #11624

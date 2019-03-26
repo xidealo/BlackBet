@@ -1,0 +1,269 @@
+{
+   "auto_play_tts": {
+      "message": "Text-zu-Sprache automatisch abspielen"
+   },
+   "background_color": {
+      "message": "Farbe"
+   },
+   "background_linear_gradient": {
+      "message": "Verlauf"
+   },
+   "border_color": {
+      "message": "Farbe"
+   },
+   "border_radius": {
+      "message": "Radius"
+   },
+   "border_style": {
+      "message": "Stil"
+   },
+   "border_width": {
+      "message": "Breite"
+   },
+   "box_shadow_color": {
+      "message": "Farbe"
+   },
+   "box_shadow_inner": {
+      "message": "Innen"
+   },
+   "box_size_max_height": {
+      "message": "Maximalhöhe"
+   },
+   "box_size_max_width": {
+      "message": "Maximalbreite"
+   },
+   "box_size_min_height": {
+      "message": "Mindesthöhe"
+   },
+   "box_size_min_width": {
+      "message": "Mindestbreite"
+   },
+   "context_menu_translate_full_page": {
+      "message": "Ganze Seite übersetzen mit %translator%"
+   },
+   "context_menu_translate_selection": {
+      "message": "Übersetze %selection% mit %translator%"
+   },
+   "description": {
+      "message": "Übersetzen Sie Texte von einer Internetseite, passen Sie das Design des Popup-Fensters an, fügen Sie Sprachen zu Ihren Favoriten hinzu, und vieles mehr."
+   },
+   "display_icon_near_selection": {
+      "message": "Übersetzen-Schaltfläche neben der Auswahl anzeigen"
+   },
+   "display_popup_after_text_selected": {
+      "message": "Popup bei Textauswahl anzeigen"
+   },
+   "display_popup_on_double_click": {
+      "message": "Popup beim Doppelklick auf ein Wort anzeigen"
+   },
+   "display_popup_on_hotkey": {
+      "message": "Anzeigen beim Drücken von"
+   },
+   "favorites_add_item": {
+      "message": "Zu Favoriten hinzufügen"
+   },
+   "favorites_remove_item": {
+      "message": "Aus Favoriten entfernen"
+   },
+   "favorites_translate_with": {
+      "message": "Favorit und Übersetzer auswählen:"
+   },
+   "footer": {
+      "message": "Wenn Sie diese Erweiterung mögen, teilen Sie es mit Ihren Freunden:"
+   },
+   "footer_leave_review_and_donate": {
+      "message": "Sie können auch %leave a review% oder %make a donation% um die Erweiterung zu unterstützen."
+   },
+   "history_button_clear": {
+      "message": "Verlauf löschen"
+   },
+   "history_button_show_more": {
+      "message": "Mehr anzeigen"
+   },
+   "history_clear_period_all": {
+      "message": "Alles"
+   },
+   "history_clear_period_day": {
+      "message": "Letzten Tag"
+   },
+   "history_clear_period_hour": {
+      "message": "Letzte Stunde"
+   },
+   "history_clear_period_month": {
+      "message": "Letzten Monat"
+   },
+   "history_enabled_flag": {
+      "message": "Aktiviert"
+   },
+   "history_export_entries": {
+      "message": "Exportiere %format%"
+   },
+   "history_page_size": {
+      "message": "Einträge je Seite"
+   },
+   "history_search_input_placeholder": {
+      "message": "Verlauf durchsuchen"
+   },
+   "history_settings_avoid_duplicates": {
+      "message": "Duplikate vermeiden"
+   },
+   "history_settings_save_words_only": {
+      "message": "Nur Wörterbucheinträge speichern"
+   },
+   "open_in_window": {
+      "message": "In gesondertem Fenster öffnen"
+   },
+   "popup_copy_translation_title": {
+      "message": "Übersetzung kopieren"
+   },
+   "popup_demo_dictionary_noun": {
+      "message": "Substantiv"
+   },
+   "popup_demo_dictionary_values": {
+      "message": "Wort 1, Wort 2, usw."
+   },
+   "popup_demo_translation": {
+      "message": "Übersetzter Text"
+   },
+   "popup_next_vendor_icon_title": {
+      "message": "Übersetzen mit %translator%"
+   },
+   "popup_play_icon_title": {
+      "message": "Anhören"
+   },
+   "popup_position_auto": {
+      "message": "Auto (Nahe dem Text)"
+   },
+   "popup_position_left_bottom": {
+      "message": "Ecke unten links"
+   },
+   "popup_position_left_top": {
+      "message": "Ecke oben links"
+   },
+   "popup_position_right_bottom": {
+      "message": "Ecke unten rechts"
+   },
+   "popup_position_right_top": {
+      "message": "Ecke oben rechts"
+   },
+   "popup_position_title": {
+      "message": "Position"
+   },
+   "quick_access_configure_link": {
+      "message": "Tastaturkürzel erstellen, um dieses Fenster schnell aufzurufen"
+   },
+   "remember_last_typed_text": {
+      "message": "Zuletzt getippten Text anzeigen"
+   },
+   "reset_to_default_button_text": {
+      "message": "Auf Standard zurücksetzen"
+   },
+   "setting_title_common": {
+      "message": "Allgemein"
+   },
+   "setting_title_popup": {
+      "message": "Popup"
+   },
+   "setting_title_text_input": {
+      "message": "Texteingabe"
+   },
+   "setting_title_translator_service": {
+      "message": "Übersetzer"
+   },
+   "short_description": {
+      "message": "Text auf Internetseiten leicht übersetzen"
+   },
+   "show_context_menu": {
+      "message": "Im Kontextmenü anzeigen"
+   },
+   "show_copy_translation_icon": {
+      "message": "Symbol für Kopieren der Übersetzung anzeigen"
+   },
+   "show_next_vendor_icon_in_popup": {
+      "message": "Symbol für Übersetzung mit nächstem Dienst anzeigen"
+   },
+   "show_tts_icon_inside_popup": {
+      "message": "Symbol für Text-zu-Sprache anzeigen"
+   },
+   "spell_correction": {
+      "message": "Meinen Sie %spell_correction%?"
+   },
+   "sub_header_background": {
+      "message": "Hintergrund"
+   },
+   "sub_header_border": {
+      "message": "Rahmen"
+   },
+   "sub_header_box_shadow": {
+      "message": "Kastenschatten"
+   },
+   "sub_header_box_size": {
+      "message": "Kastengröße"
+   },
+   "sub_header_favorites": {
+      "message": "Favoriten"
+   },
+   "sub_header_quick_access_hotkey": {
+      "message": "Schnellzugriff"
+   },
+   "sub_header_text": {
+      "message": "Text"
+   },
+   "swap_languages": {
+      "message": "Sprachen umschalten"
+   },
+   "tab_history": {
+      "message": "Verlauf"
+   },
+   "tab_settings": {
+      "message": "Einstellungen"
+   },
+   "tab_text_input": {
+      "message": "Texteingabe"
+   },
+   "tab_theme": {
+      "message": "Thema"
+   },
+   "text_color": {
+      "message": "Farbe"
+   },
+   "text_field_placeholder": {
+      "message": "Text hier eingeben, um Übersetzung zu erhalten"
+   },
+   "text_font_family": {
+      "message": "Schriftart"
+   },
+   "text_input_translation_hint": {
+      "message": "%hotkey% für sofortige Übersetzung, Verzögerung: %ms%"
+   },
+   "text_shadow": {
+      "message": "Schatten"
+   },
+   "text_shadow_color": {
+      "message": "Farbe"
+   },
+   "text_shadow_offset_x": {
+      "message": "Horizontaler Versatz"
+   },
+   "text_shadow_offset_y": {
+      "message": "Vertikaler Versatz"
+   },
+   "text_shadow_size": {
+      "message": "Unschärfegrad"
+   },
+   "text_size": {
+      "message": "Größe"
+   },
+   "translated_with": {
+      "message": "Übersetzt mit %translator% (%lang%)"
+   },
+   "translation_delay": {
+      "message": "Übersetzungsverzögerung"
+   },
+   "translation_delay_info": {
+      "message": "Stellen Sie einen höheren Wert für die Verzögerung ein, wenn Sie oft Blockaden durch Google oder andere Dienste feststellen (Fehler 503)"
+   },
+   "use_dark_theme": {
+      "message": "Dunkles Thema für dieses Fenster verwenden"
+   }
+}
