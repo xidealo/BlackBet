@@ -1,6 +1,0 @@
-2019/03/24-22:01:51.767 3b3c Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\https_web.telegram.org_0.indexeddb.leveldb/MANIFEST-000001
-2019/03/24-22:01:51.768 3b3c Recovering log #3
-2019/03/24-22:01:51.878 3b3c Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\IndexedDB\https_web.telegram.org_0.indexeddb.leveldb/000003.log 
-2019/03/24-22:39:51.958 5f8 Level-0 table #5: started
-2019/03/24-22:39:51.995 5f8 Level-0 table #5: 606190 bytes OK
-2019/03/24-22:39:52.002 5f8 Delete type=0 #3

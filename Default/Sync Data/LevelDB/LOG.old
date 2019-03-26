@@ -1,6 +1,0 @@
-2019/03/24-21:55:50.845 31d8 Reusing MANIFEST C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Sync Data\LevelDB/MANIFEST-000001
-2019/03/24-21:55:50.846 31d8 Recovering log #1772
-2019/03/24-21:55:50.847 31d8 Reusing old log C:\Users\maxas\AppData\Local\Google\Chrome\User Data\Default\Sync Data\LevelDB/001772.log 
-2019/03/24-23:40:33.739 1f08 Level-0 table #1776: started
-2019/03/24-23:40:33.747 1f08 Level-0 table #1776: 97275 bytes OK
-2019/03/24-23:40:33.754 1f08 Delete type=0 #1772
