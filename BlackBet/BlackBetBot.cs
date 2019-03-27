@@ -4,9 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-
-
-
+using System.Drawing;
+using System.Windows.Forms;
+using OpenQA.Selenium.Internal;
+using OpenQA.Selenium.Interactions;
 
 namespace BlackBet
 {
@@ -17,6 +18,7 @@ namespace BlackBet
         private string nameVipChat = "Black Bet";
         private string nameOurChat = "Mark";
         private string maxWindow = "start-maximized"; // максимизация окна
+        List<Image> images = new List<Image>();
 
         // Max_Astin
         private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";        
@@ -51,7 +53,7 @@ namespace BlackBet
                 if (lastTimeMessage < messageTime)
                 {
                     //получаем все доступные сообщения в нем
-                    List<String> messages = getNewMessages(lastTimeMessage);
+                    List<Object> messages = getNewMessages(lastTimeMessage);
                     lastTimeMessage = messageTime;
                     Thread.Sleep(1000);
 
@@ -67,6 +69,7 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
+            
         }
 
         private void openBrowser()
@@ -77,7 +80,7 @@ namespace BlackBet
             co.AddArgument(maxWindow);
             // открыть 
             browser = new ChromeDriver(co);
-            
+
             // отправляемся по ссылке  
             browser.Navigate().GoToUrl("https://web.telegram.org");
         }
@@ -167,7 +170,7 @@ namespace BlackBet
         }
 
         // потом исправлю
-        private List<String> getNewMessages(long lastMessageTime)
+        private List<Object> getNewMessages(long lastMessageTime)
         {
             // im_message_text - селектор сообщения
             // List<IWebElement> messagesContainer = browser.FindElements(By.CssSelector(".im_message_text")).ToList();
@@ -176,7 +179,8 @@ namespace BlackBet
             var messageDate = "";
             var dateLong = lastMessageTime - (lastMessageTime % 86400000);
             var messageText = "";
-            List<string> messagesText = new List<string> { };
+            Image messageImage = null;
+            List<Object> messages = new List<Object>();
 
             // идём по списку снизу вверх
             for (int i = messageList.Count - 1; i >= 0; i--)
@@ -196,6 +200,24 @@ namespace BlackBet
                 {
                     messageTime = messageList[i].FindElement(By.CssSelector(".im_message_date_text.nocopy")).GetAttribute("data-content");
                     messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
+
+                    // текста нет, значит там картинка
+                    if (messageText.Equals(""))
+                    {
+                        IWebElement imageElement = messageList[i].FindElements(By.CssSelector(".im_message_photo_thumb")).Last();
+                        Actions action = new Actions(browser);
+                        action.ContextClick(imageElement)
+                            .SendKeys(OpenQA.Selenium.Keys.ArrowDown)
+                            .SendKeys(OpenQA.Selenium.Keys.ArrowDown)
+                            .SendKeys(OpenQA.Selenium.Keys.ArrowDown)
+                            .SendKeys(OpenQA.Selenium.Keys.Enter)
+                            .Perform();
+
+                        if (Clipboard.ContainsImage())
+                        {
+                            messageImage = Clipboard.GetImage();
+                        }
+                    }
                 }
                 catch
                 {
@@ -210,11 +232,15 @@ namespace BlackBet
                     // возможно стоит добавить его в список
                     if (compareDates(lastMessageTime, dateLong, messageTime))
                     {
-                        messagesText.Add(messageText);
+                        messages.Add(messageText);
+                        if (messageText.Equals(""))
+                        {
+                            messages.Add(messageImage);
+                        }
                     }
                     else
                     {
-                        return messagesText;
+                        return messages;
                     }
                 }
 
@@ -225,7 +251,7 @@ namespace BlackBet
                 }
             }
 
-            return messagesText;
+            return messages;
         }
 
         private bool compareDates(long lastMessageTime, long dateLong, string messageTime)
@@ -241,15 +267,25 @@ namespace BlackBet
             return false;
         }
 
-        private void sentMessagesInOurDialog(List<string> messages)
+        private void sentMessagesInOurDialog(List<Object> messages)
         {
             IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
 
             // переворачиваем чтобы отправлять
             messages.Reverse();
-            foreach (String message in messages)
+            foreach (Object message in messages)
             {
-                answerPlace.SendKeys(message + Keys.Enter);
+                if (message is string)
+                {
+                    answerPlace.SendKeys(message + OpenQA.Selenium.Keys.Return);
+                }
+                else
+                {
+                    Clipboard.SetImage((Image)message);
+                    answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
+                    answerPlace.SendKeys(OpenQA.Selenium.Keys.Enter);
+                }
+                
                 Thread.Sleep(100);
             }
 
