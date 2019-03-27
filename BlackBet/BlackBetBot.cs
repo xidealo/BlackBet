@@ -39,7 +39,7 @@ namespace BlackBet
             isMyProfile();
             Thread.Sleep(4000);
 
-            //выбираем диалог, который нам нужен
+            //выбираем VIP диалог
             chooseChatDialog(nameVipChat);
             Thread.Sleep(4000);
 
@@ -53,13 +53,17 @@ namespace BlackBet
                     //получаем все доступные сообщения в нем
                     List<String> messages = getNewMessages(lastTimeMessage);
                     lastTimeMessage = messageTime;
-                    Thread.Sleep(4000);
+                    Thread.Sleep(1000);
 
-                    /*//выбираем наш диалог
+                    //выбираем наш диалог
                     chooseChatDialog(nameOurChat);
-                    Thread.Sleep(4000);
+                    Thread.Sleep(1000);
                     //отправляем сообщения
-                    sentMessagesInOurDialog(messages);*/
+                    sentMessagesInOurDialog(messages);
+
+                    //выбираем VIP диалог
+                    chooseChatDialog(nameVipChat);
+                    Thread.Sleep(1000);
                 }
                 Thread.Sleep(100);
             }
@@ -101,6 +105,11 @@ namespace BlackBet
                 {
                     messageTime = messageList[i].FindElement(By.CssSelector(".im_message_date_text.nocopy")).GetAttribute("data-content");
                     messageIndex = i;
+                    if (messageTime.Equals(""))
+                    {
+                        // получилось, но текст пусой, поэтому ищем дальше
+                        continue;
+                    }
                     break;
                 }
                 catch
@@ -118,6 +127,11 @@ namespace BlackBet
                 try
                 {
                     messageDate = messageList[i].FindElement(By.CssSelector(".im_message_date_split_text")).Text;
+                    if (messageDate.Equals(""))
+                    {
+                        // получилось, но текст пусой, поэтому ищем дальше
+                        continue;
+                    }
                     break;
                 }
                 catch
@@ -216,9 +230,10 @@ namespace BlackBet
 
         private bool compareDates(long lastMessageTime, long dateLong, string messageTime)
         {
-            long timeLong = DateTime.Parse(messageTime).Ticks % 86400000;
-            
-            if (lastMessageTime < dateLong + timeLong)
+            long timeLong = convertDateToLong("", messageTime);
+            long currentMessageTime = dateLong + timeLong;
+
+            if (lastMessageTime < currentMessageTime)
             {
                 return true;
             }
@@ -228,13 +243,14 @@ namespace BlackBet
 
         private void sentMessagesInOurDialog(List<string> messages)
         {
+            IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
+
+            // переворачиваем чтобы отправлять
+            messages.Reverse();
             foreach (String message in messages)
             {
-                //.composer_rich_textarea - инпут куда стоит вставить текст
-                IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
-                //OpenQA.Selenium.Keys.Enter - нажатие клавиши 
-                answerPlace.SendKeys(message + OpenQA.Selenium.Keys.Enter);
-                Thread.Sleep(1500);
+                answerPlace.SendKeys(message + Keys.Enter);
+                Thread.Sleep(100);
             }
 
         }
@@ -246,8 +262,17 @@ namespace BlackBet
         private long convertDateToLong(string date, string time)
         {
             string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
-            DateTime commonTime = DateTime.Parse(date + " " + times[0]);
+            DateTime commonTime;
 
+
+            if (date.Equals(""))
+            {
+                date = String.Format("{0:dddd, MMMM d, yyyy}", new DateTime(1970, 1, 1));
+                commonTime = DateTime.Parse(date + " " + times[0]);
+            } else
+            {
+                commonTime = DateTime.Parse(date + " " + times[0]);
+            }
             long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
 
             if (times[1].Equals("PM"))
