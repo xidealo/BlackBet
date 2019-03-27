@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-
-
-
+using System.Drawing;
+using System.Windows.Forms;
+using OpenQA.Selenium.Internal;
+using OpenQA.Selenium.Interactions;
+using Keys = OpenQA.Selenium.Keys;
 
 namespace BlackBet
 {
@@ -15,16 +17,17 @@ namespace BlackBet
         IWebDriver browser;
         private long lastTimeMessage = 0;
         private string nameVipChat = "Black Bet";
-        private string nameOurChat = "Mark";
+        private string nameOurChat = "Валентин";
         private string maxWindow = "start-maximized"; // максимизация окна
+        List<Image> images = new List<Image>();
 
         // Max_Astin
-        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";        
-        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
+        //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
+        //private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
 
         //Hidailo
-        //private string pathToMyChromeProfile = "--user-data-dir=D:\ChomeOptions\Default";
-        //private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
 
 
         public void start()
@@ -51,7 +54,7 @@ namespace BlackBet
                 if (lastTimeMessage < messageTime)
                 {
                     //получаем все доступные сообщения в нем
-                    List<String> messages = getNewMessages(lastTimeMessage);
+                    List<Object> messages = getNewMessages(lastTimeMessage);
                     lastTimeMessage = messageTime;
                     Thread.Sleep(1000);
 
@@ -67,6 +70,7 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
+
         }
 
         private void openBrowser()
@@ -77,7 +81,7 @@ namespace BlackBet
             co.AddArgument(maxWindow);
             // открыть 
             browser = new ChromeDriver(co);
-            
+
             // отправляемся по ссылке  
             browser.Navigate().GoToUrl("https://web.telegram.org");
         }
@@ -98,7 +102,7 @@ namespace BlackBet
             var messageDate = ""; // дата последнего сообщения с текстом
 
             // идём по списку снизу вверх
-            for (int i = messageList.Count-1; i >= 0; i--)
+            for (int i = messageList.Count - 1; i >= 0; i--)
             {
                 // пытаюсь получить время и индекс последнеднего сообщения с текстом
                 try
@@ -144,7 +148,7 @@ namespace BlackBet
             // конвертируем полученную дату и время в милисекунды
             var longTime = convertDateToLong(messageDate, messageTime);
 
-            return longTime; 
+            return longTime;
         }
 
 
@@ -167,7 +171,7 @@ namespace BlackBet
         }
 
         // потом исправлю
-        private List<String> getNewMessages(long lastMessageTime)
+        private List<Object> getNewMessages(long lastMessageTime)
         {
             // im_message_text - селектор сообщения
             // List<IWebElement> messagesContainer = browser.FindElements(By.CssSelector(".im_message_text")).ToList();
@@ -176,7 +180,8 @@ namespace BlackBet
             var messageDate = "";
             var dateLong = lastMessageTime - (lastMessageTime % 86400000);
             var messageText = "";
-            List<string> messagesText = new List<string> { };
+            Image messageImage = null;
+            List<Object> messages = new List<Object>();
 
             // идём по списку снизу вверх
             for (int i = messageList.Count - 1; i >= 0; i--)
@@ -196,6 +201,31 @@ namespace BlackBet
                 {
                     messageTime = messageList[i].FindElement(By.CssSelector(".im_message_date_text.nocopy")).GetAttribute("data-content");
                     messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
+
+                    // текста нет, значит там картинка
+                    if (messageText.Equals(""))
+                    {
+                        IWebElement imageElement = messageList[i].FindElements(By.CssSelector(".im_message_photo_thumb")).Last();
+                        Actions action = new Actions(browser);
+                        action.ContextClick(imageElement)
+                            .Build()
+                            .Perform();
+
+                        action
+                        .SendKeys(Keys.ArrowDown)
+                        .SendKeys(Keys.ArrowDown)
+                        .SendKeys(Keys.ArrowDown)
+                        .SendKeys(Keys.Enter)
+                        .SendKeys(Keys.Alt)
+                        .Build()
+                        .Perform();
+
+
+                        if (Clipboard.ContainsImage())
+                        {
+                            messageImage = Clipboard.GetImage();
+                        }
+                    }
                 }
                 catch
                 {
@@ -210,11 +240,15 @@ namespace BlackBet
                     // возможно стоит добавить его в список
                     if (compareDates(lastMessageTime, dateLong, messageTime))
                     {
-                        messagesText.Add(messageText);
+                        messages.Add(messageText);
+                        if (messageText.Equals(""))
+                        {
+                            messages.Add(messageImage);
+                        }
                     }
                     else
                     {
-                        return messagesText;
+                        return messages;
                     }
                 }
 
@@ -225,7 +259,7 @@ namespace BlackBet
                 }
             }
 
-            return messagesText;
+            return messages;
         }
 
         private bool compareDates(long lastMessageTime, long dateLong, string messageTime)
@@ -241,15 +275,31 @@ namespace BlackBet
             return false;
         }
 
-        private void sentMessagesInOurDialog(List<string> messages)
+        private void sentMessagesInOurDialog(List<Object> messages)
         {
             IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
 
             // переворачиваем чтобы отправлять
             messages.Reverse();
-            foreach (String message in messages)
+            foreach (Object message in messages)
             {
-                answerPlace.SendKeys(message + Keys.Enter);
+                if (message is string)
+                {
+                    answerPlace.SendKeys(message + OpenQA.Selenium.Keys.Return);
+                }
+                else
+                {
+                    Clipboard.SetImage((Image)message);
+                    answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
+                    Thread.Sleep(100);
+                    //.btn.btn-md.btn-md-primary span - кнопка send
+
+                    IWebElement sendBtn = browser.FindElement(By.CssSelector(".btn.btn-md.btn-md-primary span"));
+                    sendBtn.Click();
+                    ///////////////////////////////////
+                    Thread.Sleep(4000);
+                }
+
                 Thread.Sleep(100);
             }
 
@@ -269,7 +319,8 @@ namespace BlackBet
             {
                 date = String.Format("{0:dddd, MMMM d, yyyy}", new DateTime(1970, 1, 1));
                 commonTime = DateTime.Parse(date + " " + times[0]);
-            } else
+            }
+            else
             {
                 commonTime = DateTime.Parse(date + " " + times[0]);
             }
@@ -279,7 +330,13 @@ namespace BlackBet
             {
                 longTime += 43200000; //+ 12 часов
             }
-
+            else
+            {
+                // если не 12, то там форма 1:00:00 AM
+                if (times[0].Substring(0, 2).Equals("12")) {
+                    longTime -= 43200000; //- 12 часов
+                }               
+            }
             return longTime;
         }
 
