@@ -19,7 +19,7 @@ namespace BlackBet
         private string maxWindow = "start-maximized"; // максимизация окна
 
         // Max_Astin
-        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\BlackBet\\Default";        
+        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";        
         private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
 
         //Hidailo
@@ -51,7 +51,8 @@ namespace BlackBet
                 if (lastTimeMessage < messageTime)
                 {
                     //получаем все доступные сообщения в нем
-                    List<String> messages = getAllMessage();
+                    List<String> messages = getNewMessages(lastTimeMessage);
+                    lastTimeMessage = messageTime;
                     Thread.Sleep(4000);
 
                     /*//выбираем наш диалог
@@ -62,6 +63,27 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
+        }
+
+        private void openBrowser()
+        {
+            ChromeOptions co = new ChromeOptions();
+            co.AddExtensions(pathToExtension);
+            co.AddArguments(pathToMyChromeProfile);
+            co.AddArgument(maxWindow);
+            // открыть 
+            browser = new ChromeDriver(co);
+            
+            // отправляемся по ссылке  
+            browser.Navigate().GoToUrl("https://web.telegram.org");
+        }
+
+        private bool isMyProfile()
+        {
+            String homeLink = "https://web.telegram.org/#/im";
+
+            while (!homeLink.Equals(browser.Url)) { }
+            return true;
         }
 
         private long getLastMessageTime()
@@ -106,39 +128,11 @@ namespace BlackBet
             }
 
             // конвертируем полученную дату и время в милисекунды
-            string[] messageTimes = messageTime.Split(); // times[0] - время  times[1] - PM/AM
-            DateTime commonTime = DateTime.Parse(messageDate + " " + messageTimes[0]);
-
-            long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
-
-            if (messageTimes[1].Equals("PM"))
-            {
-                longTime += 43200000; //+ 12 часов
-            }
+            var longTime = convertDateToLong(messageDate, messageTime);
 
             return longTime; 
         }
 
-        private void openBrowser()
-        {
-            ChromeOptions co = new ChromeOptions();
-            //co.AddExtensions(pathToExtension);
-            co.AddArguments(pathToMyChromeProfile);
-            co.AddArgument(maxWindow);
-            // открыть 
-            browser = new ChromeDriver(co);
-
-            // отправляемся по ссылке
-            browser.Navigate().GoToUrl("https://web.telegram.org");
-        }
-
-        private bool isMyProfile()
-        {
-            String homeLink = "https://web.telegram.org/#/im";
-
-            while (!homeLink.Equals(browser.Url)) { }
-            return true;
-        }
 
         private void chooseChatDialog(string dialogName)
         {
@@ -158,20 +152,78 @@ namespace BlackBet
             }
         }
 
-        private List<String> getAllMessage()
+        // потом исправлю
+        private List<String> getNewMessages(long lastMessageTime)
         {
             // im_message_text - селектор сообщения
-            List<IWebElement> messagesContainer = browser.FindElements(By.CssSelector(".im_message_text")).ToList();
-
+            // List<IWebElement> messagesContainer = browser.FindElements(By.CssSelector(".im_message_text")).ToList();
+            var messageList = browser.FindElements(By.CssSelector(".im_history_message_wrap")); //список сообщений
+            var messageTime = "";
+            var messageDate = "";
+            var dateLong = lastMessageTime - (lastMessageTime % 86400000);
+            var messageText = "";
             List<string> messagesText = new List<string> { };
-            foreach (IWebElement messageContainer in messagesContainer)
+
+            // идём по списку снизу вверх
+            for (int i = messageList.Count - 1; i >= 0; i--)
             {
-                //кладем текст сообщения (можно поставить фильтры на ссылки, например)
-                if (!messageContainer.Text.Equals(""))
-                    messagesText.Add(messageContainer.Text);
+                try
+                {
+                    messageDate = messageList[i].FindElement(By.CssSelector(".im_message_date_split_text")).Text;
+                }
+                catch
+                {
+                    messageDate = "";
+                    // дата остаётся той же
+                }
+
+                // пытаюсь получить время и текст сообщения с текстом
+                try
+                {
+                    messageTime = messageList[i].FindElement(By.CssSelector(".im_message_date_text.nocopy")).GetAttribute("data-content");
+                    messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
+                }
+                catch
+                {
+                    messageTime = "";
+                    messageText = "";
+                    // не получилось, потому что это сообщение без времени (добавление участника в чат например)
+                }
+
+                // если это сообщение с текстом и временем
+                if (!messageTime.Equals(""))
+                {
+                    // возможно стоит добавить его в список
+                    if (compareDates(lastMessageTime, dateLong, messageTime))
+                    {
+                        messagesText.Add(messageText);
+                    }
+                    else
+                    {
+                        return messagesText;
+                    }
+                }
+
+                // Если у текущего сообщения есть дата, то вычитаем 1 день для следующих
+                if (!messageDate.Equals(""))
+                {
+                    dateLong -= 86400000;
+                }
             }
 
             return messagesText;
+        }
+
+        private bool compareDates(long lastMessageTime, long dateLong, string messageTime)
+        {
+            long timeLong = DateTime.Parse(messageTime).Ticks % 86400000;
+            
+            if (lastMessageTime < dateLong + timeLong)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void sentMessagesInOurDialog(List<string> messages)
@@ -189,6 +241,21 @@ namespace BlackBet
 
         private void getMessageTime()
         {
+        }
+
+        private long convertDateToLong(string date, string time)
+        {
+            string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
+            DateTime commonTime = DateTime.Parse(date + " " + times[0]);
+
+            long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
+
+            if (times[1].Equals("PM"))
+            {
+                longTime += 43200000; //+ 12 часов
+            }
+
+            return longTime;
         }
 
 
