@@ -24,7 +24,20 @@ namespace BlackBet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            blackBetBot.start();
+            String fromChat = fromTB.Text;
+            String toChat = toTB.Text;
+            if (!fromChat.Equals("") && (!toChat.Equals(""))) {
+                timer1.Enabled = true;
+                blackBetBot.start(fromChat, toChat);
+            }
+            
+        }
+
+        private long timer = 0;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer++;
+            myTimer.Text = "Working time " + timer;
         }
     }
 }

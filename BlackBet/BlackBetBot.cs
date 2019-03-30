@@ -6,32 +6,35 @@ using System.Linq;
 using System.Threading;
 using System.Drawing;
 using System.Windows.Forms;
-using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Interactions;
-using Keys = OpenQA.Selenium.Keys;
+using System.IO;
 
 namespace BlackBet
 {
     class BlackBetBot
     {
-        IWebDriver browser;
+        private IWebDriver browser;
         private long lastTimeMessage = 0;
-        private string nameVipChat = "Black Bet";
-        private string nameOurChat = "Валентин";
+        private string nameVipChat = "Making Cash | Хоккей🏒";
+        private string nameOurChat = "Black Bet";
         private string maxWindow = "start-maximized"; // максимизация окна
-        List<Image> images = new List<Image>();
 
-        // Max_Astin
+        //Max_Astin
         //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
         //private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
+        private string downloadingPath = @"C:\Users\Ideal\Downloads";
 
         //Hidailo
         private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
         private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
 
 
-        public void start()
+        public void start(String vipChat, String ourChat)
         {
+            //получаем имена чатов
+            nameVipChat = vipChat;
+            nameOurChat = ourChat;
+
             //получаем текущее время
             lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
 
@@ -40,11 +43,12 @@ namespace BlackBet
             Thread.Sleep(4000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
 
             //выбираем VIP диалог
             chooseChatDialog(nameVipChat);
             Thread.Sleep(4000);
+
 
             //получаем вермя последнего сообщения
             while (true)
@@ -71,6 +75,7 @@ namespace BlackBet
                 Thread.Sleep(100);
             }
 
+
         }
 
         private void openBrowser()
@@ -84,6 +89,18 @@ namespace BlackBet
 
             // отправляемся по ссылке  
             browser.Navigate().GoToUrl("https://web.telegram.org");
+
+            //IWebElement imageElement = browser.FindElements(By.CssSelector("img")).Last();
+            //Actions action = new Actions(browser);
+            //action.ContextClick(imageElement).Perform();
+            //Thread.Sleep(1000);
+
+            //while (true)
+            //{                
+            //    action.SendKeys(imageElement, OpenQA.Selenium.Keys.ArrowDown);
+            //    Thread.Sleep(500);
+            //}
+
         }
 
         private bool isMyProfile()
@@ -164,8 +181,8 @@ namespace BlackBet
                 {
                     //если название совпало - выбираем диалог
                     dialog.Click();
-                    //уснули, чтобы он успел подгрузить все сообщения
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1000);
+                    break;
                 }
             }
         }
@@ -180,7 +197,6 @@ namespace BlackBet
             var messageDate = "";
             var dateLong = lastMessageTime - (lastMessageTime % 86400000);
             var messageText = "";
-            Image messageImage = null;
             List<Object> messages = new List<Object>();
 
             // идём по списку снизу вверх
@@ -200,30 +216,27 @@ namespace BlackBet
                 try
                 {
                     messageTime = messageList[i].FindElement(By.CssSelector(".im_message_date_text.nocopy")).GetAttribute("data-content");
-                    messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
 
-                    // текста нет, значит там картинка
-                    if (messageText.Equals(""))
+                    // если это сообщение с временем
+                    if (!messageTime.Equals(""))
                     {
-                        IWebElement imageElement = messageList[i].FindElements(By.CssSelector(".im_message_photo_thumb")).Last();
-                        Actions action = new Actions(browser);
-                        action.ContextClick(imageElement)
-                            .Build()
-                            .Perform();
-
-                        action
-                        .SendKeys(Keys.ArrowDown)
-                        .SendKeys(Keys.ArrowDown)
-                        .SendKeys(Keys.ArrowDown)
-                        .SendKeys(Keys.Enter)
-                        .SendKeys(Keys.Alt)
-                        .Build()
-                        .Perform();
-
-
-                        if (Clipboard.ContainsImage())
+                        // возможно стоит добавить его в список
+                        if (compareDates(lastMessageTime, dateLong, messageTime))
                         {
-                            messageImage = Clipboard.GetImage();
+                            messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
+                            //если текста нет, то это картинка
+                            if (messageText.Equals(""))
+                            {
+                                messages.Add(loadImage(messageList[i]));
+                            }
+                            else
+                            {
+                                messages.Add(messageText);
+                            }
+                        }
+                        else
+                        {
+                            return messages;
                         }
                     }
                 }
@@ -234,24 +247,6 @@ namespace BlackBet
                     // не получилось, потому что это сообщение без времени (добавление участника в чат например)
                 }
 
-                // если это сообщение с текстом и временем
-                if (!messageTime.Equals(""))
-                {
-                    // возможно стоит добавить его в список
-                    if (compareDates(lastMessageTime, dateLong, messageTime))
-                    {
-                        messages.Add(messageText);
-                        if (messageText.Equals(""))
-                        {
-                            messages.Add(messageImage);
-                        }
-                    }
-                    else
-                    {
-                        return messages;
-                    }
-                }
-
                 // Если у текущего сообщения есть дата, то вычитаем 1 день для следующих
                 if (!messageDate.Equals(""))
                 {
@@ -260,6 +255,32 @@ namespace BlackBet
             }
 
             return messages;
+        }
+
+        private Image loadImage(IWebElement msgElement)
+        {
+            IWebElement imageElement = msgElement.FindElements(By.CssSelector(".im_message_photo_thumb")).Last();
+            imageElement.Click();
+
+            IWebElement downloadBtn = browser.FindElement(By.CssSelector(".media_modal_action_btn_download"));
+            downloadBtn.Click();
+
+            Thread.Sleep(2000);
+
+            Actions action = new Actions(browser);
+            action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
+
+            Thread.Sleep(500);
+
+            string photoPath = Directory.GetFiles(downloadingPath, "*.jpg").Last();
+            Image image;
+            using (var fStream = File.OpenRead(photoPath))
+            {
+                image = Image.FromStream(fStream);
+            }
+            File.Delete(photoPath);
+
+            return image;
         }
 
         private bool compareDates(long lastMessageTime, long dateLong, string messageTime)
@@ -291,12 +312,8 @@ namespace BlackBet
                 {
                     Clipboard.SetImage((Image)message);
                     answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
-                    Thread.Sleep(100);
-                    //.btn.btn-md.btn-md-primary span - кнопка send
-
-                    IWebElement sendBtn = browser.FindElement(By.CssSelector(".btn.btn-md.btn-md-primary span"));
-                    sendBtn.Click();
-                    ///////////////////////////////////
+                    IWebElement confirmationBtn = browser.FindElements(By.CssSelector(".md_simple_modal_footer .btn")).Last();
+                    confirmationBtn.Click();
                     Thread.Sleep(4000);
                 }
 
@@ -305,15 +322,10 @@ namespace BlackBet
 
         }
 
-        private void getMessageTime()
-        {
-        }
-
         private long convertDateToLong(string date, string time)
         {
             string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
             DateTime commonTime;
-
 
             if (date.Equals(""))
             {
@@ -333,10 +345,12 @@ namespace BlackBet
             else
             {
                 // если не 12, то там форма 1:00:00 AM
-                if (times[0].Substring(0, 2).Equals("12")) {
+                if (times[0].Substring(0, 2).Equals("12"))
+                {
                     longTime -= 43200000; //- 12 часов
-                }               
+                }
             }
+
             return longTime;
         }
 
