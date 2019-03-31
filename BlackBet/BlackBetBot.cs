@@ -14,7 +14,7 @@ namespace BlackBet
     class BlackBetBot
     {
         private IWebDriver browser;
-        private long lastTimeMessage = 0;
+          private long lastTimeMessage = 0;
         private string maxWindow = "start-maximized"; // максимизация окна
         private string nameVipChat; //Making Cash | Хоккей🏒
         private string nameOurChat;
@@ -75,8 +75,6 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
-
-
         }
 
         private void openBrowser()
@@ -339,24 +337,7 @@ namespace BlackBet
             }
             long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
 
-            /*
-            if (times[1].Equals("PM"))
-            {
-                longTime += 43200000; //+ 12 часов
-            }
-            else
-            {
-                // если не 12, то там форма 1:00:00 AM
-                if (times[0].Substring(0, 2).Equals("12"))
-                {
-                    longTime -= 43200000; //- 12 часов
-                }
-            }
-            */
-
             return longTime;
         }
-
-
     }
 }
