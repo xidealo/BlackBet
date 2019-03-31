@@ -14,20 +14,20 @@ namespace BlackBet
     class BlackBetBot
     {
         private IWebDriver browser;
-        private long lastTimeMessage = 0;
-      
-        private string nameVipChat = "";
-        private string nameOurChat = "";
+          private long lastTimeMessage = 0;
         private string maxWindow = "start-maximized"; // максимизация окна
+        private string nameVipChat; //Making Cash | Хоккей🏒
+        private string nameOurChat;
 
         //Max_Astin
-        //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
-        //private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
-        private string downloadingPath = @"C:\Users\Ideal\Downloads";
+        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
+        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
+        private string downloadingPath = @"F:\Downloads";
 
         //Hidailo
-        private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
-        private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        //private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        //private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        //private string downloadingPath = @"C:\Users\Ideal\Downloads";
 
 
         public void start(String vipChat, String ourChat)
@@ -75,7 +75,6 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
-
         }
 
         private void openBrowser()
@@ -324,32 +323,19 @@ namespace BlackBet
 
         private long convertDateToLong(string date, string time)
         {
-            string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
+            // string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
             DateTime commonTime;
 
             if (date.Equals(""))
             {
                 date = String.Format("{0:dddd, MMMM d, yyyy}", new DateTime(1970, 1, 1));
-                commonTime = DateTime.Parse(date + " " + times[0]);
+                commonTime = DateTime.Parse(date + " " + time);
             }
             else
             {
-                commonTime = DateTime.Parse(date + " " + times[0]);
+                commonTime = DateTime.Parse(date + " " + time);
             }
             long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
-
-            if (times[1].Equals("PM"))
-            {
-                longTime += 43200000; //+ 12 часов
-            }
-            else
-            {
-                // если не 12, то там форма 1:00:00 AM
-                if (times[0].Substring(0, 2).Equals("12"))
-                {
-                    longTime -= 43200000; //- 12 часов
-                }
-            }
 
             return longTime;
         }

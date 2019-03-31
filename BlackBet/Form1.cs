@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BlackBet
 {
     public partial class Form1 : Form
     {
+        BlackBetBot blackBetBot;
+        private string nameVipChat = "BlackBot"; //Making Cash | Хоккей🏒
+        private string nameOurChat = "Mark";
+
         public Form1()
         {
             InitializeComponent();
         }
-
-        BlackBetBot blackBetBot;
         private void Form1_Load(object sender, EventArgs e)
         {
             blackBetBot = new BlackBetBot();
@@ -28,18 +31,30 @@ namespace BlackBet
         {
             String fromChat = fromTB.Text;
             String toChat = toTB.Text;
-            if (!fromChat.Equals("") && (!toChat.Equals(""))) {
+            if (!fromChat.Equals("") && (!toChat.Equals("")))
+            {
                 timer1.Enabled = true;
-                blackBetBot.start(fromChat, toChat);
+                Thread browserThread = new Thread(botStart);
+                browserThread.Start();
             }
-            
         }
 
         private long timer = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer++;
-            myTimer.Text = "Working time " + timer;
+            
+            TimeSpan time = TimeSpan.FromSeconds(timer);
+            string timeString = string.Format("{0:D2} ч:{1:D2} м:{2:D2} с",
+                time.Hours,
+                time.Minutes,
+                time.Seconds);
+            myTimer.Text = "Working time " + timeString;
+        }
+
+        private void botStart()
+        {
+            blackBetBot.start(nameVipChat, nameOurChat);
         }
     }
 }
