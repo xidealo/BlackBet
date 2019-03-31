@@ -15,8 +15,9 @@ namespace BlackBet
     {
         private IWebDriver browser;
         private long lastTimeMessage = 0;
-        private string nameVipChat = "Making Cash | Хоккей🏒";
-        private string nameOurChat = "Black Bet";
+      
+        private string nameVipChat = "";
+        private string nameOurChat = "";
         private string maxWindow = "start-maximized"; // максимизация окна
 
         //Max_Astin
@@ -74,7 +75,6 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
-
 
         }
 
@@ -353,7 +353,5 @@ namespace BlackBet
 
             return longTime;
         }
-
-
     }
 }

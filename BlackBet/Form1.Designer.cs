@@ -41,6 +41,7 @@
             // startBlackBetBotBtn
             // 
             this.startBlackBetBotBtn.Location = new System.Drawing.Point(160, 206);
+
             this.startBlackBetBotBtn.Name = "startBlackBetBotBtn";
             this.startBlackBetBotBtn.Size = new System.Drawing.Size(184, 22);
             this.startBlackBetBotBtn.TabIndex = 0;
@@ -101,6 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
+          
             this.Controls.Add(this.myTimer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
