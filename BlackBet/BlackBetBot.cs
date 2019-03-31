@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading;
 using System.Drawing;
 using System.Windows.Forms;
-using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Interactions;
 using System.IO;
 
@@ -14,25 +13,29 @@ namespace BlackBet
 {
     class BlackBetBot
     {
-        IWebDriver browser;
+        private IWebDriver browser;
         private long lastTimeMessage = 0;
-        private string nameVipChat = "Black Bet";
-        private string nameOurChat = "Mark";
         private string maxWindow = "start-maximized"; // максимизация окна
-        List<Image> images = new List<Image>();
+        private string nameVipChat; //Making Cash | Хоккей🏒
+        private string nameOurChat;
 
-        // Max_Astin
-        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";        
+        //Max_Astin
+        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
         private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
         private string downloadingPath = @"F:\Downloads";
 
         //Hidailo
-        //private string pathToMyChromeProfile = "--user-data-dir=D:\ChomeOptions\Default";
+        //private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
         //private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        //private string downloadingPath = @"C:\Users\Ideal\Downloads";
 
 
-        public void start()
+        public void start(String vipChat, String ourChat)
         {
+            //получаем имена чатов
+            nameVipChat = vipChat;
+            nameOurChat = ourChat;
+
             //получаем текущее время
             lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
 
@@ -41,13 +44,13 @@ namespace BlackBet
             Thread.Sleep(4000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
-            Thread.Sleep(4000);
+            Thread.Sleep(1000);
 
             //выбираем VIP диалог
             chooseChatDialog(nameVipChat);
             Thread.Sleep(4000);
 
-            
+
             //получаем вермя последнего сообщения
             while (true)
             {
@@ -72,7 +75,7 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
-            
+
 
         }
 
@@ -98,7 +101,7 @@ namespace BlackBet
             //    action.SendKeys(imageElement, OpenQA.Selenium.Keys.ArrowDown);
             //    Thread.Sleep(500);
             //}
-            
+
         }
 
         private bool isMyProfile()
@@ -117,7 +120,7 @@ namespace BlackBet
             var messageDate = ""; // дата последнего сообщения с текстом
 
             // идём по списку снизу вверх
-            for (int i = messageList.Count-1; i >= 0; i--)
+            for (int i = messageList.Count - 1; i >= 0; i--)
             {
                 // пытаюсь получить время и индекс последнеднего сообщения с текстом
                 try
@@ -163,7 +166,7 @@ namespace BlackBet
             // конвертируем полученную дату и время в милисекунды
             var longTime = convertDateToLong(messageDate, messageTime);
 
-            return longTime; 
+            return longTime;
         }
 
 
@@ -222,9 +225,9 @@ namespace BlackBet
                         if (compareDates(lastMessageTime, dateLong, messageTime))
                         {
                             messageText = messageList[i].FindElement(By.CssSelector(".im_message_text")).Text;
-
+                            //если текста нет, то это картинка
                             if (messageText.Equals(""))
-                            {                               
+                            {
                                 messages.Add(loadImage(messageList[i]));
                             }
                             else
@@ -314,32 +317,29 @@ namespace BlackBet
                     confirmationBtn.Click();
                     Thread.Sleep(4000);
                 }
-                
+
                 Thread.Sleep(100);
             }
 
         }
 
-        private void getMessageTime()
-        {
-        }
-
         private long convertDateToLong(string date, string time)
         {
-            string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
+            // string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
             DateTime commonTime;
-
 
             if (date.Equals(""))
             {
                 date = String.Format("{0:dddd, MMMM d, yyyy}", new DateTime(1970, 1, 1));
-                commonTime = DateTime.Parse(date + " " + times[0]);
-            } else
+                commonTime = DateTime.Parse(date + " " + time);
+            }
+            else
             {
-                commonTime = DateTime.Parse(date + " " + times[0]);
+                commonTime = DateTime.Parse(date + " " + time);
             }
             long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
 
+            /*
             if (times[1].Equals("PM"))
             {
                 longTime += 43200000; //+ 12 часов
@@ -352,6 +352,7 @@ namespace BlackBet
                     longTime -= 43200000; //- 12 часов
                 }
             }
+            */
 
             return longTime;
         }
