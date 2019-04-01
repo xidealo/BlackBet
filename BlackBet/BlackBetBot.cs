@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using OpenQA.Selenium.Interactions;
 using System.IO;
+using OpenQA.Selenium.Firefox;
 
 namespace BlackBet
 {
@@ -20,14 +21,15 @@ namespace BlackBet
         private string nameOurChat;
 
         //Max_Astin
-        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
-        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
-        private string downloadingPath = @"F:\Downloads";
+        //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
+        //private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
+        //private string downloadingPath = @"F:\Downloads";
 
         //Hidailo
-        //private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
-        //private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
-        //private string downloadingPath = @"C:\Users\Ideal\Downloads";
+        private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        private string pathToExtensionEmoji = @"D:\ChomeOptions\Emoji.crx";
+        private string downloadingPath = @"C:\Users\Ideal\Downloads";
 
 
         public void start(String vipChat, String ourChat)
@@ -40,8 +42,8 @@ namespace BlackBet
             lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
 
             //открываем браузер
-            openBrowser();
-            Thread.Sleep(4000);
+            openFirefoxBrowser();
+            Thread.Sleep(20000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
             Thread.Sleep(1000);
@@ -77,10 +79,26 @@ namespace BlackBet
             }
         }
 
-        private void openBrowser()
+        private void openFirefoxBrowser()
+        {      
+            FirefoxProfileManager binary = new FirefoxProfileManager();
+            FirefoxProfile prof = binary.GetProfile("Selenium");
+            FirefoxOptions co = new FirefoxOptions();
+            co.Profile = prof;
+            browser = new FirefoxDriver(co);
+        
+            // отправляемся по ссылке  
+            browser.Navigate().GoToUrl("https://web.telegram.org");
+
+            //https://web.telegram.org
+            //https://web.telegram.org/#/im
+        }
+
+        private void openChromeBrowser()
         {
             ChromeOptions co = new ChromeOptions();
             co.AddExtensions(pathToExtension);
+            co.AddExtensions(pathToExtensionEmoji);
             co.AddArguments(pathToMyChromeProfile);
             co.AddArgument(maxWindow);
             // открыть 
@@ -88,17 +106,6 @@ namespace BlackBet
 
             // отправляемся по ссылке  
             browser.Navigate().GoToUrl("https://web.telegram.org");
-
-            //IWebElement imageElement = browser.FindElements(By.CssSelector("img")).Last();
-            //Actions action = new Actions(browser);
-            //action.ContextClick(imageElement).Perform();
-            //Thread.Sleep(1000);
-
-            //while (true)
-            //{                
-            //    action.SendKeys(imageElement, OpenQA.Selenium.Keys.ArrowDown);
-            //    Thread.Sleep(500);
-            //}
 
         }
 
@@ -227,10 +234,14 @@ namespace BlackBet
                             if (messageText.Equals(""))
                             {
                                 messages.Add(loadImage(messageList[i]));
+                                Thread.Sleep(2000);
                             }
                             else
                             {
-                                messages.Add(messageText);
+                                if (filterText(messageText))
+                                {
+                                    messages.Add(messageText);
+                                }
                             }
                         }
                         else
@@ -254,6 +265,16 @@ namespace BlackBet
             }
 
             return messages;
+        }
+
+        private bool filterText(string messageText)
+        {
+            if (messageText.Contains("http")) return false;
+            if (messageText.Contains("@")) return false;
+            if (messageText.Contains("подпис")) return false;
+            if (messageText.Contains("отзыв")) return false;
+            
+            return true;
         }
 
         private Image loadImage(IWebElement msgElement)

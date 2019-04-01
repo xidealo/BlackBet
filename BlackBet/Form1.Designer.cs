@@ -54,7 +54,7 @@
             this.fromTB.Name = "fromTB";
             this.fromTB.Size = new System.Drawing.Size(184, 20);
             this.fromTB.TabIndex = 1;
-            this.fromTB.Text = "Making Cash | Хоккей🏒";
+            this.fromTB.Text = "BlackBet";
             // 
             // toTB
             // 
@@ -62,7 +62,7 @@
             this.toTB.Name = "toTB";
             this.toTB.Size = new System.Drawing.Size(184, 20);
             this.toTB.TabIndex = 2;
-            this.toTB.Text = "Black Bet";
+            this.toTB.Text = "Валентин";
             // 
             // label1
             // 
@@ -101,8 +101,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
-
-          
             this.Controls.Add(this.myTimer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
