@@ -54,7 +54,7 @@
             this.fromTB.Name = "fromTB";
             this.fromTB.Size = new System.Drawing.Size(184, 20);
             this.fromTB.TabIndex = 1;
-            this.fromTB.Text = "BlackBet";
+            this.fromTB.Text = "VIP/КиберФутбол";
             // 
             // toTB
             // 
@@ -62,7 +62,7 @@
             this.toTB.Name = "toTB";
             this.toTB.Size = new System.Drawing.Size(184, 20);
             this.toTB.TabIndex = 2;
-            this.toTB.Text = "Валентин";
+            this.toTB.Text = "Black Bet";
             // 
             // label1
             // 

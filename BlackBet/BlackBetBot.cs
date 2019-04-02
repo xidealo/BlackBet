@@ -15,9 +15,9 @@ namespace BlackBet
     class BlackBetBot
     {
         private IWebDriver browser;
-          private long lastTimeMessage = 0;
+        private long lastTimeMessage = 0;
         private string maxWindow = "start-maximized"; // максимизация окна
-        private string nameVipChat; //Making Cash | Хоккей🏒
+        private string nameVipChat; 
         private string nameOurChat;
 
         //Max_Astin
@@ -43,6 +43,7 @@ namespace BlackBet
 
             //открываем браузер
             openFirefoxBrowser();
+            //openChromeBrowser();
             Thread.Sleep(20000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
@@ -63,8 +64,7 @@ namespace BlackBet
                     //получаем все доступные сообщения в нем
                     List<Object> messages = getNewMessages(lastTimeMessage);
                     lastTimeMessage = messageTime;
-                    Thread.Sleep(1000);
-
+                    
                     //выбираем наш диалог
                     chooseChatDialog(nameOurChat);
                     Thread.Sleep(1000);
@@ -91,7 +91,6 @@ namespace BlackBet
             browser.Navigate().GoToUrl("https://web.telegram.org");
 
             //https://web.telegram.org
-            //https://web.telegram.org/#/im
         }
 
         private void openChromeBrowser()
@@ -187,7 +186,7 @@ namespace BlackBet
                 {
                     //если название совпало - выбираем диалог
                     dialog.Click();
-                    Thread.Sleep(1000);
+                   
                     break;
                 }
             }
@@ -234,7 +233,6 @@ namespace BlackBet
                             if (messageText.Equals(""))
                             {
                                 messages.Add(loadImage(messageList[i]));
-                                Thread.Sleep(2000);
                             }
                             else
                             {
@@ -285,7 +283,7 @@ namespace BlackBet
             IWebElement downloadBtn = browser.FindElement(By.CssSelector(".media_modal_action_btn_download"));
             downloadBtn.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             Actions action = new Actions(browser);
             action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
@@ -334,7 +332,7 @@ namespace BlackBet
                     answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
                     IWebElement confirmationBtn = browser.FindElements(By.CssSelector(".md_simple_modal_footer .btn")).Last();
                     confirmationBtn.Click();
-                    Thread.Sleep(4000);
+                    Thread.Sleep(2000);
                 }
 
                 Thread.Sleep(100);
