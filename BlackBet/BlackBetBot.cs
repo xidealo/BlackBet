@@ -19,6 +19,7 @@ namespace BlackBet
         private string maxWindow = "start-maximized"; // максимизация окна
         private string nameVipChat; 
         private string nameOurChat;
+        private string oneSymbolMessage = "";
 
         //Max_Astin
         //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
@@ -26,11 +27,14 @@ namespace BlackBet
         //private string downloadingPath = @"F:\Downloads";
 
         //Hidailo
-        private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        /*private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
         private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
-        private string pathToExtensionEmoji = @"D:\ChomeOptions\Emoji.crx";
-        private string downloadingPath = @"C:\Users\Ideal\Downloads";
+        private string downloadingPath = @"C:\Users\Ideal\Downloads";*/
 
+        //server 
+        private string pathToMyChromeProfile = "--user-data-dir=C:\\ChomeOptions\\Default";
+        private string pathToExtension = @"C:\ChomeOptions\Tlext.crx";
+        private string downloadingPath = @"C:\Users\Administrator\Downloads";
 
         public void start(String vipChat, String ourChat)
         {
@@ -42,9 +46,9 @@ namespace BlackBet
             lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
 
             //открываем браузер
-            openFirefoxBrowser();
-            //openChromeBrowser();
-            Thread.Sleep(20000);
+            //openFirefoxBrowser();
+            openChromeBrowser();
+            Thread.Sleep(2000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
             Thread.Sleep(1000);
@@ -52,7 +56,6 @@ namespace BlackBet
             //выбираем VIP диалог
             chooseChatDialog(nameVipChat);
             Thread.Sleep(4000);
-
 
             //получаем вермя последнего сообщения
             while (true)
@@ -97,7 +100,6 @@ namespace BlackBet
         {
             ChromeOptions co = new ChromeOptions();
             co.AddExtensions(pathToExtension);
-            co.AddExtensions(pathToExtensionEmoji);
             co.AddArguments(pathToMyChromeProfile);
             co.AddArgument(maxWindow);
             // открыть 
@@ -314,21 +316,37 @@ namespace BlackBet
             return false;
         }
 
+        
         private void sentMessagesInOurDialog(List<Object> messages)
         {
             IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
-
             // переворачиваем чтобы отправлять
             messages.Reverse();
             foreach (Object message in messages)
             {
+                //если один символ в строчке, то мы его склеиваем со следующим
+                if (checkOneSymbol(message)) {
+                    oneSymbolMessage = message.ToString();
+                    continue;
+                }
+                
                 if (message is string)
-                {
-                    answerPlace.SendKeys(message + OpenQA.Selenium.Keys.Return);
+                {                   
+                    try
+                    {
+                        oneSymbolMessage +=message;
+                        answerPlace.SendKeys(oneSymbolMessage + OpenQA.Selenium.Keys.Return);
+                        oneSymbolMessage = "";
+                    }
+                    catch {
+                        continue;
+                    }                  
                 }
                 else
                 {
+                    Clipboard.Clear();
                     Clipboard.SetImage((Image)message);
+                    Thread.Sleep(100);
                     answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
                     IWebElement confirmationBtn = browser.FindElements(By.CssSelector(".md_simple_modal_footer .btn")).Last();
                     confirmationBtn.Click();
@@ -340,9 +358,17 @@ namespace BlackBet
 
         }
 
+        private bool checkOneSymbol(object message)
+        {
+            if (message is string)
+            {
+                return message.ToString().Length == 1;
+            }
+            return false;
+        }
+
         private long convertDateToLong(string date, string time)
         {
-            // string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
             DateTime commonTime;
 
             if (date.Equals(""))
