@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using OpenQA.Selenium.Interactions;
 using System.IO;
+using OpenQA.Selenium.Firefox;
 
 namespace BlackBet
 {
@@ -16,19 +17,24 @@ namespace BlackBet
         private IWebDriver browser;
         private long lastTimeMessage = 0;
         private string maxWindow = "start-maximized"; // максимизация окна
-        private string nameVipChat; //Making Cash | Хоккей🏒
+        private string nameVipChat; 
         private string nameOurChat;
+        private string oneSymbolMessage = "";
 
         //Max_Astin
-        private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
-        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
-        private string downloadingPath = @"F:\Downloads";
+        /*private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
+        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\TLext.crx";
+        private string downloadingPath = @"F:\uni\6. SAOD\Black Bet\Downloads";*/
 
         //Hidailo
-        //private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
-        //private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
-        //private string downloadingPath = @"C:\Users\Ideal\Downloads";
+        /*private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
+        private string downloadingPath = @"C:\Users\Ideal\Downloads";*/
 
+        //server 
+        private string pathToMyChromeProfile = "--user-data-dir=C:\\ChomeOptions\\Default";
+        private string pathToExtension = @"C:\ChomeOptions\Tlext.crx";
+        private string downloadingPath = @"C:\Users\Administrator\Downloads";
 
         public void start(String vipChat, String ourChat)
         {
@@ -37,11 +43,12 @@ namespace BlackBet
             nameOurChat = ourChat;
 
             //получаем текущее время
-            lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
+            lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000;
 
             //открываем браузер
-            openBrowser();
-            Thread.Sleep(4000);
+            //openFirefoxBrowser();
+            openChromeBrowser();
+            Thread.Sleep(2000);
             //пока пы не залогинимся - висим на этом методе
             isMyProfile();
             Thread.Sleep(1000);
@@ -49,7 +56,6 @@ namespace BlackBet
             //выбираем VIP диалог
             chooseChatDialog(nameVipChat);
             Thread.Sleep(4000);
-
 
             //получаем вермя последнего сообщения
             while (true)
@@ -61,8 +67,7 @@ namespace BlackBet
                     //получаем все доступные сообщения в нем
                     List<Object> messages = getNewMessages(lastTimeMessage);
                     lastTimeMessage = messageTime;
-                    Thread.Sleep(1000);
-
+                    
                     //выбираем наш диалог
                     chooseChatDialog(nameOurChat);
                     Thread.Sleep(1000);
@@ -75,11 +80,23 @@ namespace BlackBet
                 }
                 Thread.Sleep(100);
             }
-
-
         }
 
-        private void openBrowser()
+        private void openFirefoxBrowser()
+        {      
+            FirefoxProfileManager binary = new FirefoxProfileManager();
+            FirefoxProfile prof = binary.GetProfile("Selenium");
+            FirefoxOptions co = new FirefoxOptions();
+            co.Profile = prof;
+            browser = new FirefoxDriver(co);
+        
+            // отправляемся по ссылке  
+            browser.Navigate().GoToUrl("https://web.telegram.org");
+
+            //https://web.telegram.org
+        }
+
+        private void openChromeBrowser()
         {
             ChromeOptions co = new ChromeOptions();
             co.AddExtensions(pathToExtension);
@@ -90,17 +107,6 @@ namespace BlackBet
 
             // отправляемся по ссылке  
             browser.Navigate().GoToUrl("https://web.telegram.org");
-
-            //IWebElement imageElement = browser.FindElements(By.CssSelector("img")).Last();
-            //Actions action = new Actions(browser);
-            //action.ContextClick(imageElement).Perform();
-            //Thread.Sleep(1000);
-
-            //while (true)
-            //{                
-            //    action.SendKeys(imageElement, OpenQA.Selenium.Keys.ArrowDown);
-            //    Thread.Sleep(500);
-            //}
 
         }
 
@@ -182,7 +188,7 @@ namespace BlackBet
                 {
                     //если название совпало - выбираем диалог
                     dialog.Click();
-                    Thread.Sleep(1000);
+                   
                     break;
                 }
             }
@@ -232,7 +238,10 @@ namespace BlackBet
                             }
                             else
                             {
-                                messages.Add(messageText);
+                                if (filterText(messageText))
+                                {
+                                    messages.Add(messageText);
+                                }
                             }
                         }
                         else
@@ -258,6 +267,16 @@ namespace BlackBet
             return messages;
         }
 
+        private bool filterText(string messageText)
+        {
+            if (messageText.Contains("http")) return false;
+            if (messageText.Contains("@")) return false;
+            if (messageText.Contains("подпис")) return false;
+            if (messageText.Contains("отзыв")) return false;
+            
+            return true;
+        }
+
         private Image loadImage(IWebElement msgElement)
         {
             IWebElement imageElement = msgElement.FindElements(By.CssSelector(".im_message_photo_thumb")).Last();
@@ -266,7 +285,7 @@ namespace BlackBet
             IWebElement downloadBtn = browser.FindElement(By.CssSelector(".media_modal_action_btn_download"));
             downloadBtn.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
 
             Actions action = new Actions(browser);
             action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
@@ -297,25 +316,42 @@ namespace BlackBet
             return false;
         }
 
+        
         private void sentMessagesInOurDialog(List<Object> messages)
         {
             IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
-
+            String messageToSent;
             // переворачиваем чтобы отправлять
             messages.Reverse();
             foreach (Object message in messages)
             {
+                //если один символ в строчке, то мы его склеиваем со следующим
+                if (checkOneSymbol(message)) {
+                    oneSymbolMessage = message.ToString();
+                    continue;
+                }
+                
                 if (message is string)
-                {
-                    answerPlace.SendKeys(message + OpenQA.Selenium.Keys.Return);
+                {                   
+                    try
+                    {
+                        messageToSent = oneSymbolMessage + message;
+                        answerPlace.SendKeys(messageToSent + OpenQA.Selenium.Keys.Return);
+                        oneSymbolMessage = "";
+                    }
+                    catch {
+                        continue;
+                    }                  
                 }
                 else
                 {
+                    Clipboard.Clear();
                     Clipboard.SetImage((Image)message);
+                    Thread.Sleep(100);
                     answerPlace.SendKeys(OpenQA.Selenium.Keys.Control + "v");
                     IWebElement confirmationBtn = browser.FindElements(By.CssSelector(".md_simple_modal_footer .btn")).Last();
                     confirmationBtn.Click();
-                    Thread.Sleep(4000);
+                    Thread.Sleep(2000);
                 }
 
                 Thread.Sleep(100);
@@ -323,9 +359,17 @@ namespace BlackBet
 
         }
 
+        private bool checkOneSymbol(object message)
+        {
+            if (message is string)
+            {
+                return message.ToString().Length == 1;
+            }
+            return false;
+        }
+
         private long convertDateToLong(string date, string time)
         {
-            // string[] times = time.Split(); // times[0] - время  times[1] - PM/AM
             DateTime commonTime;
 
             if (date.Equals(""))
@@ -339,24 +383,7 @@ namespace BlackBet
             }
             long longTime = (long)(commonTime - new DateTime(1970, 1, 1)).TotalMilliseconds;
 
-            /*
-            if (times[1].Equals("PM"))
-            {
-                longTime += 43200000; //+ 12 часов
-            }
-            else
-            {
-                // если не 12, то там форма 1:00:00 AM
-                if (times[0].Substring(0, 2).Equals("12"))
-                {
-                    longTime -= 43200000; //- 12 часов
-                }
-            }
-            */
-
             return longTime;
         }
-
-
     }
 }

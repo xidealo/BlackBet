@@ -54,7 +54,7 @@
             this.fromTB.Name = "fromTB";
             this.fromTB.Size = new System.Drawing.Size(184, 20);
             this.fromTB.TabIndex = 1;
-            this.fromTB.Text = "Making Cash | Хоккей🏒";
+            this.fromTB.Text = "VIP/КиберФутбол";
             // 
             // toTB
             // 
