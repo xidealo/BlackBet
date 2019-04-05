@@ -22,19 +22,20 @@ namespace BlackBet
         private string oneSymbolMessage = "";
 
         //Max_Astin
-        //private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
-        //private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\BlackBet\BlackBet\bin\Debug\TLext.crx";
-        //private string downloadingPath = @"F:\Downloads";
+        /*private string pathToMyChromeProfile = "--user-data-dir=F:\\uni\\6. SAOD\\Black Bet\\Default";
+        private string pathToExtension = @"F:\uni\6. SAOD\Black Bet\TLext.crx";
+        private string downloadingPath = @"F:\uni\6. SAOD\Black Bet\Downloads";*/
 
         //Hidailo
-        /*private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
+        private string pathToMyChromeProfile = "--user-data-dir=D:\\ChomeOptions\\Default";
         private string pathToExtension = @"D:\ChomeOptions\Tlext.crx";
-        private string downloadingPath = @"C:\Users\Ideal\Downloads";*/
+        private string downloadingPath = @"C:\Users\Ideal\Downloads";
+        //Making Cash | Хоккей🏒
 
         //server 
-        private string pathToMyChromeProfile = "--user-data-dir=C:\\ChomeOptions\\Default";
-        private string pathToExtension = @"C:\ChomeOptions\Tlext.crx";
-        private string downloadingPath = @"C:\Users\Administrator\Downloads";
+        //private string pathToMyChromeProfile = "--user-data-dir=C:\\ChomeOptions\\Default";
+        //private string pathToExtension = @"C:\ChomeOptions\Tlext.crx";
+        //private string downloadingPath = @"C:\Users\Administrator\Downloads";
 
         public void start(String vipChat, String ourChat)
         {
@@ -43,7 +44,7 @@ namespace BlackBet
             nameOurChat = ourChat;
 
             //получаем текущее время
-            lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000; // 
+            lastTimeMessage = DateTimeOffset.Now.ToUnixTimeMilliseconds() + 10800000;
 
             //открываем браузер
             //openFirefoxBrowser();
@@ -320,6 +321,7 @@ namespace BlackBet
         private void sentMessagesInOurDialog(List<Object> messages)
         {
             IWebElement answerPlace = browser.FindElement(By.CssSelector(".composer_rich_textarea"));
+            String messageToSent;
             // переворачиваем чтобы отправлять
             messages.Reverse();
             foreach (Object message in messages)
@@ -334,8 +336,8 @@ namespace BlackBet
                 {                   
                     try
                     {
-                        oneSymbolMessage +=message;
-                        answerPlace.SendKeys(oneSymbolMessage + OpenQA.Selenium.Keys.Return);
+                        messageToSent = oneSymbolMessage + message;
+                        answerPlace.SendKeys(messageToSent + OpenQA.Selenium.Keys.Return);
                         oneSymbolMessage = "";
                     }
                     catch {
